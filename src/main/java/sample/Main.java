@@ -1,2 +1,4 @@
-package sample;public class Main {
+package sample;
+
+public class Main {
 }
