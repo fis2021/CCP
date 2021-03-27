@@ -20,5 +20,6 @@
         <PasswordField fx:id="hidpas1" layoutX="166.0" layoutY="196.0" prefHeight="26.0" prefWidth="265.0" />
         <PasswordField fx:id="hidpas2" layoutX="166.0" layoutY="251.0" prefHeight="26.0" prefWidth="265.0" />
         <Hyperlink fx:id="gotoLOGIN" layoutX="440.0" layoutY="372.0" text="Go to Login" onAction="#SwitchPage"/>
+        <CheckBox fx:id="news" layoutX="88.0" layoutY="341.0" mnemonicParsing="false" text="Newsletter" />
     </children>
 </AnchorPane>
