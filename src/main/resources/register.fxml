@@ -22,5 +22,6 @@
         <Hyperlink fx:id="gotoLOGIN" layoutX="440.0" layoutY="372.0" text="Go to Login" onAction="#SwitchPage"/>
         <CheckBox fx:id="news" layoutX="88.0" layoutY="341.0" mnemonicParsing="false" text="Newsletter" />
         <CheckBox fx:id="terms" layoutX="88.0" layoutY="308.0" mnemonicParsing="false" text="Terms and conditions" />
+        <CheckBox fx:id="hide" layoutX="267.0" layoutY="289.0" mnemonicParsing="false" prefHeight="8.0" prefWidth="169.0" text="Show/Hide password" onAction="#ShowHide" />
     </children>
 </AnchorPane>
