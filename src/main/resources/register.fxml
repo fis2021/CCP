@@ -23,5 +23,6 @@
         <CheckBox fx:id="news" layoutX="88.0" layoutY="341.0" mnemonicParsing="false" text="Newsletter" />
         <CheckBox fx:id="terms" layoutX="88.0" layoutY="308.0" mnemonicParsing="false" text="Terms and conditions" />
         <CheckBox fx:id="hide" layoutX="267.0" layoutY="289.0" mnemonicParsing="false" prefHeight="8.0" prefWidth="169.0" text="Show/Hide password" onAction="#ShowHide" />
+        <Button fx:id="registerB" layoutX="267.0" layoutY="369.0" mnemonicParsing="false" onAction="#validation" text="Register"/>
     </children>
 </AnchorPane>
