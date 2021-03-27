@@ -8,7 +8,8 @@
 <AnchorPane prefHeight="288.0" prefWidth="541.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.HomePage.HomePageController">
    <children>
       <Text layoutX="63.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!......." wrappingWidth="324.986328125" />
-
+      <Text layoutX="63.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Where do you want to go?" wrappingWidth="222.09375" />
+      <Button layoutX="63.0" layoutY="175.0" mnemonicParsing="false" text="Login Page" fx:id="LoginFromHome" onAction="#GoFromHome"/>
    </children>
 </AnchorPane>
 
