@@ -13,6 +13,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+import sample.DataBase.UserService;
+import sample.User.User;
 
 public class register {
     @FXML
@@ -45,9 +47,12 @@ public class register {
         this.alert1 = new Alert(AlertType.ERROR);
     }
 
+
     public void validation(ActionEvent event) throws Exception {
         this.alert.setTitle("FIELD IS EMPTY");
         this.alert1.setTitle("TextBox in unchecked");
+        this.password.setText(this.hidpas1.getText());
+        this.confirm.setText(this.hidpas2.getText());
         if (event.getSource() == this.registerB) {
             this.password.setText(this.hidpas1.getText());
             this.confirm.setText(this.hidpas2.getText());
@@ -57,16 +62,14 @@ public class register {
                 this.alert.showAndWait();
                 return;
             }
-
             if (!this.terms.isSelected()) {
                 this.alert1.setHeaderText((String)null);
                 this.alert1.setContentText("Please check the terms and conditions");
                 this.alert1.showAndWait();
                 return;
             }
-
             this.stage = (Stage)this.registerB.getScene().getWindow();
-            this.root = (Parent)FXMLLoader.load(this.getClass().getResource("/MainPage.fxml"));
+            this.root = (Parent)FXMLLoader.load(this.getClass().getResource("/FXML/MainPage.fxml"));
             Scene scene = new Scene(this.root);
             this.stage.setTitle("CCP-Main Page");
             this.stage.setScene(scene);
@@ -96,7 +99,7 @@ public class register {
     public void SwitchPage(ActionEvent event) throws Exception {
         if (event.getSource() == this.gotoLOGIN) {
             this.stage = (Stage)this.gotoLOGIN.getScene().getWindow();
-            this.root = (Parent)FXMLLoader.load(this.getClass().getResource("/LoginPage.fxml"));
+            this.root = (Parent)FXMLLoader.load(this.getClass().getResource("/FXML/LoginPage.fxml"));
             Scene scene = new Scene(this.root);
             this.stage.setTitle("Login Page");
             this.stage.setScene(scene);
