@@ -68,6 +68,7 @@ public class register {
                 this.alert1.showAndWait();
                 return;
             }
+            UserService.addUser(username.getText(),password.getText(),email.getText(),"customer",true);
             this.stage = (Stage)this.registerB.getScene().getWindow();
             this.root = (Parent)FXMLLoader.load(this.getClass().getResource("/FXML/MainPage.fxml"));
             Scene scene = new Scene(this.root);

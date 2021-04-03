@@ -1,5 +1,6 @@
 package sample.Login;
 
+import apple.laf.JRSUIConstants;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,7 +8,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-
+import sample.User.User;
+import sample.DataBase.UserService;
+import sample.DataBase.FileSystemService;
 
 
 public class Login {
@@ -29,9 +32,10 @@ public class Login {
     private Parent root;
     private Stage stage;
 
+
     public void Login(ActionEvent event)throws Exception{
         alert.setTitle("FIELD IS EMPTY!");
-
+        Password.setText(pass_hid.getText());
         if(event.getSource() == Login){
             if(username.getText().isEmpty() || pass_hid.getText().isEmpty()){
                 alert.setHeaderText(null);
@@ -39,9 +43,14 @@ public class Login {
                 alert.showAndWait();
                 return;
             }
+            if(!UserService.Verify(username.getText(),Password.getText()))
+            {
+                return;
+
+            }
 
             stage = (Stage) Login.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("/MainPage.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/FXML/MainPage.fxml"));
         }
         Scene scene = new Scene(root);
         stage.setTitle("CCP MAIN PAGE");
