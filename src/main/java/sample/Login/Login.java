@@ -1,6 +1,5 @@
 package sample.Login;
 
-import apple.laf.JRSUIConstants;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,6 +25,7 @@ public class Login {
     @FXML
     private Button Login;
     private Alert alert = new Alert(Alert.AlertType.ERROR);
+    private Alert alert1 = new Alert(Alert.AlertType.ERROR);
     @FXML
     private Hyperlink GoToRegister;
 
@@ -35,18 +35,23 @@ public class Login {
 
     public void Login(ActionEvent event)throws Exception{
         alert.setTitle("FIELD IS EMPTY!");
-        Password.setText(pass_hid.getText());
+        alert1.setTitle("Username or password is incorrect!");
+        pass_hid.setText(Password.getText());
         if(event.getSource() == Login){
-            if(username.getText().isEmpty() || pass_hid.getText().isEmpty()){
+            if(username.getText().isEmpty() || pass_hid.getText().isEmpty() || Password.getText().isEmpty()){
                 alert.setHeaderText(null);
                 alert.setContentText("Field is EMPTY!");
                 alert.showAndWait();
                 return;
             }
+            Password.setText(pass_hid.getText());
             if(!UserService.Verify(username.getText(),Password.getText()))
             {
-                return;
+                alert1.setHeaderText(null);
+                alert1.setContentText("Please try again!");
+                alert1.showAndWait();
 
+                return;
             }
 
             stage = (Stage) Login.getScene().getWindow();
