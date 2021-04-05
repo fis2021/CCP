@@ -18,12 +18,12 @@ public class HomePageController {
     public void GoFromHome(ActionEvent event)throws Exception{
         if(event.getSource() == LoginFromHome){
             stage = (Stage) LoginFromHome.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("/Loginpage.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/FXML/LoginPage.fxml"));
             stage.setTitle("Login");
         }
         if(event.getSource() == RegisterFromHome){
             stage = (Stage) RegisterFromHome.getScene().getWindow();
-            root =FXMLLoader.load(getClass().getResource("/register.fxml"));
+            root =FXMLLoader.load(getClass().getResource("/FXML/register.fxml"));
             stage.setTitle("Register");
         }
 
