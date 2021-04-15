@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextArea?>
@@ -13,11 +14,20 @@
         <items>
             <AnchorPane fx:id="Anchor1" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                 <children>
-                    <Separator layoutY="154.0" prefHeight="22.0" prefWidth="280.0" />
+                    <Separator layoutY="154.0" prefHeight="35.0" prefWidth="280.0" />
                     <Text fx:id="WelcomeText" layoutX="50.0" layoutY="-40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!" textAlignment="CENTER" wrappingWidth="179.576171875" y="130.0">
                         <font>
                             <Font size="26.0" />
                         </font></Text>
+               <Text layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categories:" textAlignment="CENTER" wrappingWidth="280.0">
+                  <font>
+                     <Font size="19.0" />
+                  </font>
+               </Text>
+               <Button layoutX="65.0" layoutY="248.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="155.0" text="Processors" fx:id="Processors" onAction="#GoToCategories" />
+               <Button layoutX="65.0" layoutY="299.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="155.0" text="Graphic Card" fx:id="GraphicCard" onAction="#GoToCategories"/>
+               <Button layoutX="65.0" layoutY="349.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="155.0" text="RAM" fx:id="RAM" onAction="#GoToCategories"/>
+               <Button layoutX="65.0" layoutY="397.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="155.0" text="Sources" fx:id="Sources" onAction="#GoToCategories"/>
                 </children></AnchorPane>
             <AnchorPane prefHeight="793.0" prefWidth="357.0">
             <children>
