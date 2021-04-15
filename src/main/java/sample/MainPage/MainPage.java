@@ -24,7 +24,35 @@ public class MainPage {
     @FXML
     private Text WelcomeText;
     @FXML
-    private AnchorPane Anchor1;
+    private Button Processors,GraphicCard,RAM,Sources;
+    private Stage stage;
+    private Parent root;
+
+    public void GoToCategories(ActionEvent event)throws Exception{
+        if(event.getSource() == Processors){
+            stage = (Stage) Processors.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("/FXML/Processors.fxml"));
+            stage.setTitle("Processors");
+        }
+        if(event.getSource() == GraphicCard){
+            stage = (Stage) GraphicCard.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("/FXML/GraphicCard.fxml"));
+            stage.setTitle("GraphicCard");
+        }
+        if(event.getSource() == RAM){
+            stage = (Stage) RAM.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("/FXML/RAM.fxml"));
+            stage.setTitle("RAM");
+        }
+        if(event.getSource() == Sources){
+            stage = (Stage) Sources.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("/FXML/Sources.fxml"));
+            stage.setTitle("Sources");
+        }
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     private void MovingText(){
         AnchorPane root = new AnchorPane(WelcomeText);
