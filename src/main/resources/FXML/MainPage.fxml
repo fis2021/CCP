@@ -47,6 +47,7 @@
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
             <children>
                <Button fx:id="ModProfile" layoutX="38.0" layoutY="202.0" mnemonicParsing="false" onAction="#ModifyProfile" prefHeight="35.0" prefWidth="180.0" text="Modify your profile" />
+               <Button fx:id="GoProfile" layoutX="38.0" layoutY="258.0" mnemonicParsing="false" onAction="#GoToProfile" prefHeight="35.0" prefWidth="180.0" text="Go to profile" />
             </children></AnchorPane>
         </items>
     </SplitPane>

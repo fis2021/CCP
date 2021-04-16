@@ -24,7 +24,7 @@ public class MainPage {
     @FXML
     private Text WelcomeText;
     @FXML
-    private Button Processors,GraphicCard,RAM,Sources,ModProfile;
+    private Button Processors,GraphicCard,RAM,Sources,ModProfile,GoProfile;
     private Stage stage;
     private Parent root;
 
@@ -84,6 +84,20 @@ public class MainPage {
 
         // set title for the stage
         stage.setTitle("Modify your profile");
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void GoToProfile(ActionEvent event) throws Exception
+    {
+        if(event.getSource()==GoProfile)
+        {
+            stage=new Stage();
+            root=FXMLLoader.load(getClass().getResource("/FXML/PopUp1.fxml"));
+        }
+
+        // set title for the stage
+        stage.setTitle("Go to profile");
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
