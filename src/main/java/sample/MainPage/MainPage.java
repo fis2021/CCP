@@ -10,13 +10,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.Label;
+import javafx.scene.layout.*;
 import javafx.scene.text.Text;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+
 
 
 public class MainPage {
@@ -24,7 +24,7 @@ public class MainPage {
     @FXML
     private Text WelcomeText;
     @FXML
-    private Button Processors,GraphicCard,RAM,Sources;
+    private Button Processors,GraphicCard,RAM,Sources,ModProfile;
     private Stage stage;
     private Parent root;
 
@@ -72,6 +72,21 @@ public class MainPage {
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
 
+    }
+
+    public void ModifyProfile(ActionEvent event) throws Exception
+    {
+        if(event.getSource()==ModProfile)
+        {
+            stage=new Stage();
+            root=FXMLLoader.load(getClass().getResource("/FXML/PopUp.fxml"));
+        }
+
+        // set title for the stage
+        stage.setTitle("Modify your profile");
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     @FXML
     private void initialize(){

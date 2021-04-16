@@ -24,10 +24,10 @@
                      <Font size="19.0" />
                   </font>
                </Text>
-               <Button layoutX="65.0" layoutY="248.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="155.0" text="Processors" fx:id="Processors" onAction="#GoToCategories" />
-               <Button layoutX="65.0" layoutY="299.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="155.0" text="Graphic Card" fx:id="GraphicCard" onAction="#GoToCategories"/>
-               <Button layoutX="65.0" layoutY="349.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="155.0" text="RAM" fx:id="RAM" onAction="#GoToCategories"/>
-               <Button layoutX="65.0" layoutY="397.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="155.0" text="Sources" fx:id="Sources" onAction="#GoToCategories"/>
+               <Button fx:id="Processors" layoutX="65.0" layoutY="248.0" mnemonicParsing="false" onAction="#GoToCategories" prefHeight="35.0" prefWidth="155.0" text="Processors" />
+               <Button fx:id="GraphicCard" layoutX="65.0" layoutY="299.0" mnemonicParsing="false" onAction="#GoToCategories" prefHeight="35.0" prefWidth="155.0" text="Graphic Card" />
+               <Button fx:id="RAM" layoutX="65.0" layoutY="349.0" mnemonicParsing="false" onAction="#GoToCategories" prefHeight="35.0" prefWidth="155.0" text="RAM" />
+               <Button fx:id="Sources" layoutX="65.0" layoutY="397.0" mnemonicParsing="false" onAction="#GoToCategories" prefHeight="35.0" prefWidth="155.0" text="Sources" />
                 </children></AnchorPane>
             <AnchorPane prefHeight="793.0" prefWidth="357.0">
             <children>
@@ -44,7 +44,10 @@
                </Text>
                <TextArea editable="false" layoutX="46.0" layoutY="359.0" prefHeight="375.0" prefWidth="445.0" />
             </children></AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+            <children>
+               <Button fx:id="ModProfile" layoutX="38.0" layoutY="202.0" mnemonicParsing="false" onAction="#ModifyProfile" prefHeight="35.0" prefWidth="180.0" text="Modify your profile" />
+            </children></AnchorPane>
         </items>
     </SplitPane>
 
