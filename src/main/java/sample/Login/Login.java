@@ -36,15 +36,17 @@ public class Login {
     public void Login(ActionEvent event)throws Exception{
         alert.setTitle("FIELD IS EMPTY!");
         alert1.setTitle("Username or password is incorrect!");
-        pass_hid.setText(Password.getText());
+        if(Password.getText().isEmpty())
+        {
+            Password.setText(pass_hid.getText());
+        }
         if(event.getSource() == Login){
-            if(username.getText().isEmpty() || pass_hid.getText().isEmpty() || Password.getText().isEmpty()){
+            if(username.getText().isEmpty() || Password.getText().isEmpty()){
                 alert.setHeaderText(null);
                 alert.setContentText("Field is EMPTY!");
                 alert.showAndWait();
                 return;
             }
-            Password.setText(pass_hid.getText());
             if(!UserService.Verify(username.getText(),Password.getText()))
             {
                 alert1.setHeaderText(null);
@@ -69,18 +71,20 @@ public class Login {
             Password.setText(pass_hid.getText());
             Password.setVisible(true);
             pass_hid.setVisible(false);
+            pass_hid.setText(Password.getText());
             return;
         }
         pass_hid.setText(Password.getText());
         pass_hid.setVisible(true);
         Password.setVisible(false);
+        Password.setText(pass_hid.getText());
     }
 
     public void HyperLinkConnection(ActionEvent event)throws Exception{
 
         if(event.getSource() == GoToRegister){
             stage = (Stage) Login.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("/register.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/FXML/register.fxml"));
         }
 
         Scene scene = new Scene(root);
