@@ -24,7 +24,7 @@ public class MainPage {
     @FXML
     private Text WelcomeText;
     @FXML
-    private Button Processors,GraphicCard,RAM,Sources,ModProfile,GoProfile;
+    private Button Processors,GraphicCard,RAM,Sources,ModProfile,GoProfile,Log;
     private Stage stage;
     private Parent root;
 
@@ -102,6 +102,23 @@ public class MainPage {
         stage.setScene(scene);
         stage.show();
     }
+
+    public void LogOut(ActionEvent event) throws Exception
+    {
+        if(event.getSource()==Log)
+        {
+            stage=(Stage) Log.getScene().getWindow();
+            root=FXMLLoader.load(getClass().getResource("/FXML/LoginPage.fxml"));
+        }
+        stage.setTitle("Login");
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+
+    }
+
+
     @FXML
     private void initialize(){
         //MovingText();
