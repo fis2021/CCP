@@ -47,7 +47,7 @@ public class MainPage {
         if(event.getSource() == Sources){
             stage = (Stage) Sources.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("/FXML/Sources.fxml"));
-            stage.setTitle("Sources");
+            stage.setTitle("Power Supply Unit");
         }
         Scene scene = new Scene(root);
         stage.setScene(scene);
