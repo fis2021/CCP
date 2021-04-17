@@ -10,6 +10,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import sample.DataBase.UserService;
 import sample.DataBase.FileSystemService;
+import sample.DataBase.ProcessorsService;
 
 public class Main extends Application {
 
@@ -20,6 +21,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         initDirectory();
+        ProcessorsService.initDataBaseforProcessors();
         UserService.initDataBase();
         Parent root = FXMLLoader.load(getClass().getResource("/FXML/Home.fxml"));
         primaryStage.setTitle("CCP");
