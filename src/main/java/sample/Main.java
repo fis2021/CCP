@@ -11,6 +11,7 @@ import java.nio.file.Path;
 import sample.DataBase.UserService;
 import sample.DataBase.FileSystemService;
 import sample.DataBase.ProcessorsService;
+import sample.DataBase.GraphicCardsService;
 
 public class Main extends Application {
 
@@ -22,6 +23,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         initDirectory();
         ProcessorsService.initDataBaseforProcessors();
+        GraphicCardsService.initDataBaseforGraphicCards();
         UserService.initDataBase();
         Parent root = FXMLLoader.load(getClass().getResource("/FXML/Home.fxml"));
         primaryStage.setTitle("CCP");
