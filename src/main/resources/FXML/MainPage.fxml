@@ -27,7 +27,7 @@
                <Button fx:id="Processors" layoutX="65.0" layoutY="248.0" mnemonicParsing="false" onAction="#GoToCategories" prefHeight="35.0" prefWidth="155.0" text="Processors" />
                <Button fx:id="GraphicCard" layoutX="65.0" layoutY="299.0" mnemonicParsing="false" onAction="#GoToCategories" prefHeight="35.0" prefWidth="155.0" text="Graphic Card" />
                <Button fx:id="RAM" layoutX="65.0" layoutY="349.0" mnemonicParsing="false" onAction="#GoToCategories" prefHeight="35.0" prefWidth="155.0" text="RAM" />
-               <Button fx:id="Sources" layoutX="65.0" layoutY="397.0" mnemonicParsing="false" onAction="#GoToCategories" prefHeight="35.0" prefWidth="155.0" text="Sources" />
+               <Button fx:id="Sources" layoutX="65.0" layoutY="397.0" mnemonicParsing="false" onAction="#GoToCategories" prefHeight="35.0" prefWidth="155.0" text="Power Supply Unit" />
                 </children></AnchorPane>
             <AnchorPane prefHeight="793.0" prefWidth="357.0">
             <children>
