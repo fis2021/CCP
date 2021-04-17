@@ -24,6 +24,7 @@ public class MainPage {
     private Button Processors,GraphicCard,RAM,Sources,ModProfile,GoProfile,Log,Add;
     private Stage stage;
     private Parent root;
+    private static int nr;
 
     public void GoToCategories(ActionEvent event)throws Exception{
         if(event.getSource() == Processors){
@@ -75,6 +76,7 @@ public class MainPage {
     {
         if(event.getSource()==ModProfile)
         {
+            nr=3;
             stage=new Stage();
             root=FXMLLoader.load(getClass().getResource("/FXML/PopUps/PopUp.fxml"));
         }
@@ -89,6 +91,7 @@ public class MainPage {
     {
         if(event.getSource()==GoProfile)
         {
+            nr=2;
             stage=new Stage();
             root=FXMLLoader.load(getClass().getResource("/FXML/PopUps/PopUp1.fxml"));
         }
@@ -119,6 +122,7 @@ public class MainPage {
     {
         if(event.getSource()==Add)
         {
+            nr=1;
             stage=new Stage();
             root=FXMLLoader.load(getClass().getResource("/FXML/PopUps/PopUp2.fxml"));
         }
@@ -128,6 +132,10 @@ public class MainPage {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+    public static int GetNr()
+    {
+        return nr;
     }
 
     @FXML
