@@ -1,6 +1,5 @@
 package sample.MainPage;
 
-import com.sun.jdi.event.StepEvent;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -10,10 +9,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
-import javafx.stage.Popup;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -24,7 +21,7 @@ public class MainPage {
     @FXML
     private Text WelcomeText;
     @FXML
-    private Button Processors,GraphicCard,RAM,Sources,ModProfile,GoProfile,Log;
+    private Button Processors,GraphicCard,RAM,Sources,ModProfile,GoProfile,Log,Add;
     private Stage stage;
     private Parent root;
 
@@ -79,7 +76,7 @@ public class MainPage {
         if(event.getSource()==ModProfile)
         {
             stage=new Stage();
-            root=FXMLLoader.load(getClass().getResource("/FXML/PopUp.fxml"));
+            root=FXMLLoader.load(getClass().getResource("/FXML/PopUps/PopUp.fxml"));
         }
 
         // set title for the stage
@@ -93,7 +90,7 @@ public class MainPage {
         if(event.getSource()==GoProfile)
         {
             stage=new Stage();
-            root=FXMLLoader.load(getClass().getResource("/FXML/PopUp1.fxml"));
+            root=FXMLLoader.load(getClass().getResource("/FXML/PopUps/PopUp1.fxml"));
         }
 
         // set title for the stage
@@ -118,6 +115,20 @@ public class MainPage {
 
     }
 
+    public void AddProduct(ActionEvent event) throws Exception
+    {
+        if(event.getSource()==Add)
+        {
+            stage=new Stage();
+            root=FXMLLoader.load(getClass().getResource("/FXML/PopUps/PopUp2.fxml"));
+        }
+
+        // set title for the stage
+        stage.setTitle("Add a new product");
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     @FXML
     private void initialize(){
