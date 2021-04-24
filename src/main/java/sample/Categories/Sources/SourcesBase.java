@@ -8,6 +8,10 @@ public class SourcesBase {
     private String Garantie;
     private int id;
 
+    public SourcesBase(){
+
+    }
+
     public SourcesBase(String numeProdus,String Pret,String Descriere,String Tip,String Garantie,int id){
         this.numeProdus=numeProdus;
         this.Pret=Pret;

@@ -9,12 +9,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sample.Categories.GraphicCards.GraphicCards;
-import sample.DataBase.GraphicCardsService;
-import sample.DataBase.RAMService;
-import sample.DataBase.UserService;
+import sample.DataBase.*;
 import sample.MainPage.MainPage;
 import sample.Categories.Processors.Processors;
-import sample.DataBase.ProcessorsService;
 
 public class PopUp {
     @FXML
@@ -67,6 +64,10 @@ public class PopUp {
             if(comboBox1.getSelectionModel().getSelectedItem().toString().equals("RAM")){
                 RAMService.addRAM(numeprodus.getText(), pret.getText(), descriere.getText(), tip.getText(), garantie.getText(), UserService.returnId(MainPage.getUsernameFromMain()));
                 kr++;
+            }
+            if(comboBox1.getSelectionModel().getSelectedItem().equals("Power Supply Unit")){
+                SourcesService.addSource(numeprodus.getText(), pret.getText(), descriere.getText(), tip.getText(), garantie.getText(), UserService.returnId(MainPage.getUsernameFromMain()));
+                kp++;
             }
             stage=(Stage) addit.getScene().getWindow();
             stage.close();

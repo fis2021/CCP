@@ -2,6 +2,9 @@ package sample.DataBase;
 
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
+import sample.Categories.Processors.Processors;
+import sample.Categories.Sources.SourcesBase;
+import sample.Categories.Sources.Sources;
 import sample.Categories.Sources.SourcesBase;
 
 import static sample.DataBase.FileSystemService.getPathToFile;
@@ -9,15 +12,23 @@ import static sample.DataBase.FileSystemService.getPathToFile;
 
 public class SourcesService {
 
-    private static ObjectRepository<SourcesBase> ProcessorsRepository;
+    private static ObjectRepository<SourcesBase> SourcesRepository;
 
-    public static void initDataBaseforGraphicCards(){
+    public static void initDataBaseforSources(){
         Nitrite database = Nitrite.builder()
                 .filePath((getPathToFile("Sources.db")).toFile())
                 .openOrCreate("test","test");
+        SourcesRepository= database.getRepository(SourcesBase.class);
     }
 
-    public static void addGraphic(String numeProdus,String Pret,String Descriere,String Tip,String Garantie){
-        ProcessorsRepository.insert(new SourcesBase(numeProdus,Pret,Descriere,Tip,Garantie));
+    public static void set(){
+        for(SourcesBase sourcesBase : SourcesRepository.find())
+        {
+            Sources.SetVectori(sourcesBase.getNumeProdus(),sourcesBase.getPret(),sourcesBase.getDescriere(),sourcesBase.getTip(), sourcesBase.getGarantie());
+        }
+    }
+
+    public static void addSource(String numeProdus,String Pret,String Descriere,String Tip,String Garantie,int id){
+        SourcesRepository.insert(new SourcesBase(numeProdus,Pret,Descriere,Tip,Garantie,id));
     }
 }

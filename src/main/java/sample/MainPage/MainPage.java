@@ -17,6 +17,9 @@ import sample.Categories.GraphicCards.GraphicCards;
 import sample.DataBase.GraphicCardsService;
 import sample.DataBase.ProcessorsService;
 import sample.DataBase.RAMService;
+import sample.DataBase.SourcesService;
+
+import javax.xml.transform.Source;
 
 
 public class MainPage {
@@ -52,6 +55,7 @@ public class MainPage {
         if(event.getSource() == Sources){
             stage = (Stage) Sources.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("/FXML/Sources.fxml"));
+            SourcesService.set();
             stage.setTitle("Power Supply Unit");
         }
         Scene scene = new Scene(root);
