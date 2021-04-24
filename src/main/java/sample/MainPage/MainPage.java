@@ -13,7 +13,7 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
+import sample.DataBase.ProcessorsService;
 
 
 public class MainPage {
@@ -30,6 +30,7 @@ public class MainPage {
         if(event.getSource() == Processors){
             stage = (Stage) Processors.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("/FXML/Processors.fxml"));
+            ProcessorsService.set();
             stage.setTitle("Processors");
         }
         if(event.getSource() == GraphicCard){

@@ -1,5 +1,5 @@
 package sample.User;
-
+import sample.register.register;
 public class User {
 
     private String username;
@@ -7,7 +7,7 @@ public class User {
     private String gmail;
     private String role;
     private boolean check;
-
+    private int id;
     public User(){
 
     }
@@ -17,6 +17,7 @@ public class User {
         this.gmail=gmail;
         this.role=roole;
         this.check=check;
+        this.id=register.getId();
     }
 
     public String getUsername(){
@@ -50,6 +51,11 @@ public class User {
         this.role = role;
     }
 
+    public int getId(int id)
+    {
+        return id;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -77,3 +83,4 @@ public class User {
     }
 
 }
+

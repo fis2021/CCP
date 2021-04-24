@@ -11,6 +11,8 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import sample.MainPage.PopUp;
+import sample.DataBase.ProcessorsService;
 
 public class Processors {
     @FXML
@@ -19,14 +21,14 @@ public class Processors {
     private Parent root;
     @FXML
     private AnchorPane AnchorPaneRight;
-    private VBox vBox = new VBox();
-    private Button[] buttons = new Button[10];
-    private Pane[] panes = new Pane[10];
-    private Text[] numeProduse = new Text[10];
-    private Text[] Pret= new Text[10];
-    private Text[] Descriere=new Text[10];
-    private Text[] Tip=new Text[10];
-    private Text[] Garantie=new Text[10];
+    private static VBox vBox = new VBox();
+    private static Button[] buttons = new Button[10];
+    private static Pane[] panes = new Pane[10];
+    private static Text[] numeProduse = new Text[10];
+    private static Text[] Pret= new Text[10];
+    private static Text[] Descriere=new Text[10];
+    private static Text[] Tip=new Text[10];
+    private static Text[] Garantie=new Text[10];
 
     private void initVBOX(){
         vBox.setPadding(new Insets(10,10,10,10));
@@ -99,9 +101,54 @@ public class Processors {
     }*/
     @FXML
     public void initialize(){
-        initVBOX();
+        //initVBOX();
         //initButtons();
-        init();
+        init2();
+        //Test();
+    }
+
+    private static int cnt=0;
+
+    public static void Test(String nume,String descriere,String pret,String tip,String garantie)
+    {
+        for(int i=0;i<numeProduse.length;i++)
+        {
+            numeProduse[i]=new Text(nume);
+            numeProduse[i].setLayoutX(0);
+            numeProduse[i].setLayoutY(3);
+            Pret[i] = new Text(pret);
+            Descriere[i] = new Text(descriere);
+            Tip[i] = new Text(tip);
+            Garantie[i] = new Text(garantie);
+            numeProduse[i].setLayoutX(0);
+            numeProduse[i].setLayoutY(3);
+            Pret[i].setLayoutX(100);
+            Pret[i].setLayoutY(3);
+            Descriere[i].setLayoutX(200);
+            Descriere[i].setLayoutY(25);
+            Tip[i].setLayoutX(300);
+            Tip[i].setLayoutY(3);
+            Garantie[i].setLayoutX(400);
+            Garantie[i].setLayoutY(3);
+            buttons[i] = new Button("Add product");
+            buttons[i].setLayoutX(620);
+            panes[i]=new Pane();
+            panes[i].setLayoutX(700);
+            panes[i].setLayoutY(50);
+            panes[i].getChildren().addAll(numeProduse[i],Pret[i],Descriere[i],Tip[i],Garantie[i],buttons[i]);
+
+
+
+        }
+        vBox.getChildren().add(panes[PopUp.GetKP()]);
+    }
+
+    public void init2()
+    {
+        vBox=new VBox();
+        initVBOX();
+        AnchorPaneRight.getChildren().add(vBox);
+        cnt=1;
     }
 
     public void GoBackMainPage(ActionEvent event)throws Exception{

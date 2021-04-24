@@ -38,6 +38,7 @@ public class register {
     private Parent root;
     private Stage stage;
     private Alert alert,alert1,alertUsername,alertPasswordIncorect;
+    private static int id=0;
 
     public register() {
         this.alert = new Alert(AlertType.ERROR);
@@ -51,11 +52,14 @@ public class register {
         comboBox.getItems().add("Customer");
         comboBox.getItems().add("Seller");
     }
+    public static int getId(){
+        return id;
+    }
 
     public void validation(ActionEvent event) throws Exception {
-            this.alert.setTitle("FIELD IS EMPTY");
-            this.alert1.setTitle("TextBox in unchecked");
-            boolean isMychoiceEmpty = comboBox.getSelectionModel().isEmpty();
+        this.alert.setTitle("FIELD IS EMPTY");
+        this.alert1.setTitle("TextBox in unchecked");
+        boolean isMychoiceEmpty = comboBox.getSelectionModel().isEmpty();
         try {
             if (event.getSource() == this.registerB) {
                 if(password.getText().isEmpty() && confirm.getText().isEmpty()){
@@ -94,6 +98,7 @@ public class register {
                 this.stage.setTitle("CCP-Main Page");
                 this.stage.setScene(scene);
                 this.stage.show();
+                id++;
             }
         }catch(UsernameAlreadyExistException e){
             alertUsername.setTitle("The username " + e.getMessage() + " already exist!");
