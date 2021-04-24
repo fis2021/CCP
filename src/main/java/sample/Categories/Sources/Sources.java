@@ -76,7 +76,7 @@ public class Sources {
             pane1[i].setLayoutY(50);
             pane1[i].getChildren().addAll(nume[i],pret[i],descriere[i],tip[i],garantie[i],buttons[i]);
         }
-        vbox1.getChildren().add(pane1[PopUp.GetKP()]);
+        vbox1.getChildren().add(pane1[PopUp.GetKS()]);
     }
 
     public void init()

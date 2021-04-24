@@ -77,7 +77,7 @@ public class GraphicCards {
 
 
         }
-        vbox1.getChildren().add(pane1[PopUp.GetKP()]);
+        vbox1.getChildren().add(pane1[PopUp.GetKG()]);
     }
 
     public void init2()

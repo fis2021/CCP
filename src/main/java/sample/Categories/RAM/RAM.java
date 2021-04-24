@@ -74,7 +74,7 @@ public class RAM {
             panes[i].getChildren().addAll(numeProduse[i],Pret[i],Descriere[i],Tip[i],Garantie[i],buttons[i]);
 
         }
-        vBox.getChildren().add(panes[PopUp.GetKP()]);
+        vBox.getChildren().add(panes[PopUp.GetKR()]);
     }
 
     private void init(){
