@@ -13,6 +13,8 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import sample.Categories.GraphicCards.GraphicCards;
+import sample.DataBase.GraphicCardsService;
 import sample.DataBase.ProcessorsService;
 
 
@@ -36,6 +38,7 @@ public class MainPage {
         if(event.getSource() == GraphicCard){
             stage = (Stage) GraphicCard.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("/FXML/GraphicCard.fxml"));
+            GraphicCardsService.set();
             stage.setTitle("GraphicCard");
         }
         if(event.getSource() == RAM){

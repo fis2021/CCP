@@ -7,6 +7,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import sample.Categories.GraphicCards.GraphicCards;
+import sample.DataBase.GraphicCardsService;
 import sample.MainPage.MainPage;
 import sample.Categories.Processors.Processors;
 import sample.DataBase.ProcessorsService;
@@ -20,6 +22,9 @@ public class PopUp {
     @FXML
     private TextField numeprodus,descriere,tip,pret,garantie;
     private Stage stage=new Stage();
+
+    @FXML
+    private Button addit;
 
     @FXML
     private void initialize(){
@@ -40,11 +45,15 @@ public class PopUp {
     {
         if(comboBox1.getSelectionModel().getSelectedItem().toString().equals("Processors"))
         {
-            if(kp>10)
-                return;
             ProcessorsService.addProcessors(numeprodus.getText(),pret.getText(),descriere.getText(),tip.getText(),garantie.getText(),0);
             kp++;
         }
+        if(comboBox1.getSelectionModel().getSelectedItem().toString().equals("Graphic Cards"))
+        {
+            GraphicCardsService.addGraphic(numeprodus.getText(), pret.getText(), descriere.getText(), tip.getText(), garantie.getText(), 0);
+            kg++;
+        }
+        stage=(Stage) addit.getScene().getWindow();
         stage.close();
 
 

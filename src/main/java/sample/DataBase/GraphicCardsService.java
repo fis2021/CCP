@@ -5,20 +5,31 @@ import sample.Categories.GraphicCards.GraphicCardsBase;
 
 import org.dizitart.no2.objects.ObjectRepository;
 
+
 import static sample.DataBase.FileSystemService.getPathToFile;
 
 
 public class GraphicCardsService {
 
-    private static ObjectRepository<GraphicCardsBase> ProcessorsRepository;
+    private static ObjectRepository<GraphicCardsBase> GraphicCardsRepository;
 
     public static void initDataBaseforGraphicCards(){
         Nitrite database = Nitrite.builder()
                 .filePath((getPathToFile("Graphic.db")).toFile())
                 .openOrCreate("test","test");
+        GraphicCardsRepository= database.getRepository(GraphicCardsBase.class);
     }
 
-    public static void addGraphic(String numeProdus,String Pret,String Descriere,String Tip,String Garantie){
-        ProcessorsRepository.insert(new GraphicCardsBase(numeProdus,Pret,Descriere,Tip,Garantie));
+    public static void set()
+    {
+        for(GraphicCardsBase graphicBase : GraphicCardsRepository.find())
+        {
+            GraphicCards.Test1(graphicBase.getNumeProdus(),graphicBase.getPret(),graphicBase.getDescriere(),graphicBase.getTip(), graphicBase.getGarantie());
+        }
+
+    }
+
+    public static void addGraphic(String numeProdus,String Pret,String Descriere,String Tip,String Garantie,int id){
+        GraphicCardsRepository.insert(new GraphicCardsBase(numeProdus,Pret,Descriere,Tip,Garantie,id));
     }
 }

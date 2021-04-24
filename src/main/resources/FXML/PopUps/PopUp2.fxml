@@ -14,7 +14,7 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <Button layoutX="284.0" layoutY="360.0" mnemonicParsing="false" onAction="#addProduct" prefHeight="37.0" prefWidth="79.0" text="Add it" />
+      <Button fx:id="addit" layoutX="284.0" layoutY="360.0" mnemonicParsing="false" onAction="#addProduct" prefHeight="37.0" prefWidth="79.0" text="Add it" />
       <ComboBox fx:id="comboBox1" layoutX="139.0" layoutY="133.0" prefWidth="150.0" />
       <Text layoutX="60.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Category" wrappingWidth="56.240234375" />
       <Text  layoutX="358.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type" />
