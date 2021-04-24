@@ -51,7 +51,7 @@ public class User {
         this.role = role;
     }
 
-    public int getId(int id)
+    public int getId()
     {
         return id;
     }

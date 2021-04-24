@@ -5,6 +5,7 @@ import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.NitriteBuilder;
 import org.dizitart.no2.NitriteCollection;
 import org.dizitart.no2.objects.ObjectRepository;
+import sample.Categories.RAM.RAMBase;
 import sample.User.User;
 
 import java.nio.charset.StandardCharsets;
@@ -78,5 +79,13 @@ public class UserService {
         return false;
     }
 
+    public static int returnId(String name){
 
+        for(User user : userRepository.find()){
+            if(name.equals(user.getUsername())){
+                return user.getId();
+            }
+        }
+        return -1;
+    }
 }

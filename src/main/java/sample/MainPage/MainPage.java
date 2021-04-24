@@ -16,6 +16,7 @@ import javafx.util.Duration;
 import sample.Categories.GraphicCards.GraphicCards;
 import sample.DataBase.GraphicCardsService;
 import sample.DataBase.ProcessorsService;
+import sample.DataBase.RAMService;
 
 
 public class MainPage {
@@ -27,6 +28,7 @@ public class MainPage {
     private Stage stage;
     private Parent root;
     private static int nr;
+    private static String username;
 
     public void GoToCategories(ActionEvent event)throws Exception{
         if(event.getSource() == Processors){
@@ -44,6 +46,7 @@ public class MainPage {
         if(event.getSource() == RAM){
             stage = (Stage) RAM.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("/FXML/RAM.fxml"));
+            RAMService.set();
             stage.setTitle("RAM");
         }
         if(event.getSource() == Sources){
@@ -140,6 +143,14 @@ public class MainPage {
     public static int GetNr()
     {
         return nr;
+    }
+
+    public static void usernameForMain(String nume){
+        username = nume;
+    }
+
+    public static String getUsernameFromMain(){
+        return username;
     }
 
     @FXML

@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import sample.DataBase.UserService;
+import sample.MainPage.MainPage;
 import sample.User.User;
 import sample.exceptions.UsernameAlreadyExistException;
 
@@ -92,6 +93,7 @@ public class register {
                     return;
                 }
                 UserService.addUser(username.getText(), password.getText(), email.getText(),comboBox.getSelectionModel().getSelectedItem().toString() , news.isSelected());
+                MainPage.usernameForMain(username.getText());
                 this.stage = (Stage) this.registerB.getScene().getWindow();
                 this.root = (Parent) FXMLLoader.load(this.getClass().getResource("/FXML/MainPage.fxml"));
                 Scene scene = new Scene(this.root);
