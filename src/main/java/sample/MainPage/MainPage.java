@@ -24,7 +24,7 @@ public class MainPage {
     @FXML
     private Text WelcomeText;
     @FXML
-    private Button Processors,GraphicCard,RAM,Sources,ModProfile,GoProfile,Log,Add;
+    private Button Processors,GraphicCard,RAM,Sources,ModProfile,GoProfile,Log,Add,Delete;
     private Stage stage;
     private Parent root;
     private static int nr;
@@ -152,6 +152,19 @@ public class MainPage {
 
     public static String getUsernameFromMain(){
         return username;
+    }
+
+    public void DeleteProduct(ActionEvent event)throws Exception{
+        if(event.getSource() == Delete){
+            nr=4;
+            stage = new Stage();
+            root = FXMLLoader.load(getClass().getResource("/FXML/PopUps/PopUpforDeleteProduct.fxml"));
+        }
+
+        stage.setTitle("Delete a product");
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML

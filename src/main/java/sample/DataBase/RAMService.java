@@ -6,6 +6,8 @@ import org.dizitart.no2.objects.ObjectRepository;
 import sample.Categories.RAM.RAM;
 import sample.Categories.RAM.RAMBase;
 import sample.Categories.Sources.SourcesBase;
+import sample.MainPage.MainPage;
+import sample.MainPage.PopUp;
 
 import static sample.DataBase.FileSystemService.getPathToFile;
 
@@ -30,6 +32,15 @@ public class RAMService {
             RAM.setareVectori(ramBase.getNumeProdus(),ramBase.getPret(),ramBase.getDescriere(),ramBase.getTip(), ramBase.getGarantie());
         }
     }
+
+    public static void setForDelete(){
+        for(RAMBase ramBase : RAMRepository.find()){
+            if(UserService.returnId(MainPage.getUsernameFromMain())==ramBase.getId()){
+                PopUp.getDataBase(ramBase.getNumeProdus(),ramBase.getPret(),ramBase.getDescriere(),ramBase.getTip(), ramBase.getGarantie());
+            }
+        }
+    }
+
 
 }
 
