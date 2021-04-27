@@ -13,7 +13,13 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import sample.Categories.GraphicCards.GraphicCards;
+import sample.DataBase.GraphicCardsService;
+import sample.DataBase.ProcessorsService;
+import sample.DataBase.RAMService;
+import sample.DataBase.SourcesService;
 
+import javax.xml.transform.Source;
 
 
 public class MainPage {
@@ -25,26 +31,31 @@ public class MainPage {
     private Stage stage;
     private Parent root;
     private static int nr;
+    private static String username;
 
     public void GoToCategories(ActionEvent event)throws Exception{
         if(event.getSource() == Processors){
             stage = (Stage) Processors.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("/FXML/Processors.fxml"));
+            ProcessorsService.set();
             stage.setTitle("Processors");
         }
         if(event.getSource() == GraphicCard){
             stage = (Stage) GraphicCard.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("/FXML/GraphicCard.fxml"));
+            GraphicCardsService.set();
             stage.setTitle("GraphicCard");
         }
         if(event.getSource() == RAM){
             stage = (Stage) RAM.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("/FXML/RAM.fxml"));
+            RAMService.set();
             stage.setTitle("RAM");
         }
         if(event.getSource() == Sources){
             stage = (Stage) Sources.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("/FXML/Sources.fxml"));
+            SourcesService.set();
             stage.setTitle("Power Supply Unit");
         }
         Scene scene = new Scene(root);
@@ -136,6 +147,14 @@ public class MainPage {
     public static int GetNr()
     {
         return nr;
+    }
+
+    public static void usernameForMain(String nume){
+        username = nume;
+    }
+
+    public static String getUsernameFromMain(){
+        return username;
     }
 
     @FXML

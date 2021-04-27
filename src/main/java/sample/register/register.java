@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import sample.DataBase.UserService;
+import sample.MainPage.MainPage;
 import sample.User.User;
 import sample.exceptions.UsernameAlreadyExistException;
 
@@ -38,6 +39,7 @@ public class register {
     private Parent root;
     private Stage stage;
     private Alert alert,alert1,alertUsername,alertPasswordIncorect;
+    private static int id=0;
 
     public register() {
         this.alert = new Alert(AlertType.ERROR);
@@ -51,11 +53,14 @@ public class register {
         comboBox.getItems().add("Customer");
         comboBox.getItems().add("Seller");
     }
+    public static int getId(){
+        return id;
+    }
 
     public void validation(ActionEvent event) throws Exception {
-            this.alert.setTitle("FIELD IS EMPTY");
-            this.alert1.setTitle("TextBox in unchecked");
-            boolean isMychoiceEmpty = comboBox.getSelectionModel().isEmpty();
+        this.alert.setTitle("FIELD IS EMPTY");
+        this.alert1.setTitle("TextBox in unchecked");
+        boolean isMychoiceEmpty = comboBox.getSelectionModel().isEmpty();
         try {
             if (event.getSource() == this.registerB) {
                 if(password.getText().isEmpty() && confirm.getText().isEmpty()){
@@ -88,12 +93,14 @@ public class register {
                     return;
                 }
                 UserService.addUser(username.getText(), password.getText(), email.getText(),comboBox.getSelectionModel().getSelectedItem().toString() , news.isSelected());
+                MainPage.usernameForMain(username.getText());
                 this.stage = (Stage) this.registerB.getScene().getWindow();
                 this.root = (Parent) FXMLLoader.load(this.getClass().getResource("/FXML/MainPage.fxml"));
                 Scene scene = new Scene(this.root);
                 this.stage.setTitle("CCP-Main Page");
                 this.stage.setScene(scene);
                 this.stage.show();
+                id++;
             }
         }catch(UsernameAlreadyExistException e){
             alertUsername.setTitle("The username " + e.getMessage() + " already exist!");

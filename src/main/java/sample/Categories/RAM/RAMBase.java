@@ -7,17 +7,19 @@ public class RAMBase {
     private String Descriere;
     private String Tip;
     private String Garantie;
+    private int id;
 
     public RAMBase(){
 
     }
 
-    public RAMBase(String numeProdus,String Pret,String Descriere,String Tip,String Garantie){
+    public RAMBase(String numeProdus,String Pret,String Descriere,String Tip,String Garantie,int id){
         this.numeProdus=numeProdus;
         this.Pret=Pret;
         this.Descriere=Descriere;
         this.Tip=Tip;
         this.Garantie=Garantie;
+        this.id=id;
     }
 
     public String getDescriere() {

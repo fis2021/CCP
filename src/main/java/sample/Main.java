@@ -8,10 +8,8 @@ import javafx.stage.Stage;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
-import sample.DataBase.UserService;
-import sample.DataBase.FileSystemService;
-import sample.DataBase.ProcessorsService;
-import sample.DataBase.GraphicCardsService;
+
+import sample.DataBase.*;
 
 public class Main extends Application {
 
@@ -24,6 +22,8 @@ public class Main extends Application {
         initDirectory();
         ProcessorsService.initDataBaseforProcessors();
         GraphicCardsService.initDataBaseforGraphicCards();
+        RAMService.initDataBaseforRAM();
+        SourcesService.initDataBaseforSources();
         UserService.initDataBase();
         Parent root = FXMLLoader.load(getClass().getResource("/FXML/Home.fxml"));
         primaryStage.setTitle("CCP");

@@ -12,6 +12,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import sample.MainPage.PopUp;
 
 public class Sources {
     @FXML
@@ -20,14 +21,14 @@ public class Sources {
     private Parent root;
     @FXML
     private AnchorPane AnchorR;
-    private VBox vbox1=new VBox();
-    private Pane[] pane1=new Pane[10];
-    private Button[] buttons=new Button[10];
-    private Text[] nume=new Text[10];
-    private Text[] descriere=new Text[10];
-    private Text[] pret=new Text[10];
-    private Text[] tip=new Text[10];
-    private Text[] garantie=new Text[10];
+    private static VBox vbox1=new VBox();
+    private static Pane[] pane1=new Pane[10];
+    private static Button[] buttons=new Button[10];
+    private static Text[] nume=new Text[10];
+    private static Text[] descriere=new Text[10];
+    private static Text[] pret=new Text[10];
+    private static Text[] tip=new Text[10];
+    private static Text[] garantie=new Text[10];
 
 
     public void GoBackMainPage(ActionEvent event)throws Exception{
@@ -47,23 +48,17 @@ public class Sources {
         vbox1.setSpacing(50);
     }
 
-    private void init(){
-        for(int i=0; i<10; i++){
-            buttons[i] = new Button("Add product");
-            buttons[i].setLayoutX(620);
-        }
-
-        for(int i=0; i<10; i++){
-            pane1[i] = new Pane();
-            pane1[i].setLayoutX(700);
-            pane1[i].setLayoutY(50);
-        }
-        for(int i=0; i<10; i++){
-            nume[i] = new Text("Product Name");
-            pret[i] = new Text("Price");
-            descriere[i] = new Text("Description");
-            tip[i] = new Text("Type");
-            garantie[i] = new Text("guarantee");
+    public static void SetVectori(String nume1,String descriere1,String pret1,String tip1,String garantie1)
+    {
+        for(int i=0;i<nume.length;i++)
+        {
+            nume[i]=new Text(nume1);
+            nume[i].setLayoutX(0);
+            nume[i].setLayoutY(3);
+            pret[i] = new Text(pret1);
+            descriere[i] = new Text(descriere1);
+            tip[i] = new Text(tip1);
+            garantie[i] = new Text(garantie1);
             nume[i].setLayoutX(0);
             nume[i].setLayoutY(3);
             pret[i].setLayoutX(100);
@@ -74,13 +69,20 @@ public class Sources {
             tip[i].setLayoutY(3);
             garantie[i].setLayoutX(400);
             garantie[i].setLayoutY(3);
+            buttons[i] = new Button("Add product");
+            buttons[i].setLayoutX(620);
+            pane1[i]=new Pane();
+            pane1[i].setLayoutX(700);
+            pane1[i].setLayoutY(50);
+            pane1[i].getChildren().addAll(nume[i],pret[i],descriere[i],tip[i],garantie[i],buttons[i]);
         }
-        for(int i=0; i<10; i++){
-            pane1[i].getChildren().addAll(buttons[i],nume[i],pret[i],descriere[i],tip[i],garantie[i]);
-        }
-        for(int i=0; i<10; i++){
-            vbox1.getChildren().add(pane1[i]);
-        }
+        vbox1.getChildren().add(pane1[PopUp.GetKS()]);
+    }
+
+    public void init()
+    {
+        vbox1=new VBox();
+        initVBOX();
         AnchorR.getChildren().add(vbox1);
     }
     @FXML

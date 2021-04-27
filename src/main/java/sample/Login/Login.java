@@ -7,10 +7,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import sample.Main;
 import sample.User.User;
 import sample.DataBase.UserService;
 import sample.DataBase.FileSystemService;
-
+import sample.MainPage.MainPage;
 
 public class Login {
 
@@ -59,6 +60,7 @@ public class Login {
             stage = (Stage) Login.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("/FXML/MainPage.fxml"));
         }
+        MainPage.usernameForMain(username.getText());
         Scene scene = new Scene(root);
         stage.setTitle("CCP MAIN PAGE");
         stage.setScene(scene);
