@@ -42,6 +42,11 @@ public class GraphicCardsBase {
     public String getTip() {
         return Tip;
     }
+
+    public int getId(){
+        return id;
+    }
+
     @Override
     public String toString(){
         return numeProdus + " "+ Pret + " " + Garantie + " " +Tip + " " + Descriere;

@@ -1,9 +1,12 @@
 package sample.DataBase;
 import org.dizitart.no2.Nitrite;
+import org.dizitart.no2.objects.filters.ObjectFilters;
 import sample.Categories.Processors.Processors;
 import sample.Categories.Processors.ProcessorsBase;
 
 import org.dizitart.no2.objects.ObjectRepository;
+import sample.MainPage.MainPage;
+import sample.MainPage.PopUp;
 
 import static sample.DataBase.FileSystemService.getPathToFile;
 
@@ -26,6 +29,24 @@ public class ProcessorsService {
             Processors.Test(processorsBase.getNumeProdus(),processorsBase.getPret(),processorsBase.getDescriere(),processorsBase.getTip(), processorsBase.getGarantie());
         }
 
+    }
+
+    public static void setForDelete(){
+        for(ProcessorsBase processorsBase : ProcessorsRepository.find())
+        {
+            if(UserService.returnId(MainPage.getUsernameFromMain()) == processorsBase.getId()){
+                PopUp.getDataBase(processorsBase.getNumeProdus(),processorsBase.getPret(),processorsBase.getDescriere(),processorsBase.getTip(), processorsBase.getGarantie());
+            }
+        }
+    }
+
+    public static void DeleteProduct(String numeProdus){
+        for(ProcessorsBase processorsBase : ProcessorsRepository.find())
+        {
+            if(numeProdus.equals(processorsBase.getNumeProdus())){
+                ProcessorsRepository.remove(ObjectFilters.eq("numeProdus",numeProdus));
+            }
+        }
     }
 
     public static void addProcessors(String numeProdus,String Pret,String Descriere,String Tip,String Garantie,int id){

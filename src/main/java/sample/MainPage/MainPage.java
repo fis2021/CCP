@@ -13,13 +13,10 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import sample.Categories.GraphicCards.GraphicCards;
 import sample.DataBase.GraphicCardsService;
 import sample.DataBase.ProcessorsService;
 import sample.DataBase.RAMService;
 import sample.DataBase.SourcesService;
-
-import javax.xml.transform.Source;
 
 
 public class MainPage {
@@ -27,7 +24,7 @@ public class MainPage {
     @FXML
     private Text WelcomeText;
     @FXML
-    private Button Processors,GraphicCard,RAM,Sources,ModProfile,GoProfile,Log,Add;
+    private Button Processors,GraphicCard,RAM,Sources,ModProfile,GoProfile,Log,Add,Delete;
     private Stage stage;
     private Parent root;
     private static int nr;
@@ -89,7 +86,7 @@ public class MainPage {
         {
             nr=3;
             stage=new Stage();
-            root=FXMLLoader.load(getClass().getResource("/FXML/PopUps/PopUp.fxml"));
+            root=FXMLLoader.load(getClass().getResource("/FXML/PopUps/PopUpForEditProfile.fxml"));
         }
 
         // set title for the stage
@@ -104,7 +101,7 @@ public class MainPage {
         {
             nr=2;
             stage=new Stage();
-            root=FXMLLoader.load(getClass().getResource("/FXML/PopUps/PopUp1.fxml"));
+            root=FXMLLoader.load(getClass().getResource("/FXML/PopUps/PopUpforGoToProfile.fxml"));
         }
 
         // set title for the stage
@@ -135,7 +132,7 @@ public class MainPage {
         {
             nr=1;
             stage=new Stage();
-            root=FXMLLoader.load(getClass().getResource("/FXML/PopUps/PopUp2.fxml"));
+            root=FXMLLoader.load(getClass().getResource("/FXML/PopUps/PopUpforAddProduct.fxml"));
         }
 
         // set title for the stage
@@ -155,6 +152,19 @@ public class MainPage {
 
     public static String getUsernameFromMain(){
         return username;
+    }
+
+    public void DeleteProduct(ActionEvent event)throws Exception{
+        if(event.getSource() == Delete){
+            nr=4;
+            stage = new Stage();
+            root = FXMLLoader.load(getClass().getResource("/FXML/PopUps/PopUpforDeleteProduct.fxml"));
+        }
+
+        stage.setTitle("Delete a product");
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML

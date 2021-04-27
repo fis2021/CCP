@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="531.0" prefWidth="751.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainPage.PopUp">
+   <children>
+      <Text layoutX="309.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Products:" textAlignment="CENTER">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Separator layoutX="7.0" layoutY="63.0" prefHeight="28.0" prefWidth="737.0" />
+      <ComboBox fx:id="comboBox2" layoutX="142.0" layoutY="91.0" onAction="#initDeletePage" prefWidth="150.0" />
+      <Text layoutX="35.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Category:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <AnchorPane layoutX="14.0" layoutY="127.0" prefHeight="398.0" prefWidth="726.0">
+         <children>
+            <Pane fx:id="PaneProcessors" prefHeight="398.0" prefWidth="726.0" />
+            <Pane fx:id="PaneGraphic" prefHeight="398.0" prefWidth="726.0" />
+            <Pane fx:id="PaneRAM" prefHeight="398.0" prefWidth="726.0" />
+            <Pane fx:id="PaneSources" prefHeight="398.0" prefWidth="726.0" />
+         </children>
+      </AnchorPane>
+      <Button fx:id="CloseWindow" layoutX="651.0" layoutY="91.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Close" onAction="#CloseDeleteWindow" />
+   </children>
+</AnchorPane>
