@@ -30,6 +30,7 @@
             <Font size="14.0" />
          </font>
       </Text>
+        <Button fx:id="CloseWindow1" layoutX="650.0" layoutY="91.0" mnemonicParsing="false" onAction="#CloseEditWindow" prefHeight="25.0" prefWidth="71.0" text="Close" />
     </children>
 
 </AnchorPane>

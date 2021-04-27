@@ -35,7 +35,7 @@ public class PopUp {
     private Stage stage=new Stage();
 
     @FXML
-    private Button addit,CloseWindow;
+    private Button addit,CloseWindow,CloseWindow1;
     private Alert alert = new Alert(Alert.AlertType.ERROR);
 
     @FXML
@@ -254,6 +254,11 @@ public class PopUp {
 
     public void CloseDeleteWindow(ActionEvent event){
         stage=(Stage) CloseWindow.getScene().getWindow();
+        stage.close();
+    }
+
+    public void CloseEditWindow(ActionEvent event){
+        stage=(Stage) CloseWindow1.getScene().getWindow();
         stage.close();
     }
 
