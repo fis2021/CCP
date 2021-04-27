@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.MainPage.PopUp"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainPage.PopUp">
+    <children>
+        <Separator layoutX="7.0" layoutY="63.0" prefHeight="28.0" prefWidth="737.0" />
+        <ComboBox fx:id="comboBox3" layoutX="144.0" layoutY="91.0" prefWidth="150.0" />
+        <AnchorPane layoutX="14.0" layoutY="127.0" prefHeight="398.0" prefWidth="726.0">
+            <children>
+                <Pane fx:id="PaneProcessors" prefHeight="398.0" prefWidth="726.0" />
+                <Pane fx:id="PaneGraphic" prefHeight="398.0" prefWidth="726.0" />
+                <Pane fx:id="PaneRAM" prefHeight="398.0" prefWidth="726.0" />
+                <Pane fx:id="PaneSources" prefHeight="398.0" prefWidth="726.0" />
+            </children>
+        </AnchorPane>
+      <Text layoutX="295.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit your products">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Text layoutX="30.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select category">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+    </children>
 
 </AnchorPane>

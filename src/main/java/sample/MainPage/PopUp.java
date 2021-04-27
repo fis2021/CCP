@@ -26,7 +26,7 @@ import java.util.List;
 
 public class PopUp {
     @FXML
-    private ComboBox comboBox1,comboBox2;
+    private ComboBox comboBox1,comboBox2,comboBox3;
     private static int kp=0,kr=0,kg=0,ks=0;
     private static String nume;
 
@@ -63,6 +63,12 @@ public class PopUp {
             comboBox2.getItems().add("Graphic Cards");
             comboBox2.getItems().add("Power Supply Unit");
             //init();
+        }
+        if(MainPage.GetNr()==5) {
+            comboBox3.getItems().add("Processors");
+            comboBox3.getItems().add("RAM");
+            comboBox3.getItems().add("Graphic Cards");
+            comboBox3.getItems().add("Power Supply Unit");
         }
     }
 
