@@ -1,5 +1,7 @@
 package sample.DataBase;
 import org.dizitart.no2.Nitrite;
+import org.dizitart.no2.objects.ObjectFilter;
+import org.dizitart.no2.objects.filters.ObjectFilters;
 import sample.Categories.GraphicCards.GraphicCards;
 import sample.Categories.GraphicCards.GraphicCardsBase;
 
@@ -29,6 +31,15 @@ public class GraphicCardsService {
             GraphicCards.Test1(graphicBase.getNumeProdus(),graphicBase.getPret(),graphicBase.getDescriere(),graphicBase.getTip(), graphicBase.getGarantie());
         }
 
+    }
+
+    public static void DeleteProduct(String numeProdus){
+        for(GraphicCardsBase graphicBase : GraphicCardsRepository.find())
+        {
+            if(numeProdus.equals(graphicBase.getNumeProdus())){
+                GraphicCardsRepository.remove(ObjectFilters.eq("numeProdus",numeProdus));
+            }
+        }
     }
 
     public static void setForDelete(){

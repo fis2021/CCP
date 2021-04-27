@@ -1,12 +1,14 @@
 package sample.MainPage;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -17,6 +19,10 @@ import sample.Categories.Sources.Sources;
 import sample.DataBase.*;
 import sample.MainPage.MainPage;
 import sample.Categories.Processors.Processors;
+
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PopUp {
     @FXML
@@ -29,15 +35,15 @@ public class PopUp {
     private Stage stage=new Stage();
 
     @FXML
-    private Button addit;
+    private Button addit,CloseWindow;
     private Alert alert = new Alert(Alert.AlertType.ERROR);
 
     @FXML
     private Pane PaneProcessors,PaneGraphic,PaneRAM,PaneSources;
     private static VBox vBox = new VBox();
-    private static Button[] buttons = new Button[10];
+    private static List<Button> buttons = new ArrayList<Button>();
     private static Pane[] panes = new Pane[10];
-    private static Text[] numeProduse = new Text[10];
+    private final  static Text[] numeProduse = new Text[10];
     private static Text[] Pret= new Text[10];
     private static Text[] Descriere=new Text[10];
     private static Text[] Tip=new Text[10];
@@ -56,7 +62,7 @@ public class PopUp {
             comboBox2.getItems().add("RAM");
             comboBox2.getItems().add("Graphic Cards");
             comboBox2.getItems().add("Power Supply Unit");
-            init();
+            //init();
         }
     }
 
@@ -64,6 +70,7 @@ public class PopUp {
     {
         return nume;
     }
+
 
     public void addProduct(ActionEvent event)
     {
@@ -117,12 +124,12 @@ public class PopUp {
             Tip[i].setLayoutY(3);
             Garantie[i].setLayoutX(400);
             Garantie[i].setLayoutY(3);
-            buttons[i] = new Button("Delete Product");
-            buttons[i].setLayoutX(620);
+            buttons.add(i,new Button("Delete"));
+            buttons.get(i).setLayoutX(620);
             panes[i]=new Pane();
             panes[i].setLayoutX(700);
             panes[i].setLayoutY(50);
-            panes[i].getChildren().addAll(numeProduse[i],Pret[i],Descriere[i],Tip[i],Garantie[i],buttons[i]);
+            panes[i].getChildren().addAll(numeProduse[i],Pret[i],Descriere[i],Tip[i],Garantie[i], buttons.get(i));
         }
         vBox.getChildren().add(panes[PopUp.GetKP()]);
     }
@@ -174,20 +181,75 @@ public class PopUp {
         init();
         if(comboBox2.getSelectionModel().getSelectedItem().toString().equals("Processors")){
             ProcessorsService.setForDelete();
+            for(int i=0; i<buttons.size(); i++){
+                final int nr=i;
+                buttons.get(i).setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        for(int j=0; j<numeProduse.length; j++){
+                            if(nr == j){
+                                ProcessorsService.DeleteProduct(numeProduse[j].getText());
+                            }
+                        }
+                    }
+                });
+            }
         }
         if(comboBox2.getSelectionModel().getSelectedItem().toString().equals("Graphic Cards")){
             GraphicCardsService.setForDelete();
+            for(int i=0; i<buttons.size(); i++){
+                final int nr=i;
+                buttons.get(i).setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        for(int j=0; j<numeProduse.length; j++){
+                            if(nr == j){
+                                GraphicCardsService.DeleteProduct(numeProduse[j].getText());
+                            }
+                        }
+                    }
+                });
+            }
 
         }
         if(comboBox2.getSelectionModel().getSelectedItem().toString().equals("RAM")){
             RAMService.setForDelete();
-
+            for(int i=0; i<buttons.size(); i++){
+                final int nr=i;
+                buttons.get(i).setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        for(int j=0; j<numeProduse.length; j++){
+                            if(nr == j){
+                                RAMService.DeleteProduct(numeProduse[j].getText());
+                            }
+                        }
+                    }
+                });
+            }
         }
         if(comboBox2.getSelectionModel().getSelectedItem().toString().equals("Power Supply Unit")){
             SourcesService.setForDelete();
+            for(int i=0; i<buttons.size(); i++){
+                final int nr=i;
+                buttons.get(i).setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        for(int j=0; j<numeProduse.length; j++){
+                            if(nr == j){
+                                SourcesService.DeleteProduct(numeProduse[j].getText());
+                            }
+                        }
+                    }
+                });
+            }
         }
     }
 
+    public void CloseDeleteWindow(ActionEvent event){
+        stage=(Stage) CloseWindow.getScene().getWindow();
+        stage.close();
+    }
 
     public static int GetKP()
     {

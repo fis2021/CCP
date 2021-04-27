@@ -2,7 +2,9 @@ package sample.DataBase;
 
 import org.dizitart.no2.Nitrite;
 
+import org.dizitart.no2.objects.ObjectFilter;
 import org.dizitart.no2.objects.ObjectRepository;
+import org.dizitart.no2.objects.filters.ObjectFilters;
 import sample.Categories.RAM.RAM;
 import sample.Categories.RAM.RAMBase;
 import sample.Categories.Sources.SourcesBase;
@@ -30,6 +32,14 @@ public class RAMService {
     public static void set(){
         for(RAMBase ramBase : RAMRepository.find()){
             RAM.setareVectori(ramBase.getNumeProdus(),ramBase.getPret(),ramBase.getDescriere(),ramBase.getTip(), ramBase.getGarantie());
+        }
+    }
+
+    public static void DeleteProduct(String numeProdus){
+        for(RAMBase ramBase : RAMRepository.find()){
+            if(numeProdus.equals(ramBase.getNumeProdus())){
+                RAMRepository.remove(ObjectFilters.eq("numeProdus",numeProdus));
+            }
         }
     }
 

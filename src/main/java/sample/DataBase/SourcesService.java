@@ -1,7 +1,9 @@
 package sample.DataBase;
 
 import org.dizitart.no2.Nitrite;
+import org.dizitart.no2.objects.ObjectFilter;
 import org.dizitart.no2.objects.ObjectRepository;
+import org.dizitart.no2.objects.filters.ObjectFilters;
 import sample.Categories.Processors.Processors;
 import sample.Categories.Sources.SourcesBase;
 import sample.Categories.Sources.Sources;
@@ -35,6 +37,15 @@ public class SourcesService {
         {
             if(UserService.returnId(MainPage.getUsernameFromMain()) == sourcesBase.getId()){
                 PopUp.getDataBase(sourcesBase.getNumeProdus(),sourcesBase.getPret(),sourcesBase.getDescriere(),sourcesBase.getTip(), sourcesBase.getGarantie());
+            }
+        }
+    }
+
+    public static void DeleteProduct(String numeProdus){
+        for(SourcesBase sourcesBase : SourcesRepository.find())
+        {
+            if(numeProdus.equals(sourcesBase.getNumeProdus())){
+                SourcesRepository.remove(ObjectFilters.eq("numeProdus",numeProdus));
             }
         }
     }

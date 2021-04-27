@@ -1,5 +1,6 @@
 package sample.DataBase;
 import org.dizitart.no2.Nitrite;
+import org.dizitart.no2.objects.filters.ObjectFilters;
 import sample.Categories.Processors.Processors;
 import sample.Categories.Processors.ProcessorsBase;
 
@@ -35,6 +36,15 @@ public class ProcessorsService {
         {
             if(UserService.returnId(MainPage.getUsernameFromMain()) == processorsBase.getId()){
                 PopUp.getDataBase(processorsBase.getNumeProdus(),processorsBase.getPret(),processorsBase.getDescriere(),processorsBase.getTip(), processorsBase.getGarantie());
+            }
+        }
+    }
+
+    public static void DeleteProduct(String numeProdus){
+        for(ProcessorsBase processorsBase : ProcessorsRepository.find())
+        {
+            if(numeProdus.equals(processorsBase.getNumeProdus())){
+                ProcessorsRepository.remove(ObjectFilters.eq("numeProdus",numeProdus));
             }
         }
     }
