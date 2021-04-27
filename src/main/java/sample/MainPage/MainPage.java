@@ -24,7 +24,7 @@ public class MainPage {
     @FXML
     private Text WelcomeText;
     @FXML
-    private Button Processors,GraphicCard,RAM,Sources,ModProfile,GoProfile,Log,Add,Delete;
+    private Button Processors,GraphicCard,RAM,Sources,ModProfile,GoProfile,Log,Add,Delete,Edit;
     private Stage stage;
     private Parent root;
     private static int nr;
@@ -162,6 +162,19 @@ public class MainPage {
         }
 
         stage.setTitle("Delete a product");
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void EditProduct(ActionEvent event) throws Exception{
+        if(event.getSource() == Edit){
+            nr=5;
+            stage = new Stage();
+            root = FXMLLoader.load(getClass().getResource("/FXML/PopUps/PopUpforEditProduct.fxml"));
+        }
+
+        stage.setTitle("Edit a product");
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
