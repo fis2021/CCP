@@ -7,6 +7,9 @@ import sample.Categories.Processors.ProcessorsBase;
 import org.dizitart.no2.objects.ObjectRepository;
 import sample.MainPage.MainPage;
 import sample.MainPage.PopUp;
+import sample.exceptions.ProductAlreadyExists;
+
+import java.util.Objects;
 
 import static sample.DataBase.FileSystemService.getPathToFile;
 
@@ -49,7 +52,32 @@ public class ProcessorsService {
         }
     }
 
-    public static void addProcessors(String numeProdus,String Pret,String Descriere,String Tip,String Garantie,int id){
+    public static void EditProduct(String numeProdus,String Pret,String Tip,String Garantie,String Descriere) {
+        for(ProcessorsBase processorsBase : ProcessorsRepository.find())
+        {
+            if (numeProdus.equals(processorsBase.getNumeProdus())) {
+                 processorsBase.setDescriere(Descriere);
+                 processorsBase.setPret(Pret);
+                 processorsBase.setGarantie(Garantie);
+                 processorsBase.setTip(Tip);
+                 DeleteProduct(numeProdus);
+                 ProcessorsRepository.insert(processorsBase);
+            }
+        }
+    }
+
+    public static void addProcessors(String numeProdus,String Pret,String Descriere,String Tip,String Garantie,int id) throws ProductAlreadyExists{
+        CheckProductAlreadyExists(numeProdus);
         ProcessorsRepository.insert(new ProcessorsBase(numeProdus,Pret,Descriere,Tip,Garantie,id));
+    }
+
+    private static void CheckProductAlreadyExists(String name) throws ProductAlreadyExists{
+        for(ProcessorsBase processorsBase:ProcessorsRepository.find())
+        {
+            if(Objects.equals(name,processorsBase.getNumeProdus()))
+            {
+                throw new ProductAlreadyExists(name);
+            }
+        }
     }
 }
