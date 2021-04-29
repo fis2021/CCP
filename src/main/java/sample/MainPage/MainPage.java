@@ -174,7 +174,7 @@ public class MainPage {
             root = FXMLLoader.load(getClass().getResource("/FXML/PopUps/PopUpforEditProduct.fxml"));
         }
 
-        stage.setTitle("Edit a product");
+        stage.setTitle("Edit the products");
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

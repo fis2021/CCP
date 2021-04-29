@@ -47,6 +47,22 @@ public class GraphicCardsBase {
         return id;
     }
 
+    public void setDescriere(String Descriere) {
+        this.Descriere=Descriere;
+    }
+
+    public void setGarantie(String Garantie) {
+        this.Garantie=Garantie;
+    }
+
+    public void setPret(String Pret) {
+        this.Pret=Pret;
+    }
+
+    public void setTip(String Tip) {
+        this.Tip=Tip;
+    }
+
     @Override
     public String toString(){
         return numeProdus + " "+ Pret + " " + Garantie + " " +Tip + " " + Descriere;
