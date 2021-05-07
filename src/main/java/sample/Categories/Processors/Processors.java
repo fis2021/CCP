@@ -14,6 +14,9 @@ import javafx.stage.Stage;
 import sample.MainPage.PopUp;
 import sample.DataBase.ProcessorsService;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Processors {
     @FXML
     private Button GoBack;
@@ -23,6 +26,7 @@ public class Processors {
     private AnchorPane AnchorPaneRight;
     private static VBox vBox = new VBox();
     private static Button[] buttons = new Button[10];
+    private static List<Button> buttons1=new ArrayList<>(10);
     private static Pane[] panes = new Pane[10];
     private static Text[] numeProduse = new Text[10];
     private static Text[] Pret= new Text[10];
@@ -132,10 +136,12 @@ public class Processors {
             Garantie[i].setLayoutY(3);
             buttons[i] = new Button("Add product");
             buttons[i].setLayoutX(620);
+            buttons1.add(i,new Button("Interested"));
+            buttons1.get(i).setLayoutX(520);
             panes[i]=new Pane();
             panes[i].setLayoutX(700);
             panes[i].setLayoutY(50);
-            panes[i].getChildren().addAll(numeProduse[i],Pret[i],Descriere[i],Tip[i],Garantie[i],buttons[i]);
+            panes[i].getChildren().addAll(numeProduse[i],Pret[i],Descriere[i],Tip[i],Garantie[i],buttons[i],buttons1.get(i));
 
 
 

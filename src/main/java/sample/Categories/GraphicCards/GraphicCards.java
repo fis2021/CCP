@@ -14,6 +14,9 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sample.MainPage.PopUp;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GraphicCards {
     @FXML
     private Button GoBack;
@@ -24,6 +27,7 @@ public class GraphicCards {
     private static VBox vbox1=new VBox();
     private static Pane[] pane1=new Pane[10];
     private static Button[] buttons=new Button[10];
+    private static List<Button> buttons1=new ArrayList<>(10);
     private static Text[] nume=new Text[10];
     private static Text[] descriere=new Text[10];
     private static Text[] pret=new Text[10];
@@ -69,10 +73,12 @@ public class GraphicCards {
             garantie[i].setLayoutY(3);
             buttons[i] = new Button("Add product");
             buttons[i].setLayoutX(620);
+            buttons1.add(i,new Button("Interested"));
+            buttons1.get(i).setLayoutX(520);
             pane1[i]=new Pane();
             pane1[i].setLayoutX(700);
             pane1[i].setLayoutY(50);
-            pane1[i].getChildren().addAll(nume[i],pret[i],descriere[i],tip[i],garantie[i],buttons[i]);
+            pane1[i].getChildren().addAll(nume[i],pret[i],descriere[i],tip[i],garantie[i],buttons[i],buttons1.get(i));
 
 
 
