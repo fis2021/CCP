@@ -26,7 +26,7 @@ public class Sources {
     private AnchorPane AnchorR;
     private static VBox vbox1=new VBox();
     private static Pane[] pane1=new Pane[10];
-    private static Button[] buttons=new Button[10];
+    private static List<Button> buttons=new ArrayList<>(10);
     private static List<Button> buttons1=new ArrayList<>(10);
     private static Text[] nume=new Text[10];
     private static Text[] descriere=new Text[10];
@@ -73,14 +73,14 @@ public class Sources {
             tip[i].setLayoutY(3);
             garantie[i].setLayoutX(400);
             garantie[i].setLayoutY(3);
-            buttons[i] = new Button("Add product");
-            buttons[i].setLayoutX(620);
+            buttons.add(i,new Button("Add product"));
+            buttons.get(i).setLayoutX(620);
             buttons1.add(i,new Button("Interested"));
             buttons1.get(i).setLayoutX(520);
             pane1[i]=new Pane();
             pane1[i].setLayoutX(700);
             pane1[i].setLayoutY(50);
-            pane1[i].getChildren().addAll(nume[i],pret[i],descriere[i],tip[i],garantie[i],buttons[i],buttons1.get(i));
+            pane1[i].getChildren().addAll(nume[i],pret[i],descriere[i],tip[i],garantie[i],buttons.get(i),buttons1.get(i));
         }
         vbox1.getChildren().add(pane1[PopUp.GetKS()]);
     }
