@@ -12,10 +12,13 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import sample.MainPage.MainPage;
 import sample.MainPage.PopUp;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static sample.DataBase.UserService.returnRole;
 
 public class RAM {
     @FXML
@@ -74,6 +77,15 @@ public class RAM {
             buttons.get(i).setLayoutX(620);
             buttons1.add(i,new Button("Interested"));
             buttons1.get(i).setLayoutX(520);
+            if(returnRole(MainPage.getUsernameFromMain()).equals("Seller")){
+                buttons.get(i).setVisible(false);
+                buttons1.get(i).setVisible(false);
+            }
+            else
+            {
+                buttons.get(i).setVisible(true);
+                buttons1.get(i).setVisible(true);
+            }
             panes[i]=new Pane();
             panes[i].setLayoutX(700);
             panes[i].setLayoutY(50);

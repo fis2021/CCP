@@ -88,4 +88,13 @@ public class UserService {
         }
         return -1;
     }
+
+    public static String returnRole(String name){
+        for(User user : userRepository.find()){
+            if(Objects.equals(name,user.getUsername())){
+                return user.getRole();
+            }
+        }
+        return null;
+    }
 }

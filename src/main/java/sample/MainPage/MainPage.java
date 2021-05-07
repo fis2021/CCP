@@ -18,6 +18,8 @@ import sample.DataBase.ProcessorsService;
 import sample.DataBase.RAMService;
 import sample.DataBase.SourcesService;
 
+import static sample.DataBase.UserService.returnRole;
+
 
 public class MainPage {
 
@@ -180,9 +182,25 @@ public class MainPage {
         stage.show();
     }
 
+    private void HideandShow(){
+        if(returnRole(username).equals("Customer"))
+        {
+            Add.setVisible(false);
+            Edit.setVisible(false);
+            Delete.setVisible(false);
+        }
+        else
+        {
+            Add.setVisible(true);
+            Edit.setVisible(true);
+            Delete.setVisible(true);
+        }
+    }
+
     @FXML
     private void initialize(){
         //MovingText();
+        HideandShow();
     }
 
 }

@@ -56,11 +56,11 @@ public class Login {
 
                 return;
             }
-
+            MainPage.usernameForMain(username.getText());
             stage = (Stage) Login.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("/FXML/MainPage.fxml"));
         }
-        MainPage.usernameForMain(username.getText());
+
         Scene scene = new Scene(root);
         stage.setTitle("CCP MAIN PAGE");
         stage.setScene(scene);

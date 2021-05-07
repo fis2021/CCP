@@ -12,10 +12,13 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import sample.MainPage.MainPage;
 import sample.MainPage.PopUp;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static sample.DataBase.UserService.returnRole;
 
 public class Sources {
     @FXML
@@ -77,6 +80,15 @@ public class Sources {
             buttons.get(i).setLayoutX(620);
             buttons1.add(i,new Button("Interested"));
             buttons1.get(i).setLayoutX(520);
+            if(returnRole(MainPage.getUsernameFromMain()).equals("Seller")){
+                buttons.get(i).setVisible(false);
+                buttons1.get(i).setVisible(false);
+            }
+            else
+            {
+                buttons.get(i).setVisible(true);
+                buttons1.get(i).setVisible(true);
+            }
             pane1[i]=new Pane();
             pane1[i].setLayoutX(700);
             pane1[i].setLayoutY(50);
