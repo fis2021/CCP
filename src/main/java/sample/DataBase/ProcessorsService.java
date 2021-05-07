@@ -1,6 +1,7 @@
 package sample.DataBase;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.filters.ObjectFilters;
+import sample.Categories.GraphicCards.GraphicCardsBase;
 import sample.Categories.Processors.Processors;
 import sample.Categories.Processors.ProcessorsBase;
 
@@ -66,9 +67,9 @@ public class ProcessorsService {
         }
     }
 
-    public static void addProcessors(String numeProdus,String Pret,String Descriere,String Tip,String Garantie,int id) throws ProductAlreadyExists{
+    public static void addProcessors(String numeProdus,String Pret,String Descriere,String Tip,String Garantie,int id,int nr) throws ProductAlreadyExists{
         CheckProductAlreadyExists(numeProdus);
-        ProcessorsRepository.insert(new ProcessorsBase(numeProdus,Pret,Descriere,Tip,Garantie,id));
+        ProcessorsRepository.insert(new ProcessorsBase(numeProdus,Pret,Descriere,Tip,Garantie,id,nr));
     }
 
     private static void CheckProductAlreadyExists(String name) throws ProductAlreadyExists{
@@ -79,5 +80,21 @@ public class ProcessorsService {
                 throw new ProductAlreadyExists(name);
             }
         }
+    }
+
+    public static void Increment(String numeProdus,String Pret,String Tip,String Garantie,String Descriere){
+        for(ProcessorsBase processorsBase : ProcessorsRepository.find())
+        {
+            if (numeProdus.equals(processorsBase.getNumeProdus())) {
+                processorsBase.IncrementInterest();
+                processorsBase.setDescriere(Descriere);
+                processorsBase.setPret(Pret);
+                processorsBase.setGarantie(Garantie);
+                processorsBase.setTip(Tip);
+                DeleteProduct(numeProdus);
+                ProcessorsRepository.insert(processorsBase);
+            }
+        }
+
     }
 }

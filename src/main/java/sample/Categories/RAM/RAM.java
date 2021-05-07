@@ -1,6 +1,7 @@
 package sample.Categories.RAM;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -12,7 +13,15 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import sample.MainPage.MainPage;
 import sample.MainPage.PopUp;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+import static sample.DataBase.RAMService.Increment;
+import static sample.DataBase.UserService.returnRole;
 
 public class RAM {
     @FXML
@@ -33,48 +42,75 @@ public class RAM {
     @FXML
     private AnchorPane AnchorPaneRight;
     private static VBox vBox = new VBox();
-    private static Button[] buttons = new Button[10];
-    private static Pane[] panes = new Pane[10];
-    private static Text[] numeProduse = new Text[10];
-    private static Text[] Pret= new Text[10];
-    private static Text[] Descriere=new Text[10];
-    private static Text[] Tip=new Text[10];
-    private static Text[] Garantie=new Text[10];
+    private static Pane[] pane1 = new Pane[10];
+    private static List<Button> buttons=new ArrayList<>(10);
+    private static List<Button> buttons1=new ArrayList<>(10);
+    private static List<Text> nume=new ArrayList<>(10);
+    private static List<Text> descriere=new ArrayList<>(10);
+    private static List<Text> pret=new ArrayList<>(10);
+    private static List<Text> tip=new ArrayList<>(10);
+    private static List<Text> garantie=new ArrayList<>(10);
 
     private void initVBOX(){
         vBox.setPadding(new Insets(10,10,10,10));
         vBox.setSpacing(50);
     }
 
-    public static void setareVectori(String nume,String descriere,String pret,String tip,String garantie){
-        for(int i=0;i<numeProduse.length;i++)
+    public static void setareVectori(String nume1,String descriere1,String pret1,String tip1,String garantie1){
+        for(int i=0;i<10;i++)
         {
-            numeProduse[i]=new Text(nume);
-            numeProduse[i].setLayoutX(0);
-            numeProduse[i].setLayoutY(3);
-            Pret[i] = new Text(pret);
-            Descriere[i] = new Text(descriere);
-            Tip[i] = new Text(tip);
-            Garantie[i] = new Text(garantie);
-            numeProduse[i].setLayoutX(0);
-            numeProduse[i].setLayoutY(3);
-            Pret[i].setLayoutX(100);
-            Pret[i].setLayoutY(3);
-            Descriere[i].setLayoutX(200);
-            Descriere[i].setLayoutY(25);
-            Tip[i].setLayoutX(300);
-            Tip[i].setLayoutY(3);
-            Garantie[i].setLayoutX(400);
-            Garantie[i].setLayoutY(3);
-            buttons[i] = new Button("Add product");
-            buttons[i].setLayoutX(620);
-            panes[i]=new Pane();
-            panes[i].setLayoutX(700);
-            panes[i].setLayoutY(50);
-            panes[i].getChildren().addAll(numeProduse[i],Pret[i],Descriere[i],Tip[i],Garantie[i],buttons[i]);
+            nume.add(i,new Text(nume1));
+            nume.get(i).setLayoutX(0);
+            nume.get(i).setLayoutY(3);
+            pret.add(i,new Text(pret1));
+            descriere.add(i,new Text(descriere1));
+            tip.add(i,new Text(tip1));
+            garantie.add(i,new Text(garantie1));
+            pret.get(i).setLayoutX(100);
+            pret.get(i).setLayoutY(3);
+            descriere.get(i).setLayoutX(200);
+            descriere.get(i).setLayoutY(25);
+            tip.get(i).setLayoutX(300);
+            tip.get(i).setLayoutY(3);
+            garantie.get(i).setLayoutX(400);
+            garantie.get(i).setLayoutY(3);
+            buttons.add(i,new Button("Add product"));
+            buttons.get(i).setLayoutX(620);
+            buttons1.add(i,new Button("Interested"));
+            buttons1.get(i).setLayoutX(520);
+            if(returnRole(MainPage.getUsernameFromMain()).equals("Seller")){
+                buttons.get(i).setVisible(false);
+                buttons1.get(i).setVisible(false);
+            }
+            else
+            {
+                buttons.get(i).setVisible(true);
+                buttons1.get(i).setVisible(true);
+            }
+            pane1[i]=new Pane();
+            pane1[i].setLayoutX(700);
+            pane1[i].setLayoutY(50);
+            pane1[i].getChildren().addAll(nume.get(i),pret.get(i),descriere.get(i),tip.get(i),garantie.get(i),buttons.get(i),buttons1.get(i));
+
+
 
         }
-        vBox.getChildren().add(panes[PopUp.GetKR()]);
+        for(int i=0;i< buttons1.size();i++)
+        {
+            final int nr=i;
+            buttons1.get(i).setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    for(int j=0;j<nume.size();j++)
+                    {
+                        Increment(nume.get(nr).getText(),pret.get(nr).getText(),tip.get(nr).getText(),garantie.get(nr).getText(),descriere.get(nr).getText());
+                        return;
+
+                    }
+                }
+            });
+        }
+        vBox.getChildren().add(pane1[PopUp.GetKR()]);
     }
 
     private void init(){

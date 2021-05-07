@@ -7,19 +7,27 @@ public class SourcesBase {
     private String Tip;
     private String Garantie;
     private int id;
+    private int nrinteresati;
 
     public SourcesBase(){
 
     }
 
-    public SourcesBase(String numeProdus,String Pret,String Descriere,String Tip,String Garantie,int id){
+    public SourcesBase(String numeProdus,String Pret,String Descriere,String Tip,String Garantie,int id,int nrinteresati){
         this.numeProdus=numeProdus;
         this.Pret=Pret;
         this.Descriere=Descriere;
         this.Tip=Tip;
         this.Garantie=Garantie;
         this.id=id;
+        this.nrinteresati=nrinteresati;
     }
+    public void IncrementInterest()
+    {
+        nrinteresati++;
+    }
+
+    public int getNrInteresati(){ return nrinteresati;}
 
     public String getDescriere() {
         return Descriere;

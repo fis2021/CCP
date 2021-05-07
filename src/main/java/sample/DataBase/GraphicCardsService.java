@@ -68,12 +68,13 @@ public class GraphicCardsService {
         }
     }
 
-    public static void addGraphic(String numeProdus,String Pret,String Descriere,String Tip,String Garantie,int id) throws ProductAlreadyExists{
+    public static void addGraphic(String numeProdus,String Pret,String Descriere,String Tip,String Garantie,int id,int nrinteresati) throws ProductAlreadyExists{
         CheckProductAlreadyExists(numeProdus);
-        GraphicCardsRepository.insert(new GraphicCardsBase(numeProdus, Pret, Descriere, Tip, Garantie, id));
+        GraphicCardsRepository.insert(new GraphicCardsBase(numeProdus, Pret, Descriere, Tip, Garantie, id, nrinteresati));
     }
 
-    private static void CheckProductAlreadyExists(String name) throws ProductAlreadyExists {
+    private static void CheckProductAlreadyExists(String name) throws ProductAlreadyExists
+    {
         for(GraphicCardsBase graphicBase:GraphicCardsRepository.find())
             {
                 if(Objects.equals(name,graphicBase.getNumeProdus()))
@@ -81,6 +82,24 @@ public class GraphicCardsService {
                     throw new ProductAlreadyExists(name);
                 }
             }
+    }
+
+    public static void Increment(String numeProdus,String Pret,String Tip,String Garantie,String Descriere){
+        for(GraphicCardsBase graphicBase:GraphicCardsRepository.find())
+        {
+            if(Objects.equals(numeProdus,graphicBase.getNumeProdus()))
+            {
+                graphicBase.IncrementInterest();
+                graphicBase.setDescriere(Descriere);
+                graphicBase.setPret(Pret);
+                graphicBase.setGarantie(Garantie);
+                graphicBase.setTip(Tip);
+                DeleteProduct(numeProdus);
+                GraphicCardsRepository.insert(graphicBase);
+
+
+            }
         }
 
+    }
 }
