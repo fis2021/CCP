@@ -70,9 +70,9 @@ public class SourcesService {
     }
 
 
-    public static void addSource(String numeProdus,String Pret,String Descriere,String Tip,String Garantie,int id) throws ProductAlreadyExists{
+    public static void addSource(String numeProdus,String Pret,String Descriere,String Tip,String Garantie,int id,int nrinteresati) throws ProductAlreadyExists{
         CheckProductAlreadyExists(numeProdus);
-        SourcesRepository.insert(new SourcesBase(numeProdus,Pret,Descriere,Tip,Garantie,id));
+        SourcesRepository.insert(new SourcesBase(numeProdus,Pret,Descriere,Tip,Garantie,id,nrinteresati));
     }
 
     private static void CheckProductAlreadyExists(String name) throws ProductAlreadyExists {
@@ -81,6 +81,21 @@ public class SourcesService {
             if(Objects.equals(name,sourcesBase.getNumeProdus()))
             {
                 throw new ProductAlreadyExists(name);
+            }
+        }
+    }
+
+    public static void Increment(String numeProdus,String Pret,String Tip,String Garantie,String Descriere){
+        for(SourcesBase sourcesBase : SourcesRepository.find())
+        {
+            if (numeProdus.equals(sourcesBase.getNumeProdus())) {
+                sourcesBase.IncrementInterest();
+                sourcesBase.setDescriere(Descriere);
+                sourcesBase.setPret(Pret);
+                sourcesBase.setGarantie(Garantie);
+                sourcesBase.setTip(Tip);
+                DeleteProduct(numeProdus);
+                SourcesRepository.insert(sourcesBase);
             }
         }
     }

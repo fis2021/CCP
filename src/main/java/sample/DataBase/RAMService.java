@@ -30,9 +30,9 @@ public class RAMService {
         RAMRepository= database.getRepository(RAMBase.class);
     }
 
-    public static void addRAM(String numeProdus,String Pret,String Descriere,String Tip,String Garantie,int id) throws ProductAlreadyExists{
+    public static void addRAM(String numeProdus,String Pret,String Descriere,String Tip,String Garantie,int id,int nrinteresati) throws ProductAlreadyExists{
         CheckProductAlreadyExists(numeProdus);
-        RAMRepository.insert(new RAMBase(numeProdus,Pret,Descriere,Tip,Garantie,id));
+        RAMRepository.insert(new RAMBase(numeProdus,Pret,Descriere,Tip,Garantie,id,nrinteresati));
     }
 
     private static void CheckProductAlreadyExists(String name) throws ProductAlreadyExists {
@@ -77,6 +77,21 @@ public class RAMService {
         for(RAMBase ramBase : RAMRepository.find()){
             if(UserService.returnId(MainPage.getUsernameFromMain())==ramBase.getId()){
                 PopUp.getDataBase(ramBase.getNumeProdus(),ramBase.getPret(),ramBase.getDescriere(),ramBase.getTip(), ramBase.getGarantie());
+            }
+        }
+    }
+
+    public static void Increment(String numeProdus,String Pret,String Tip,String Garantie,String Descriere){
+        for(RAMBase ramBase : RAMRepository.find())
+        {
+            if (numeProdus.equals(ramBase.getNumeProdus())) {
+                ramBase.IncrementInterest();
+                ramBase.setDescriere(Descriere);
+                ramBase.setPret(Pret);
+                ramBase.setGarantie(Garantie);
+                ramBase.setTip(Tip);
+                DeleteProduct(numeProdus);
+                RAMRepository.insert(ramBase);
             }
         }
     }

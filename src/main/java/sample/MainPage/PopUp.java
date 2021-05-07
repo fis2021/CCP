@@ -95,19 +95,19 @@ public class PopUp {
                 alert.showAndWait();
             } else {
                 if (comboBox1.getSelectionModel().getSelectedItem().toString().equals("Processors")) {
-                    ProcessorsService.addProcessors(numeprodus.getText(), pret.getText(), descriere.getText(), tip.getText(), garantie.getText(), UserService.returnId(MainPage.getUsernameFromMain()));
+                    ProcessorsService.addProcessors(numeprodus.getText(), pret.getText(), descriere.getText(), tip.getText(), garantie.getText(), UserService.returnId(MainPage.getUsernameFromMain()),0);
                     kp++;
                 }
                 if (comboBox1.getSelectionModel().getSelectedItem().toString().equals("Graphic Cards")) {
-                    GraphicCardsService.addGraphic(numeprodus.getText(), pret.getText(), descriere.getText(), tip.getText(), garantie.getText(), UserService.returnId(MainPage.getUsernameFromMain()));
+                    GraphicCardsService.addGraphic(numeprodus.getText(), pret.getText(), descriere.getText(), tip.getText(), garantie.getText(), UserService.returnId(MainPage.getUsernameFromMain()),0);
                     kg++;
                 }
                 if (comboBox1.getSelectionModel().getSelectedItem().toString().equals("RAM")) {
-                    RAMService.addRAM(numeprodus.getText(), pret.getText(), descriere.getText(), tip.getText(), garantie.getText(), UserService.returnId(MainPage.getUsernameFromMain()));
+                    RAMService.addRAM(numeprodus.getText(), pret.getText(), descriere.getText(), tip.getText(), garantie.getText(), UserService.returnId(MainPage.getUsernameFromMain()),0);
                     kr++;
                 }
                 if (comboBox1.getSelectionModel().getSelectedItem().equals("Power Supply Unit")) {
-                    SourcesService.addSource(numeprodus.getText(), pret.getText(), descriere.getText(), tip.getText(), garantie.getText(), UserService.returnId(MainPage.getUsernameFromMain()));
+                    SourcesService.addSource(numeprodus.getText(), pret.getText(), descriere.getText(), tip.getText(), garantie.getText(), UserService.returnId(MainPage.getUsernameFromMain()),0);
                     kp++;
                 }
                 stage = (Stage) addit.getScene().getWindow();

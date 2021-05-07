@@ -8,19 +8,26 @@ public class ProcessorsBase {
     private String Tip;
     private String Garantie;
     private int id;
+    private int nrinteresati;
 
 
     public ProcessorsBase(){
 
     }
 
-    public ProcessorsBase(String numeProdus,String Pret,String Descriere,String Tip,String Garantie,int id){
+    public ProcessorsBase(String numeProdus,String Pret,String Descriere,String Tip,String Garantie,int id,int nrinteresati){
         this.numeProdus=numeProdus;
         this.Pret=Pret;
         this.Descriere=Descriere;
         this.Tip=Tip;
         this.Garantie=Garantie;
         this.id=id;
+        this.nrinteresati=nrinteresati;
+    }
+
+    public void IncrementInterest()
+    {
+        nrinteresati++;
     }
 
     public String getDescriere() {
@@ -42,6 +49,8 @@ public class ProcessorsBase {
     public String getTip() {
         return Tip;
     }
+
+    public int getNrinteresati() {return nrinteresati; }
 
     public int getId(){
         return id;
