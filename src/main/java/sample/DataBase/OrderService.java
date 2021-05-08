@@ -3,6 +3,7 @@ package sample.DataBase;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 import org.dizitart.no2.objects.filters.ObjectFilters;
+import sample.MainPage.PopUpAccept;
 import sample.User.Order;
 import sample.User.User;
 import sample.exceptions.UsernameAlreadyExistException;
@@ -23,8 +24,8 @@ public class OrderService {
         OrderRepository = database.getRepository(Order.class);
     }
 
-    public static void Order(String numProdus, String numeSeller,String numeCustomer,int cantitate,boolean delivery){
-        OrderRepository.insert(new Order(numeSeller,numeCustomer,numProdus,cantitate,delivery));
+    public static void Order(String numProdus, String numeSeller,String numeCustomer,int cantitate,boolean delivery,String status){
+        OrderRepository.insert(new Order(numeSeller,numeCustomer,numProdus,cantitate,delivery,status));
     }
 
     public static void setDeliv(){
@@ -36,6 +37,29 @@ public class OrderService {
             order.setCantitate(order.getCantitate());
             OrderRepository.insert(order);
             OrderRepository.remove(ObjectFilters.eq("NumeSeller",order.getNumeSeller()));
+        }
+    }
+
+    public static void set(String numeSeller){
+        for(Order order : OrderRepository.find()){
+            if(numeSeller.equals(order.getNumeSeller()) && order.getStatus().equals("In curs de procesare")){
+                Integer y = new Integer(order.getCantitate());
+                PopUpAccept.Test(order.getNumeProduse(),y.toString());
+            }
+        }
+    }
+
+    public static void SetStatusOrder(String numeProdus,String status){
+        for(Order order : OrderRepository.find()){
+            if(order.getNumeProduse().equals(numeProdus)){
+                order.setStatus(status);
+                order.setCantitate(order.getCantitate());
+                order.setNumeCustomer(order.getNumeCustomer());
+                order.setNumeSeller(order.getNumeSeller());
+                order.setDelivery(order.getdelivery());
+                OrderRepository.remove(ObjectFilters.eq("NumeProduse",order.getNumeProduse()));
+                OrderRepository.insert(order);
+            }
         }
     }
 

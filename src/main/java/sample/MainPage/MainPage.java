@@ -206,6 +206,7 @@ public class MainPage {
             nr=7;
             stage = new Stage();
             root = FXMLLoader.load(getClass().getResource("/FXML/PopUps/PopUpforAccept.fxml"));
+            OrderService.set(MainPage.getUsernameFromMain());
         }
         stage.setTitle("Accept/Decline order");
         Scene scene = new Scene(root);
