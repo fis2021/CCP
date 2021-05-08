@@ -4,11 +4,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import sample.DataBase.OrderService;
 import sample.DataBase.TempOrderService;
 
 import java.util.ArrayList;
@@ -25,6 +28,8 @@ public class PopUpOrder {
     @FXML
     private Button Place,Delete;
     private Stage stage;
+    @FXML
+    private CheckBox Delivery;
 
     private void initVBOX(){
         vbox1.setPadding(new Insets(10,10,10,10));
@@ -58,7 +63,11 @@ public class PopUpOrder {
 
     public void SetOrder(ActionEvent event){
         if(event.getSource() == Place){
-            TempOrderService.DeleteAllDatabase(numeProdus);
+            TempOrderService.DeleteAllDatabase(MainPage.getUsernameFromMain());
+        }
+        if(event.getSource() == Delivery){
+            OrderService.setDeliv();
+            return;
         }
         stage = (Stage) Delete.getScene().getWindow();
         stage.close();
@@ -66,7 +75,7 @@ public class PopUpOrder {
 
     public void DeleteOrder(ActionEvent event){
         if(event.getSource() == Delete){
-            TempOrderService.DeleteAllDatabase(numeProdus);
+            TempOrderService.DeleteAllDatabase(MainPage.getUsernameFromMain());
         }
         stage = (Stage) Delete.getScene().getWindow();
         stage.close();
@@ -74,8 +83,11 @@ public class PopUpOrder {
 
     @FXML
     public void initialize(){
-        TempOrderService.set();
-        TempOrderService.SetNewDataBase();
+        if(Delivery.isSelected()){
+            TempOrderService.SetNewDataBase(true);
+        }else{
+            TempOrderService.SetNewDataBase(false);
+        }
         initVBOX();
         init();
     }

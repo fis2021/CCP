@@ -184,7 +184,9 @@ public class MainPage {
             nr=6;
             stage = new Stage();
             root = FXMLLoader.load(getClass().getResource("/FXML/PopUps/PopUpforMakeOrder.fxml"));
-            TempOrderService.set();
+            if(TempOrderService.VerifyIfCustomerExist(MainPage.getUsernameFromMain())){
+                TempOrderService.set(MainPage.getUsernameFromMain());
+            }
         }
         stage.setTitle("Make an order");
         Scene scene = new Scene(root);

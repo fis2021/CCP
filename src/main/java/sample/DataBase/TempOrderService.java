@@ -39,10 +39,12 @@ public class TempOrderService {
         }
     }
 
-    public static void set(){
+    public static void set(String numeCustomer){
         for(TempOrder tempOrder : TempOrderRepository.find()){
-            Integer x = new Integer(tempOrder.getCantitate());
-            PopUpOrder.Test(tempOrder.getNumeProduse(),x.toString());
+            if(tempOrder.getNumeCustomer().equals(numeCustomer)){
+                Integer x = new Integer(tempOrder.getCantitate());
+                PopUpOrder.Test(tempOrder.getNumeProduse(),x.toString());
+            }
         }
     }
 
@@ -60,21 +62,27 @@ public class TempOrderService {
         return false;
     }
 
-    public static void DeleteAllDatabase(List<Text> nume){
+    public static void DeleteAllDatabase(String numeCustomer){
         for(TempOrder tempOrder : TempOrderRepository.find()){
-            for(int i=0; i<10; i++){
-                if(nume.get(i).getText().equals(tempOrder.getNumeProduse())){
-                    TempOrderRepository.remove(ObjectFilters.ALL);
-
-                }
+            if(tempOrder.getNumeCustomer().equals(numeCustomer)){
+                TempOrderRepository.remove(ObjectFilters.eq("numeCustomer",numeCustomer));
             }
         }
     }
 
-    public static void SetNewDataBase(){
+    public static void SetNewDataBase(boolean delivery){
         for(TempOrder tempOrder : TempOrderRepository.find()){
-            OrderService.Order(tempOrder.getNumeSeller(),tempOrder.getNumeCustomer(),tempOrder.getNumeProduse());
+            OrderService.Order(tempOrder.getNumeSeller(),tempOrder.getNumeCustomer(),tempOrder.getNumeProduse(),tempOrder.getCantitate(),delivery);
         }
+    }
+
+    public static boolean VerifyIfCustomerExist(String numeCustomer){
+        for(TempOrder tempOrder : TempOrderRepository.find()){
+            if(numeCustomer.equals(tempOrder.getNumeCustomer())){
+                return true;
+            }
+        }
+        return false;
     }
 
 }
