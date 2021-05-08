@@ -13,6 +13,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import sample.DataBase.GraphicCardsService;
+import sample.DataBase.SourcesService;
+import sample.DataBase.TempOrderService;
+import sample.DataBase.UserService;
 import sample.MainPage.MainPage;
 import sample.MainPage.PopUp;
 
@@ -77,7 +81,7 @@ public class Sources {
             tip.get(i).setLayoutY(3);
             garantie.get(i).setLayoutX(400);
             garantie.get(i).setLayoutY(3);
-            buttons.add(i,new Button("Add product"));
+            buttons.add(i,new Button("Add to cart"));
             buttons.get(i).setLayoutX(620);
             buttons1.add(i,new Button("Interested"));
             buttons1.get(i).setLayoutX(520);
@@ -113,6 +117,23 @@ public class Sources {
                 }
             });
         }
+
+        for(int i=0; i<buttons.size(); i++){
+            final int nr=i;
+            buttons.get(i).setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    for(int j=0; j<nume.size(); j++){
+                        if(TempOrderService.verify(nume.get(nr).getText(),UserService.returnNume(GraphicCardsService.returnId(nume.get(nr).getText())),MainPage.getUsernameFromMain())){
+                            return;
+                        }
+                        TempOrderService.addOrder(UserService.returnNume(SourcesService.returnId(nume.get(nr).getText())),MainPage.getUsernameFromMain(), nume.get(nr).getText());
+                        return;
+                    }
+                }
+            });
+        }
+
         vbox1.getChildren().add(pane1[PopUp.GetKS()]);
     }
 

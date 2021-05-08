@@ -97,4 +97,16 @@ public class ProcessorsService {
         }
 
     }
+
+    public static int returnId(String numeProdus){
+        for(ProcessorsBase processorsBase : ProcessorsRepository.find())
+        {
+            if (numeProdus.equals(processorsBase.getNumeProdus())) {
+                return processorsBase.getId();
+            }
+        }
+        return  -1;
+
+    }
+
 }

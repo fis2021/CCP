@@ -102,4 +102,15 @@ public class GraphicCardsService {
         }
 
     }
+
+    public static int returnId(String numeProdus){
+        for(GraphicCardsBase graphicBase:GraphicCardsRepository.find())
+        {
+            if(Objects.equals(numeProdus,graphicBase.getNumeProdus()))
+            {
+               return graphicBase.getId();
+            }
+        }
+        return -1;
+    }
 }
