@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -57,6 +61,18 @@
                <Button fx:id="Delete" layoutX="38.0" layoutY="372.0" mnemonicParsing="false" onAction="#DeleteProduct" prefHeight="35.0" prefWidth="85.0" text="Delete" />
                <Button fx:id="Edit" layoutX="134.0" layoutY="372.0" mnemonicParsing="false" onAction="#EditProduct" prefHeight="35.0" prefWidth="85.0" text="Edit" />
                <Button fx:id="Make" layoutX="38.0" layoutY="318.0" mnemonicParsing="false" onAction="#MakeOrder" prefHeight="35.0" prefWidth="180.0" text="Make a order!" />
+               <Button fx:id="Accept" layoutX="38.0" layoutY="420.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" text="Accept/Reject" />
+                  <Circle fx:id="circle" layoutX="218.0" layoutY="420.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                      <fill>
+                          <RadialGradient centerX="0.5" centerY="0.5" radius="0.8164556962025317">
+                              <stops>
+                                  <Stop color="#ff361beb" />
+                                  <Stop color="WHITE" offset="1.0" />
+                              </stops>
+                          </RadialGradient>
+                      </fill>
+                  </Circle>
+                  <Label fx:id="NotificationLabel" layoutX="215.0" layoutY="412.0" text="!" />
             </children></AnchorPane>
         </items>
     </SplitPane>

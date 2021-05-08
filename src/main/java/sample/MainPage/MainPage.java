@@ -9,7 +9,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.*;
+import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -23,7 +25,12 @@ public class MainPage {
     @FXML
     private Text WelcomeText;
     @FXML
-    private Button Processors,GraphicCard,RAM,Sources,ModProfile,GoProfile,Log,Add,Delete,Edit,Make;
+    private Button Processors,GraphicCard,RAM,Sources,ModProfile,GoProfile,Log,Add,Delete,Edit,Make,
+            Accept;
+    @FXML
+    private Circle circle;
+    @FXML
+    private Label NotificationLabel;
     private Stage stage;
     private Parent root;
     private static int nr;
@@ -201,6 +208,9 @@ public class MainPage {
             Edit.setVisible(false);
             Delete.setVisible(false);
             Make.setVisible(true);
+            Accept.setVisible(false);
+            circle.setVisible(false);
+            NotificationLabel.setVisible(false);
         }
         else
         {
@@ -208,6 +218,9 @@ public class MainPage {
             Edit.setVisible(true);
             Delete.setVisible(true);
             Make.setVisible(false);
+            Accept.setVisible(true);
+            circle.setVisible(true);
+            NotificationLabel.setVisible(true);
         }
     }
 
