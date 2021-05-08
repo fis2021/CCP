@@ -13,10 +13,7 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import sample.DataBase.GraphicCardsService;
-import sample.DataBase.ProcessorsService;
-import sample.DataBase.RAMService;
-import sample.DataBase.SourcesService;
+import sample.DataBase.*;
 
 import static sample.DataBase.UserService.returnRole;
 
@@ -187,6 +184,7 @@ public class MainPage {
             nr=6;
             stage = new Stage();
             root = FXMLLoader.load(getClass().getResource("/FXML/PopUps/PopUpforMakeOrder.fxml"));
+            TempOrderService.set();
         }
         stage.setTitle("Make an order");
         Scene scene = new Scene(root);

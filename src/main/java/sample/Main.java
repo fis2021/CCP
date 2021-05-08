@@ -27,6 +27,7 @@ public class Main extends Application {
         SourcesService.initDataBaseforSources();
         UserService.initDataBase();
         TempOrderService.initDataBase();
+        OrderService.initDataBase();
         Parent root = FXMLLoader.load(getClass().getResource("/FXML/Home.fxml"));
         primaryStage.setTitle("CCP");
         primaryStage.setScene(new Scene(root));
