@@ -201,6 +201,18 @@ public class MainPage {
         stage.show();
     }
 
+    public void AcceptOrder(ActionEvent event)throws Exception{
+        if(event.getSource() == Accept){
+            nr=7;
+            stage = new Stage();
+            root = FXMLLoader.load(getClass().getResource("/FXML/PopUps/PopUpforAccept.fxml"));
+        }
+        stage.setTitle("Accept/Decline order");
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     private void HideandShow(){
         if(returnRole(username).equals("Customer"))
         {
