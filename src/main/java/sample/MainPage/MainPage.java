@@ -26,7 +26,7 @@ public class MainPage {
     @FXML
     private Text WelcomeText;
     @FXML
-    private Button Processors,GraphicCard,RAM,Sources,ModProfile,GoProfile,Log,Add,Delete,Edit;
+    private Button Processors,GraphicCard,RAM,Sources,ModProfile,GoProfile,Log,Add,Delete,Edit,Make;
     private Stage stage;
     private Parent root;
     private static int nr;
@@ -182,18 +182,27 @@ public class MainPage {
         stage.show();
     }
 
+    public void MakeOrder(ActionEvent event)throws Exception{
+        if(event.getSource() == Make){
+            nr=6;
+            stage = new Stage();
+        }
+    }
+
     private void HideandShow(){
         if(returnRole(username).equals("Customer"))
         {
             Add.setVisible(false);
             Edit.setVisible(false);
             Delete.setVisible(false);
+            Make.setVisible(true);
         }
         else
         {
             Add.setVisible(true);
             Edit.setVisible(true);
             Delete.setVisible(true);
+            Make.setVisible(false);
         }
     }
 
