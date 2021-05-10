@@ -107,7 +107,7 @@ public class RAM {
                 public void handle(ActionEvent actionEvent) {
                     for(int j=0;j<nume.size();j++)
                     {
-                        Increment(nume.get(nr).getText(),pret.get(nr).getText(),tip.get(nr).getText(),garantie.get(nr).getText(),descriere.get(nr).getText());
+                        RAMService.Increment(nume.get(nr).getText(),pret.get(nr).getText(),tip.get(nr).getText(),garantie.get(nr).getText(),descriere.get(nr).getText());
                         return;
 
                     }

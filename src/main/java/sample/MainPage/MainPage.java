@@ -232,6 +232,7 @@ public class MainPage {
             nr=9;
             stage = new Stage();
             root = FXMLLoader.load(getClass().getResource("/FXML/PopUps/PopUpforSellerOrderHistory.fxml"));
+            FinalStatusService.setSellerOrderHistory(MainPage.getUsernameFromMain());
         }
         stage.setTitle("Order history");
         Scene scene = new Scene(root);

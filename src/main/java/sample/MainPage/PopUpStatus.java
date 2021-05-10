@@ -28,7 +28,7 @@ public class PopUpStatus {
 
     public void CloseStatusWindow(ActionEvent event){
         if(event.getSource()==Close) {
-            OrderService.DeleteOrder();
+            OrderService.DeleteOrder(MainPage.getUsernameFromMain());
         }
             stage = (Stage) Close.getScene().getWindow();
             stage.close();

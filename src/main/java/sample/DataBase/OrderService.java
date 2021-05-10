@@ -89,10 +89,12 @@ public class OrderService {
         }
     }
 
-    public static void DeleteOrder(){
+    public static void DeleteOrder(String nume){
         for(Order order : OrderRepository.find()) {
-            OrderRepository.remove(ObjectFilters.eq("status", "Accepted"));
-            OrderRepository.remove(ObjectFilters.eq("status", "Declined"));
+            if(order.getNumeCustomer().equals(nume)) {
+                OrderRepository.remove(ObjectFilters.eq("status", "Accepted"));
+                OrderRepository.remove(ObjectFilters.eq("status", "Declined"));
+            }
         }
     }
 
