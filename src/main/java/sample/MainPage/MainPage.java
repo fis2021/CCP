@@ -26,7 +26,7 @@ public class MainPage {
     private Text WelcomeText;
     @FXML
     private Button Processors,GraphicCard,RAM,Sources,ModProfile,GoProfile,Log,Add,Delete,Edit,Make,
-            Accept,Status,SellerHistory;
+            Accept,Status,SellerHistory,CustomerHistory;
     @FXML
     private Circle circle;
     @FXML
@@ -227,9 +227,9 @@ public class MainPage {
         stage.show();
     }
 
-    public void onSellerHistory(ActionEvent event)throws Exception{
-        if(event.getSource() == SellerHistory){
-            nr=9;
+    public void onSellerHistory(ActionEvent event)throws Exception {
+        if (event.getSource() == SellerHistory) {
+            nr = 9;
             stage = new Stage();
             root = FXMLLoader.load(getClass().getResource("/FXML/PopUps/PopUpforSellerOrderHistory.fxml"));
             FinalStatusService.setSellerOrderHistory(MainPage.getUsernameFromMain());
@@ -253,6 +253,7 @@ public class MainPage {
             NotificationLabel.setVisible(false);
             Status.setVisible(true);
             SellerHistory.setVisible(false);
+            CustomerHistory.setVisible(true);
         }
         else
         {
@@ -265,6 +266,7 @@ public class MainPage {
             NotificationLabel.setVisible(true);
             Status.setVisible(false);
             SellerHistory.setVisible(true);
+            CustomerHistory.setVisible(false);
         }
     }
 
