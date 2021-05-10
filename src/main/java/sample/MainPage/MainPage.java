@@ -26,7 +26,7 @@ public class MainPage {
     private Text WelcomeText;
     @FXML
     private Button Processors,GraphicCard,RAM,Sources,ModProfile,GoProfile,Log,Add,Delete,Edit,Make,
-            Accept;
+            Accept,Status;
     @FXML
     private Circle circle;
     @FXML
@@ -214,6 +214,19 @@ public class MainPage {
         stage.show();
     }
 
+    public void onStatus(ActionEvent event)throws Exception{
+        if(event.getSource() == Status){
+            nr=8;
+            stage = new Stage();
+            root = FXMLLoader.load(getClass().getResource("/FXML/PopUps/PopUpforOrderStatus.fxml"));
+            OrderService.getOrderStatus(MainPage.getUsernameFromMain());
+        }
+        stage.setTitle("Order status");
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     private void HideandShow(){
         if(returnRole(username).equals("Customer"))
         {
@@ -224,6 +237,7 @@ public class MainPage {
             Accept.setVisible(false);
             circle.setVisible(false);
             NotificationLabel.setVisible(false);
+            Status.setVisible(true);
         }
         else
         {
@@ -234,6 +248,7 @@ public class MainPage {
             Accept.setVisible(true);
             circle.setVisible(true);
             NotificationLabel.setVisible(true);
+            Status.setVisible(false);
         }
     }
 
