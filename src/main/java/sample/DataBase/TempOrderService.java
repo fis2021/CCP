@@ -71,7 +71,7 @@ public class TempOrderService {
 
     public static void SetNewDataBase(boolean delivery){
         for(TempOrder tempOrder : TempOrderRepository.find()){
-            OrderService.Order(tempOrder.getNumeProduse(),tempOrder.getNumeSeller(),tempOrder.getNumeCustomer(),tempOrder.getCantitate(),delivery,"In curs de procesare");
+            OrderService.Order(tempOrder.getNumeProduse(),tempOrder.getNumeSeller(),tempOrder.getNumeCustomer(),tempOrder.getCantitate(),delivery,"It is processing");
         }
     }
 

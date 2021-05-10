@@ -58,7 +58,7 @@ public class PopUpAccept {
             AcceptButton.get(i).setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    OrderService.SetStatusOrder(numeProdus.get(nr).getText(),"Acceptat");
+                    OrderService.SetStatusOrder(numeProdus.get(nr).getText(),"Accepted");
                     AcceptButton.get(nr).setVisible(false);
                     DeclineButton.get(nr).setVisible(false);
                     return;
@@ -71,7 +71,7 @@ public class PopUpAccept {
             DeclineButton.get(i).setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    OrderService.SetStatusOrder(numeProdus.get(nr).getText(),"Respins");
+                    OrderService.SetStatusOrder(numeProdus.get(nr).getText(),"Declined");
                     AcceptButton.get(nr).setVisible(false);
                     DeclineButton.get(nr).setVisible(false);
                     return;

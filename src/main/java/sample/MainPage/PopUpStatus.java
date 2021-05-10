@@ -9,6 +9,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import sample.DataBase.OrderService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +27,12 @@ public class PopUpStatus {
     private static VBox vbox=new VBox();
 
     public void CloseStatusWindow(ActionEvent event){
-        stage=(Stage) Close.getScene().getWindow();
-        stage.close();
+        if(event.getSource()==Close) {
+            OrderService.DeleteOrder();
+        }
+            stage = (Stage) Close.getScene().getWindow();
+            stage.close();
+
     }
 
     public static void getStatus(String nume,String cantitate1,String status1)
@@ -68,5 +73,6 @@ public class PopUpStatus {
     public void initialize(){
         initVBOX();
         init();
+        OrderService.ReplaceData();
     }
 }
