@@ -240,6 +240,17 @@ public class MainPage {
         stage.show();
     }
 
+    public void onCustomerHistory(ActionEvent event)throws Exception{
+        if(event.getSource() == CustomerHistory){
+            nr=10;
+            stage = new Stage();
+            root = FXMLLoader.load(getClass().getResource("/FXML/PopUps/PopUpforCustomerHistory.fxml"));
+        }
+        stage.setTitle("Order history");
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     private void HideandShow(){
         if(returnRole(username).equals("Customer"))
