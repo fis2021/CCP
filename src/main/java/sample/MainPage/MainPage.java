@@ -219,7 +219,7 @@ public class MainPage {
             nr=8;
             stage = new Stage();
             root = FXMLLoader.load(getClass().getResource("/FXML/PopUps/PopUpforOrderStatus.fxml"));
-            OrderService.set(MainPage.getUsernameFromMain());
+            OrderService.getOrderStatus(MainPage.getUsernameFromMain());
         }
         stage.setTitle("Order status");
         Scene scene = new Scene(root);

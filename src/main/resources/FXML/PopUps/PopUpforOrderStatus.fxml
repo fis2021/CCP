@@ -15,7 +15,7 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <AnchorPane layoutX="7.0" layoutY="63.0" prefHeight="418.0" prefWidth="586.0" />
+      <AnchorPane fx:id="Anchor" layoutX="7.0" layoutY="63.0" prefHeight="418.0" prefWidth="586.0" />
       <Separator layoutX="-1.0" layoutY="44.0" prefHeight="13.0" prefWidth="600.0" />
    </children>
 </AnchorPane>

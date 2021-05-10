@@ -4,6 +4,7 @@ import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 import org.dizitart.no2.objects.filters.ObjectFilters;
 import sample.MainPage.PopUpAccept;
+import sample.MainPage.PopUpStatus;
 import sample.User.Order;
 import sample.User.User;
 import sample.exceptions.UsernameAlreadyExistException;
@@ -61,6 +62,18 @@ public class OrderService {
                 OrderRepository.insert(order);
             }
         }
+    }
+
+    public static void getOrderStatus(String nume)
+    {
+        for(Order order : OrderRepository.find()){
+            if(order.getNumeCustomer().equals(nume)){
+                Integer y=new Integer(order.getCantitate());
+                PopUpStatus.getStatus(order.getNumeProduse(),y.toString(),order.getStatus());
+
+            }
+        }
+
     }
 
 }
