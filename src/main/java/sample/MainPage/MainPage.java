@@ -214,6 +214,19 @@ public class MainPage {
         stage.show();
     }
 
+    public void onStatus(ActionEvent event)throws Exception{
+        if(event.getSource() == Status){
+            nr=8;
+            stage = new Stage();
+            root = FXMLLoader.load(getClass().getResource("/FXML/PopUps/PopUpforOrderStatus.fxml"));
+            OrderService.set(MainPage.getUsernameFromMain());
+        }
+        stage.setTitle("Order status");
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     private void HideandShow(){
         if(returnRole(username).equals("Customer"))
         {
