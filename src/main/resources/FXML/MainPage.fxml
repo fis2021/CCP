@@ -56,6 +56,7 @@
                <Button fx:id="Add" layoutX="38.0" layoutY="318.0" mnemonicParsing="false" onAction="#AddProduct" prefHeight="35.0" prefWidth="180.0" text="Add product" />
                <Button fx:id="Delete" layoutX="38.0" layoutY="372.0" mnemonicParsing="false" onAction="#DeleteProduct" prefHeight="35.0" prefWidth="85.0" text="Delete" />
                <Button fx:id="Edit" layoutX="134.0" layoutY="372.0" mnemonicParsing="false" onAction="#EditProduct" prefHeight="35.0" prefWidth="85.0" text="Edit" />
+               <Button fx:id="Make" layoutX="38.0" layoutY="318.0" mnemonicParsing="false" onAction="#MakeOrder" prefHeight="35.0" prefWidth="180.0" text="Make a order!" />
             </children></AnchorPane>
         </items>
     </SplitPane>

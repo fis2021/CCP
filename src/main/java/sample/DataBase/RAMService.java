@@ -96,6 +96,16 @@ public class RAMService {
         }
     }
 
+    public static int returnId(String numeProdus){
+        for(RAMBase ramBase : RAMRepository.find())
+        {
+            if (numeProdus.equals(ramBase.getNumeProdus())) {
+                return ramBase.getId();
+            }
+        }
+        return  -1;
+
+    }
 
 }
 

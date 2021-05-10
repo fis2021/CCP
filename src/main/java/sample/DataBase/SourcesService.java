@@ -99,4 +99,16 @@ public class SourcesService {
             }
         }
     }
+
+    public static int returnId(String numeProdus){
+        for(SourcesBase sourcesBase : SourcesRepository.find())
+        {
+            if (numeProdus.equals(sourcesBase.getNumeProdus())) {
+                return sourcesBase.getId();
+            }
+        }
+        return  -1;
+
+    }
+
 }

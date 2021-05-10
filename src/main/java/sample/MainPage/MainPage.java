@@ -13,10 +13,7 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import sample.DataBase.GraphicCardsService;
-import sample.DataBase.ProcessorsService;
-import sample.DataBase.RAMService;
-import sample.DataBase.SourcesService;
+import sample.DataBase.*;
 
 import static sample.DataBase.UserService.returnRole;
 
@@ -26,7 +23,7 @@ public class MainPage {
     @FXML
     private Text WelcomeText;
     @FXML
-    private Button Processors,GraphicCard,RAM,Sources,ModProfile,GoProfile,Log,Add,Delete,Edit;
+    private Button Processors,GraphicCard,RAM,Sources,ModProfile,GoProfile,Log,Add,Delete,Edit,Make;
     private Stage stage;
     private Parent root;
     private static int nr;
@@ -182,18 +179,35 @@ public class MainPage {
         stage.show();
     }
 
+    public void MakeOrder(ActionEvent event)throws Exception{
+        if(event.getSource() == Make){
+            nr=6;
+            stage = new Stage();
+            root = FXMLLoader.load(getClass().getResource("/FXML/PopUps/PopUpforMakeOrder.fxml"));
+            if(TempOrderService.VerifyIfCustomerExist(MainPage.getUsernameFromMain())){
+                TempOrderService.set(MainPage.getUsernameFromMain());
+            }
+        }
+        stage.setTitle("Make an order");
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     private void HideandShow(){
         if(returnRole(username).equals("Customer"))
         {
             Add.setVisible(false);
             Edit.setVisible(false);
             Delete.setVisible(false);
+            Make.setVisible(true);
         }
         else
         {
             Add.setVisible(true);
             Edit.setVisible(true);
             Delete.setVisible(true);
+            Make.setVisible(false);
         }
     }
 
