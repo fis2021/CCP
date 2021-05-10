@@ -107,7 +107,7 @@ public class RAM {
                 public void handle(ActionEvent actionEvent) {
                     for(int j=0;j<nume.size();j++)
                     {
-                        Increment(nume.get(nr).getText(),pret.get(nr).getText(),tip.get(nr).getText(),garantie.get(nr).getText(),descriere.get(nr).getText());
+                        RAMService.Increment(nume.get(nr).getText(),pret.get(nr).getText(),tip.get(nr).getText(),garantie.get(nr).getText(),descriere.get(nr).getText());
                         return;
 
                     }
@@ -124,7 +124,7 @@ public class RAM {
                         if(TempOrderService.verify(nume.get(nr).getText(),UserService.returnNume(GraphicCardsService.returnId(nume.get(nr).getText())),MainPage.getUsernameFromMain())){
                             return;
                         }
-                        TempOrderService.addOrder(UserService.returnNume(RAMService.returnId(nume.get(nr).getText())),MainPage.getUsernameFromMain(), nume.get(nr).getText());
+                        TempOrderService.addOrder(UserService.returnNume(RAMService.returnId(nume.get(nr).getText())),MainPage.getUsernameFromMain(), nume.get(nr).getText(),RAMService.returnInteresati(nume.get(nr).getText()));
                         return;
                     }
                 }

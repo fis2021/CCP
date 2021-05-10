@@ -8,19 +8,20 @@ public class Order {
     private int cantitate;
     private boolean delivery;
     private String status;
-
+    private int nrInteresati;
 
     public Order(){
 
     }
 
-    public Order(String numeSeller,String numeCustomer,String numeProdus,int cantitate,boolean delivery,String status){
+    public Order(String numeSeller,String numeCustomer,String numeProdus,int cantitate,boolean delivery,String status,int nrInteresati){
         this.numeSeller=numeSeller;
         this.numeCustomer=numeCustomer;
         this.NumeProduse=numeProdus;
         this.cantitate=cantitate;
         this.delivery=delivery;
         this.status=status;
+        this.nrInteresati = nrInteresati;
     }
 
     public void setNumeProduse(String numeProduse){
@@ -51,6 +52,8 @@ public class Order {
         return status;
     }
 
+    public int getNrInteresati(){return nrInteresati;}
+
     public void setNumeSeller(String numeSeller){
         this.numeSeller=numeSeller;
     }
@@ -62,6 +65,9 @@ public class Order {
     }
     public void setDelivery(boolean dev){
         this.delivery=dev;
+    }
+    public void setNrInteresati(int nrInteresati){
+        this.nrInteresati=nrInteresati;
     }
 
     public void setStatus(String status){

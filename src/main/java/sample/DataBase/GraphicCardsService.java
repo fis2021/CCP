@@ -113,4 +113,15 @@ public class GraphicCardsService {
         }
         return -1;
     }
+
+    public static int returnInteresati(String numeProdus){
+        for(GraphicCardsBase graphicBase:GraphicCardsRepository.find())
+        {
+            if(Objects.equals(numeProdus,graphicBase.getNumeProdus()))
+            {
+                return graphicBase.getNrInteresati();
+            }
+        }
+        return -1;
+    }
 }

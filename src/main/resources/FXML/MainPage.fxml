@@ -73,7 +73,8 @@
                       </fill>
                   </Circle>
                   <Label fx:id="NotificationLabel" layoutX="215.0" layoutY="412.0" text="!" />
-               <Button fx:id="Status" layoutX="39.0" layoutY="372.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" text="Current order status" onAction="#onStatus" />
+               <Button fx:id="Status" layoutX="39.0" layoutY="372.0" mnemonicParsing="false" onAction="#onStatus" prefHeight="35.0" prefWidth="180.0" text="Current order status" />
+               <Button fx:id="SellerHistory" layoutX="39.0" layoutY="470.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" text="Orders history" onAction="#onSellerHistory"/>
             </children></AnchorPane>
         </items>
     </SplitPane>
