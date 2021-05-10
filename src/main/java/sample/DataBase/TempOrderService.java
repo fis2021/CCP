@@ -64,15 +64,14 @@ public class TempOrderService {
 
     public static void DeleteAllDatabase(String numeCustomer){
         for(TempOrder tempOrder : TempOrderRepository.find()){
-            if(tempOrder.getNumeCustomer().equals(numeCustomer)){
                 TempOrderRepository.remove(ObjectFilters.eq("numeCustomer",numeCustomer));
-            }
+
         }
     }
 
     public static void SetNewDataBase(boolean delivery){
         for(TempOrder tempOrder : TempOrderRepository.find()){
-            OrderService.Order(tempOrder.getNumeSeller(),tempOrder.getNumeCustomer(),tempOrder.getNumeProduse(),tempOrder.getCantitate(),delivery);
+            OrderService.Order(tempOrder.getNumeProduse(),tempOrder.getNumeSeller(),tempOrder.getNumeCustomer(),tempOrder.getCantitate(),delivery,"In curs de procesare");
         }
     }
 
