@@ -227,6 +227,19 @@ public class MainPage {
         stage.show();
     }
 
+    public void onSellerHistory(ActionEvent event)throws Exception{
+        if(event.getSource() == SellerHistory){
+            nr=9;
+            stage = new Stage();
+            root = FXMLLoader.load(getClass().getResource("/FXML/PopUps/PopUpforSellerOrderHistory.fxml"));
+        }
+        stage.setTitle("Order history");
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
     private void HideandShow(){
         if(returnRole(username).equals("Customer"))
         {
