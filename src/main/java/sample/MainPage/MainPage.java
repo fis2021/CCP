@@ -26,7 +26,7 @@ public class MainPage {
     private Text WelcomeText;
     @FXML
     private Button Processors,GraphicCard,RAM,Sources,ModProfile,GoProfile,Log,Add,Delete,Edit,Make,
-            Accept;
+            Accept,Status;
     @FXML
     private Circle circle;
     @FXML
@@ -224,6 +224,7 @@ public class MainPage {
             Accept.setVisible(false);
             circle.setVisible(false);
             NotificationLabel.setVisible(false);
+            Status.setVisible(true);
         }
         else
         {
@@ -234,6 +235,7 @@ public class MainPage {
             Accept.setVisible(true);
             circle.setVisible(true);
             NotificationLabel.setVisible(true);
+            Status.setVisible(false);
         }
     }
 
