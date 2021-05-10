@@ -26,7 +26,7 @@ public class MainPage {
     private Text WelcomeText;
     @FXML
     private Button Processors,GraphicCard,RAM,Sources,ModProfile,GoProfile,Log,Add,Delete,Edit,Make,
-            Accept,Status;
+            Accept,Status,SellerHistory;
     @FXML
     private Circle circle;
     @FXML
@@ -238,6 +238,7 @@ public class MainPage {
             circle.setVisible(false);
             NotificationLabel.setVisible(false);
             Status.setVisible(true);
+            SellerHistory.setVisible(false);
         }
         else
         {
@@ -249,6 +250,7 @@ public class MainPage {
             circle.setVisible(true);
             NotificationLabel.setVisible(true);
             Status.setVisible(false);
+            SellerHistory.setVisible(true);
         }
     }
 

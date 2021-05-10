@@ -26,8 +26,8 @@ public class TempOrderService {
         TempOrderRepository = database.getRepository(TempOrder.class);
     }
 
-    public static void addOrder(String numeSeller,String numeCustomer, String numeProdus){
-        TempOrderRepository.insert(new TempOrder(numeSeller,numeCustomer,numeProdus));
+    public static void addOrder(String numeSeller,String numeCustomer, String numeProdus, int interesati){
+        TempOrderRepository.insert(new TempOrder(numeSeller,numeCustomer,numeProdus,interesati));
     }
 
     public static void Delete(String numeProdus){
@@ -71,7 +71,7 @@ public class TempOrderService {
 
     public static void SetNewDataBase(boolean delivery){
         for(TempOrder tempOrder : TempOrderRepository.find()){
-            OrderService.Order(tempOrder.getNumeProduse(),tempOrder.getNumeSeller(),tempOrder.getNumeCustomer(),tempOrder.getCantitate(),delivery,"It is processing");
+            OrderService.Order(tempOrder.getNumeProduse(),tempOrder.getNumeSeller(),tempOrder.getNumeCustomer(),tempOrder.getCantitate(),delivery,"It is processing", tempOrder.getNrinteresati());
         }
     }
 

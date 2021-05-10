@@ -27,8 +27,8 @@ public class OrderService {
         OrderRepository = database.getRepository(Order.class);
     }
 
-    public static void Order(String numProdus, String numeSeller,String numeCustomer,int cantitate,boolean delivery,String status){
-        OrderRepository.insert(new Order(numeSeller,numeCustomer,numProdus,cantitate,delivery,status));
+    public static void Order(String numProdus, String numeSeller,String numeCustomer,int cantitate,boolean delivery,String status,int nrinteresati){
+        OrderRepository.insert(new Order(numeSeller,numeCustomer,numProdus,cantitate,delivery,status,nrinteresati));
     }
 
     public static void setDeliv(){
@@ -83,7 +83,7 @@ public class OrderService {
             if(order.getNumeCustomer().equals(MainPage.getUsernameFromMain())){
                 if(order.getStatus().equals("Accepted") || order.getStatus().equals("Declined"))
                 {
-                    FinalStatusService.FinalOrder(order.getNumeProduse(),order.getNumeSeller(),order.getNumeCustomer(),order.getCantitate(), order.getdelivery(), order.getStatus());
+                    FinalStatusService.FinalOrder(order.getNumeProduse(),order.getNumeSeller(),order.getNumeCustomer(),order.getCantitate(), order.getdelivery(), order.getStatus(),order.getNrInteresati());
                 }
             }
         }

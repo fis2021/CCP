@@ -120,7 +120,7 @@ public class Processors {
                         if(TempOrderService.verify(nume.get(nr).getText(),UserService.returnNume(GraphicCardsService.returnId(nume.get(nr).getText())),MainPage.getUsernameFromMain())){
                             return;
                         }
-                        TempOrderService.addOrder(UserService.returnNume(ProcessorsService.returnId(nume.get(nr).getText())),MainPage.getUsernameFromMain(), nume.get(nr).getText());
+                        TempOrderService.addOrder(UserService.returnNume(ProcessorsService.returnId(nume.get(nr).getText())),MainPage.getUsernameFromMain(), nume.get(nr).getText(),ProcessorsService.returnInteresati(nume.get(nr).getText()));
                         return;
                     }
                 }

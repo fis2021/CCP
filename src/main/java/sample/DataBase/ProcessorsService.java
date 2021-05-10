@@ -109,4 +109,15 @@ public class ProcessorsService {
 
     }
 
+    public static int returnInteresati(String numeProdus){
+        for(ProcessorsBase processorsBase : ProcessorsRepository.find())
+        {
+            if (numeProdus.equals(processorsBase.getNumeProdus())) {
+                return processorsBase.getNrinteresati();
+            }
+        }
+        return  -1;
+
+    }
+
 }

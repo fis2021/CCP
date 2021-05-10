@@ -18,7 +18,7 @@ public class FinalStatusService {
         FinalRepository = database.getRepository(FinalStatus.class);
     }
 
-    public static void FinalOrder(String numProdus, String numeSeller,String numeCustomer,int cantitate,boolean delivery,String status){
-        FinalRepository.insert(new FinalStatus(numeSeller,numeCustomer,numProdus,cantitate,delivery,status));
+    public static void FinalOrder(String numProdus, String numeSeller,String numeCustomer,int cantitate,boolean delivery,String status,int interesati){
+        FinalRepository.insert(new FinalStatus(numeSeller,numeCustomer,numProdus,cantitate,delivery,status,interesati));
     }
 }
