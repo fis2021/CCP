@@ -96,6 +96,45 @@ public class RAMService {
         }
     }
 
+    public static String setMostInterestedName(int nrinteresati){
+        for(RAMBase ramBase : RAMRepository.find()){
+            if(ramBase.getNrInteresati() == nrinteresati){
+                return ramBase.getNumeProdus();
+            }
+        }
+        return null;
+    }
+
+
+    public static String setMostInterestednrInteresati(int nrinteresati){
+        for(RAMBase ramBase : RAMRepository.find()){
+            if(ramBase.getNrInteresati() == nrinteresati){
+                Integer y = new Integer(nrinteresati);
+                return y.toString();
+            }
+        }
+        return null;
+    }
+
+    public static String setMostInterestedPret(int nrinteresati){
+        for(RAMBase ramBase : RAMRepository.find()){
+            if(ramBase.getNrInteresati() == nrinteresati){
+                return ramBase.getPret();
+            }
+        }
+        return null;
+    }
+
+    public static int getMostInterestProduct(){
+        int max = 0;
+        for(RAMBase ramBase : RAMRepository.find()){
+            if(max>ramBase.getNrInteresati()){
+                max=ramBase.getNrInteresati();
+            }
+        }
+        return max;
+    }
+
     public static int returnId(String numeProdus){
         for(RAMBase ramBase : RAMRepository.find())
         {

@@ -84,6 +84,44 @@ public class GraphicCardsService {
             }
     }
 
+    public static int getMostInterestProduct(){
+        int max = 0;
+        for(GraphicCardsBase graphicCardsBase : GraphicCardsRepository.find()){
+            if(max<graphicCardsBase.getNrInteresati()){
+                max = graphicCardsBase.getNrInteresati();
+            }
+        }
+        return max;
+    }
+
+    public static String setMostInterestedName(int nrinteresati){
+        for(GraphicCardsBase graphicCardsBase : GraphicCardsRepository.find()){
+            if(graphicCardsBase.getNrInteresati() == nrinteresati){
+                return graphicCardsBase.getNumeProdus();
+            }
+        }
+        return null;
+    }
+
+
+    public static String setMostInterestednrInteresati(int nrinteresati){
+        for(GraphicCardsBase graphicCardsBase : GraphicCardsRepository.find()){
+            if(graphicCardsBase.getNrInteresati() == nrinteresati){
+                Integer y = new Integer(nrinteresati);
+                return y.toString();
+            }
+        }
+        return null;
+    }
+
+    public static String setMostInterestedPret(int nrinteresati){
+        for(GraphicCardsBase graphicCardsBase : GraphicCardsRepository.find()){
+            if(graphicCardsBase.getNrInteresati() == nrinteresati){
+                return graphicCardsBase.getPret();
+            }
+        }
+        return null;
+    }
     public static void Increment(String numeProdus,String Pret,String Tip,String Garantie,String Descriere){
         for(GraphicCardsBase graphicBase:GraphicCardsRepository.find())
         {

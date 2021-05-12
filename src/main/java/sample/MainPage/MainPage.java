@@ -23,7 +23,7 @@ import static sample.DataBase.UserService.returnRole;
 public class MainPage {
 
     @FXML
-    private Text WelcomeText;
+    private Text WelcomeText,numeprod,nrinteresati,pretprod;
     @FXML
     private Button Processors,GraphicCard,RAM,Sources,ModProfile,GoProfile,Log,Add,Delete,Edit,Make,
             Accept,Status,SellerHistory,CustomerHistory;
@@ -35,6 +35,32 @@ public class MainPage {
     private Parent root;
     private static int nr;
     private static String username;
+    private int max=-1;
+    private String goTo;
+    private Integer y;
+
+    public void verifyMostInterested(){
+        int maxproc,maxGrap,maxRam,maxSource;
+        maxproc= ProcessorsService.getMostInterestProduct();
+        maxGrap=GraphicCardsService.getMostInterestProduct();
+        maxRam=RAMService.getMostInterestProduct();
+        maxSource=SourcesService.getMostInterestProduct();
+        if(maxproc>maxGrap){
+            max=maxproc;
+            goTo = "Processors";
+        }else{
+            max=maxGrap;
+            goTo="Graphic";
+        }
+        if(max<maxRam){
+            max=maxRam;
+            goTo="Ram";
+        }
+        if(max<maxSource){
+            max=maxSource;
+            goTo="Source";
+        }
+    }
 
     public void GoToCategories(ActionEvent event)throws Exception{
         if(event.getSource() == Processors){
@@ -285,6 +311,30 @@ public class MainPage {
     @FXML
     private void initialize(){
         //MovingText();
+        verifyMostInterested();
+        y=new Integer(max);
+        if(goTo.equals("Processors")){
+            numeprod.setText(ProcessorsService.setMostInterestedName(max));
+            nrinteresati.setText(y.toString());
+            pretprod.setText(ProcessorsService.setMostInterestedPret(max));
+        }
+        if(goTo.equals("Graphic")){
+            numeprod.setText(GraphicCardsService.setMostInterestedName(max));
+            nrinteresati.setText(y.toString());
+            pretprod.setText(GraphicCardsService.setMostInterestedPret(max));
+        }
+        if(goTo.equals("Ram")){
+            numeprod.setText(RAMService.setMostInterestedName(max));
+            nrinteresati.setText(y.toString());
+            pretprod.setText(RAMService.setMostInterestedPret(max));
+        }
+        if(goTo.equals("Source")){
+            numeprod.setText(SourcesService.setMostInterestedName(max));
+            nrinteresati.setText(y.toString());
+            pretprod.setText(SourcesService.setMostInterestedPret(max));
+        }
+
+
         if(!OrderService.checkifSellerHaveOders(MainPage.getUsernameFromMain())){
             circle.setVisible(false);
             NotificationLabel.setVisible(false);

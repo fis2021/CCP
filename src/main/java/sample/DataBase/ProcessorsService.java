@@ -82,6 +82,45 @@ public class ProcessorsService {
         }
     }
 
+    public static int getMostInterestProduct(){
+        int max = 0;
+        for(ProcessorsBase processorsBase : ProcessorsRepository.find()){
+            if(max<processorsBase.getNrinteresati()){
+                max=processorsBase.getNrinteresati();
+            }
+        }
+        return max;
+    }
+
+    public static String setMostInterestedName(int nrinteresati){
+        for(ProcessorsBase processorsBase:  ProcessorsRepository.find()){
+            if(processorsBase.getNrinteresati() == nrinteresati){
+                return processorsBase.getNumeProdus();
+            }
+        }
+        return null;
+    }
+
+
+    public static String setMostInterestednrInteresati(int nrinteresati){
+        for(ProcessorsBase processorsBase:  ProcessorsRepository.find()){
+            if(processorsBase.getNrinteresati() == nrinteresati){
+                Integer y = new Integer(nrinteresati);
+                return y.toString();
+            }
+        }
+        return null;
+    }
+
+    public static String setMostInterestedPret(int nrinteresati){
+        for(ProcessorsBase processorsBase:  ProcessorsRepository.find()){
+            if(processorsBase.getNrinteresati() == nrinteresati){
+                return processorsBase.getPret();
+            }
+        }
+        return null;
+    }
+
     public static void Increment(String numeProdus,String Pret,String Tip,String Garantie,String Descriere){
         for(ProcessorsBase processorsBase : ProcessorsRepository.find())
         {
