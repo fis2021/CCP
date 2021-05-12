@@ -7,10 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -23,6 +20,7 @@ import sample.DataBase.*;
 import sample.MainPage.MainPage;
 import sample.Categories.Processors.Processors;
 import sample.exceptions.ProductAlreadyExists;
+import sample.exceptions.UsernameAlreadyExistException;
 
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -36,12 +34,18 @@ public class PopUp {
     private static String nume;
 
     @FXML
-    private TextField numeprodus,descriere,tip,pret,garantie;
+    private Text username,gmail,role;
+
+    @FXML
+    private TextField numeprodus,descriere,tip,pret,garantie,mail,newusername;
     private Stage stage=new Stage();
     private Parent root;
 
     @FXML
-    private Button addit,CloseWindow,CloseWindow1;
+    private PasswordField confirmpass,newpass;
+
+    @FXML
+    private Button addit,CloseWindow,CloseWindow1,goback,confirmChange;
     private Alert alert = new Alert(Alert.AlertType.ERROR);
 
     @FXML
@@ -54,6 +58,7 @@ public class PopUp {
     private static Text[] Descriere=new Text[10];
     private static Text[] Tip=new Text[10];
     private static Text[] Garantie=new Text[10];
+    private Alert alertUsername;
 
     @FXML
     private void initialize(){
@@ -76,7 +81,51 @@ public class PopUp {
             comboBox3.getItems().add("Graphic Cards");
             comboBox3.getItems().add("Power Supply Unit");
         }
+        if(MainPage.GetNr()==2){
+            username.setText(MainPage.getUsernameFromMain());
+            gmail.setText(UserService.returnGmail(MainPage.getUsernameFromMain()));
+            role.setText(UserService.getRole(MainPage.getUsernameFromMain()));
+        }
 
+    }
+
+    public void Goback(ActionEvent event){
+        stage= (Stage) goback.getScene().getWindow();
+        stage.close();
+    }
+
+    private Alert fieldEmpty,incorectPass;
+
+    public void changeProfile(ActionEvent event)throws Exception{
+        this.alertUsername = new Alert(Alert.AlertType.ERROR);
+        this.fieldEmpty=new Alert(Alert.AlertType.ERROR);
+        this.incorectPass = new Alert(Alert.AlertType.ERROR);
+        try {
+            if(event.getSource() == confirmChange){
+                if(newusername.getText().isEmpty() || newpass.getText().isEmpty() || mail.getText().isEmpty() || confirmpass.getText().isEmpty()){
+                    fieldEmpty.setTitle("Field are empty");
+                    fieldEmpty.setHeaderText((String) null);
+                    fieldEmpty.setContentText("Please complete all fields!");
+                    fieldEmpty.showAndWait();
+                    return;
+                }
+                if(!newpass.getText().equals(confirmpass.getText())){
+                    incorectPass.setTitle("Passwords don't match!");
+                    incorectPass.setHeaderText((String) null);
+                    incorectPass.setContentText("Please verify the passwords!");
+                    incorectPass.showAndWait();
+                    return;
+                }
+                UserService.updateProfile(MainPage.getUsernameFromMain(),newusername.getText(),newpass.getText(),mail.getText());
+            }
+            stage=(Stage) confirmChange.getScene().getWindow();
+            stage.close();
+        }catch(UsernameAlreadyExistException e){
+            alertUsername.setTitle("The username " + e.getMessage() + " already exist!");
+            alertUsername.setHeaderText((String) null);
+            alertUsername.setContentText("Please choose another username!");
+            alertUsername.showAndWait();
+        }
     }
 
     public static String returnNume()

@@ -7,6 +7,7 @@ import org.dizitart.no2.objects.filters.ObjectFilters;
 import sample.Categories.GraphicCards.GraphicCardsBase;
 import sample.Categories.Processors.Processors;
 import sample.Categories.Processors.ProcessorsBase;
+import sample.Categories.RAM.RAMBase;
 import sample.Categories.Sources.SourcesBase;
 import sample.Categories.Sources.Sources;
 import sample.Categories.Sources.SourcesBase;
@@ -98,6 +99,45 @@ public class SourcesService {
                 SourcesRepository.insert(sourcesBase);
             }
         }
+    }
+
+    public static int getMostInterestProduct(){
+        int max=0;
+        for(SourcesBase sourcesBase : SourcesRepository.find()){
+            if(max<sourcesBase.getNrInteresati()){
+                max=sourcesBase.getNrInteresati();
+            }
+        }
+        return max;
+    }
+
+    public static String setMostInterestedName(int nrinteresati){
+        for(SourcesBase sourcesBase : SourcesRepository.find()){
+            if(sourcesBase.getNrInteresati() == nrinteresati){
+                return sourcesBase.getNumeProdus();
+            }
+        }
+        return null;
+    }
+
+
+    public static String setMostInterestednrInteresati(int nrinteresati){
+        for(SourcesBase sourcesBase : SourcesRepository.find()){
+            if( sourcesBase.getNrInteresati() == nrinteresati){
+                Integer y = new Integer(nrinteresati);
+                return y.toString();
+            }
+        }
+        return null;
+    }
+
+    public static String setMostInterestedPret(int nrinteresati){
+        for(SourcesBase sourcesBase : SourcesRepository.find()){
+            if( sourcesBase.getNrInteresati() == nrinteresati){
+                return  sourcesBase.getPret();
+            }
+        }
+        return null;
     }
 
     public static int returnId(String numeProdus){

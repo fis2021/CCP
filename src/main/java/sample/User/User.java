@@ -11,13 +11,13 @@ public class User {
     public User(){
 
     }
-    public User(String username, String password, String gmail, String roole,boolean check){
+    public User(String username, String password, String gmail, String roole,boolean check,int id){
         this.username=username;
         this.password=password;
         this.gmail=gmail;
         this.role=roole;
         this.check=check;
-        this.id=register.getId();
+        this.id=id;
     }
 
     public String getUsername(){

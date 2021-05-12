@@ -27,8 +27,8 @@ public class OrderService {
         OrderRepository = database.getRepository(Order.class);
     }
 
-    public static void Order(String numProdus, String numeSeller,String numeCustomer,int cantitate,boolean delivery,String status,int nrinteresati){
-        OrderRepository.insert(new Order(numeSeller,numeCustomer,numProdus,cantitate,delivery,status,nrinteresati));
+    public static void Order(String numProdus, String numeSeller,String numeCustomer,int cantitate,boolean delivery,String status,int nrinteresati,int idCustomer,int comanda){
+        OrderRepository.insert(new Order(numeSeller,numeCustomer,numProdus,cantitate,delivery,status,nrinteresati,idCustomer,comanda));
     }
 
     public static void setDeliv(){
@@ -43,24 +43,36 @@ public class OrderService {
         }
     }
 
-    public static void set(String numeSeller){
+
+    public static void setAccept(String numeSeller){
         for(Order order : OrderRepository.find()){
             if(numeSeller.equals(order.getNumeSeller()) && order.getStatus().equals("It is processing")){
                 Integer y = new Integer(order.getCantitate());
-                PopUpAccept.Test(order.getNumeProduse(),y.toString());
+                PopUpAccept.Test(order.getNumeProduse(),order.getCantitate());
             }
         }
     }
 
-    public static void SetStatusOrder(String numeProdus,String status){
+    public static boolean checkifSellerHaveOders(String numeSeller){
+        for (Order order : OrderRepository.find()){
+            if(order.getNumeSeller().equals(numeSeller) && order.getStatus().equals("It is processing")){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static void SetStatusOrder(String nume,String status){
         for(Order order : OrderRepository.find()){
-            if(order.getNumeProduse().equals(numeProdus)){
+            if(order.getNumeProduse().equals(nume) && order.getStatus().equals("It is processing")){
                 order.setStatus(status);
-                order.setCantitate(order.getCantitate());
-                order.setNumeCustomer(order.getNumeCustomer());
-                order.setNumeSeller(order.getNumeSeller());
                 order.setDelivery(order.getdelivery());
-                OrderRepository.remove(ObjectFilters.eq("NumeProduse",order.getNumeProduse()));
+                order.setNumeSeller(order.getNumeSeller());
+                order.setNumeCustomer(order.getNumeCustomer());
+                order.setNumeProduse(order.getNumeProduse());
+                order.setCantitate(order.getCantitate());
+                order.setIdCustomer(order.getIdCustomer());
+                OrderRepository.remove(ObjectFilters.eq("idComanda",order.getIdComanda()));
                 OrderRepository.insert(order);
             }
         }
@@ -90,12 +102,13 @@ public class OrderService {
     }
 
     public static void DeleteOrder(String nume){
+        String numeG = new String();
         for(Order order : OrderRepository.find()) {
             if(order.getNumeCustomer().equals(nume)) {
-                OrderRepository.remove(ObjectFilters.eq("status", "Accepted"));
-                OrderRepository.remove(ObjectFilters.eq("status", "Declined"));
+                numeG=nume;
             }
         }
+        OrderRepository.remove(ObjectFilters.eq("numeCustomer",numeG));
     }
 
 }

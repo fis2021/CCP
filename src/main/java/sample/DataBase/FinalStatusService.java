@@ -2,6 +2,7 @@ package sample.DataBase;
 
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
+import sample.MainPage.PopUpCustomerHistory;
 import sample.MainPage.PopUpSellerHistory;
 import sample.User.FinalStatus;
 
@@ -31,6 +32,17 @@ public class FinalStatusService {
                 Integer i=new Integer(status.getCantitate());
                 Integer j=new Integer(status.getInteresati());
                 PopUpSellerHistory.getOrderHistory(status.getNumeProduse(),status.getNumeCustomer(),i.toString(), status.getStatus(),j.toString());
+            }
+        }
+    }
+
+    public static void setCustomerOrderHistory(String numeCustomer){
+        for(FinalStatus status: FinalRepository.find()){
+            if(status.getNumeCustomer().equals(numeCustomer))
+            {
+                Integer i=new Integer(status.getCantitate());
+                Integer j=new Integer(status.getInteresati());
+                PopUpCustomerHistory.setCustomerOrders(status.getNumeProduse(),status.getNumeSeller(),i.toString(), status.getStatus(),j.toString());
             }
         }
     }

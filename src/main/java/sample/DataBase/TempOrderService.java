@@ -7,10 +7,13 @@ import org.dizitart.no2.objects.ObjectFilter;
 import org.dizitart.no2.objects.ObjectRepository;
 import org.dizitart.no2.objects.filters.ObjectFilters;
 import sample.MainPage.PopUpOrder;
+import sample.User.Order;
 import sample.User.TempOrder;
 import sample.exceptions.UsernameAlreadyExistException;
 
 import java.util.List;
+
+import java.util.Random;
 
 import static sample.DataBase.FileSystemService.getPathToFile;
 
@@ -26,8 +29,8 @@ public class TempOrderService {
         TempOrderRepository = database.getRepository(TempOrder.class);
     }
 
-    public static void addOrder(String numeSeller,String numeCustomer, String numeProdus, int interesati){
-        TempOrderRepository.insert(new TempOrder(numeSeller,numeCustomer,numeProdus,interesati));
+    public static void addOrder(String numeSeller,String numeCustomer, String numeProdus, int interesati,int idcustomer){
+        TempOrderRepository.insert(new TempOrder(numeSeller,numeCustomer,numeProdus,interesati,idcustomer));
     }
 
     public static void Delete(String numeProdus){
@@ -53,7 +56,6 @@ public class TempOrderService {
             if(tempOrder.getNumeProduse().equals(numeProdus)){
                 tempOrder.setCantitate();
                 tempOrder.setNumeCustomer(numeCustomer);
-                tempOrder.setNumeSeller(numeSeller);
                 Delete(numeProdus);
                 TempOrderRepository.insert(tempOrder);
                 return true;
@@ -70,8 +72,13 @@ public class TempOrderService {
     }
 
     public static void SetNewDataBase(boolean delivery){
+        Random rand = new Random();
         for(TempOrder tempOrder : TempOrderRepository.find()){
-            OrderService.Order(tempOrder.getNumeProduse(),tempOrder.getNumeSeller(),tempOrder.getNumeCustomer(),tempOrder.getCantitate(),delivery,"It is processing", tempOrder.getNrinteresati());
+            int rand_int1 = rand.nextInt(1000);
+            if(!UserService.verifyId(rand_int1)){
+                rand_int1 = rand.nextInt(1000);
+            }
+            OrderService.Order(tempOrder.getNumeProduse(),tempOrder.getNumeSeller(),tempOrder.getNumeCustomer(),tempOrder.getCantitate(),delivery,"It is processing", tempOrder.getNrinteresati(), tempOrder.getIdCustomer(),rand_int1);
         }
     }
 
@@ -83,5 +90,6 @@ public class TempOrderService {
         }
         return false;
     }
+
 
 }

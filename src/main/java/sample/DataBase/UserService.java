@@ -5,6 +5,7 @@ import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.NitriteBuilder;
 import org.dizitart.no2.NitriteCollection;
 import org.dizitart.no2.objects.ObjectRepository;
+import org.dizitart.no2.objects.filters.ObjectFilters;
 import sample.Categories.RAM.RAMBase;
 import sample.User.User;
 
@@ -31,9 +32,9 @@ public class UserService {
         userRepository = database.getRepository(User.class);
     }
 
-    public static void addUser(String username, String password, String email,String role,boolean check) throws UsernameAlreadyExistException {
+    public static void addUser(String username, String password, String email,String role,boolean check,int id) throws UsernameAlreadyExistException {
         checkUserDoesNotAlreadyExist(username);
-        userRepository.insert(new User(username, encodePassword(username, password), email,role,check));
+        userRepository.insert(new User(username, encodePassword(username, password), email,role,check,id));
     }
 
     private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistException, UsernameAlreadyExistException {
@@ -79,6 +80,19 @@ public class UserService {
         return false;
     }
 
+    public static boolean verifyId(int id){
+        for(User user: userRepository.find())
+        {
+            if (id==user.getId())
+            {
+                return true;
+            }
+
+        }
+        return false;
+    }
+
+
     public static int returnId(String name){
 
         for(User user : userRepository.find()){
@@ -98,6 +112,15 @@ public class UserService {
         return null;
     }
 
+    public static String returnUser(int id){
+        for(User user : userRepository.find()){
+            if(id==user.getId()){
+                return user.getUsername();
+            }
+        }
+        return null;
+    }
+
     public static String returnNume(int id){
 
         for(User user : userRepository.find()){
@@ -106,5 +129,36 @@ public class UserService {
             }
         }
         return null;
+    }
+
+    public static String returnGmail(String username){
+        for(User user : userRepository.find()){
+            if(user.getUsername().equals(username)){
+                return user.getGmail();
+            }
+        }
+        return null;
+    }
+
+    public static String getRole(String username){
+        for(User user : userRepository.find()){
+            if(user.getUsername().equals(username)){
+                return user.getRole();
+            }
+        }
+        return null;
+    }
+
+    public static void updateProfile(String numeCurent,String username,String parola,String gmail)throws UsernameAlreadyExistException{
+        checkUserDoesNotAlreadyExist(username);
+        for(User user : userRepository.find()){
+            if(numeCurent.equals(user.getUsername())){
+                user.setUsername(username);
+                user.setGmail(gmail);
+                user.setPassword(encodePassword(username,parola));
+                userRepository.remove(ObjectFilters.eq("username",numeCurent));
+                userRepository.insert(user);
+            }
+        }
     }
 }
