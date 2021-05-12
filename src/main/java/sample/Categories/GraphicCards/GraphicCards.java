@@ -123,7 +123,7 @@ public class GraphicCards {
                         if(TempOrderService.verify(nume.get(nr).getText(),UserService.returnNume(GraphicCardsService.returnId(nume.get(nr).getText())),MainPage.getUsernameFromMain())){
                             return;
                         }
-                        TempOrderService.addOrder(UserService.returnNume(GraphicCardsService.returnId(nume.get(nr).getText())),MainPage.getUsernameFromMain(), nume.get(nr).getText(), GraphicCardsService.returnInteresati(nume.get(nr).getText()));
+                        TempOrderService.addOrder(UserService.returnNume(GraphicCardsService.returnId(nume.get(nr).getText())),MainPage.getUsernameFromMain(), nume.get(nr).getText(), GraphicCardsService.returnInteresati(nume.get(nr).getText()),UserService.returnId(MainPage.getUsernameFromMain()));
                         return;
                     }
                 }

@@ -10,11 +10,11 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainPage.PopUp">
    <children>
-      <Button layoutX="207.0" layoutY="311.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="207.0" text="Confirm your changes" />
-      <PasswordField layoutX="174.0" layoutY="245.0" prefHeight="27.0" prefWidth="281.0" promptText="Confirm you new password" />
-      <PasswordField layoutX="174.0" layoutY="200.0" prefHeight="27.0" prefWidth="281.0" promptText="Enter a new password" />
-      <TextField layoutX="174.0" layoutY="151.0" prefHeight="27.0" prefWidth="281.0" promptText="Enter a new email" />
-      <TextField layoutX="174.0" layoutY="104.0" prefHeight="27.0" prefWidth="281.0" promptText="Enter a new username" />
+      <Button fx:id="confirmChange" onAction="#changeProfile" layoutX="207.0" layoutY="311.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="207.0" text="Confirm your changes" />
+      <PasswordField fx:id="confirmpass" layoutX="174.0" layoutY="245.0" prefHeight="27.0" prefWidth="281.0" promptText="Confirm you new password" />
+      <PasswordField fx:id="newpass" layoutX="174.0" layoutY="200.0" prefHeight="27.0" prefWidth="281.0" promptText="Enter a new password" />
+      <TextField fx:id="mail" layoutX="174.0" layoutY="151.0" prefHeight="27.0" prefWidth="281.0" promptText="Enter a new email" />
+      <TextField fx:id="newusername" layoutX="174.0" layoutY="104.0" prefHeight="27.0" prefWidth="281.0" promptText="Enter a new username" />
       <Text layoutX="67.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" wrappingWidth="77.2060546875" />
       <Text layoutX="67.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="57.2060546875" />
       <Text layoutX="67.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="102.2060546875" />

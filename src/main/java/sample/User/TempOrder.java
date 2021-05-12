@@ -9,16 +9,17 @@ public class TempOrder {
     private String numeCustomer;
     private String NumeProduse;
     private int cantitate=1,nrinteresati;
-
+    private int idCustomer;
     public TempOrder(){
 
     }
 
-    public TempOrder(String numeSeller,String numeCustomer,String numeProdus,int nrinteresati){
+    public TempOrder(String numeSeller,String numeCustomer,String numeProdus,int nrinteresati,int idCustomer){
         this.numeSeller=numeSeller;
         this.numeCustomer=numeCustomer;
         this.NumeProduse=numeProdus;
         this.nrinteresati=nrinteresati;
+        this.idCustomer=idCustomer;
     }
 
     public void setNumeProduse(String numeProduse){
@@ -43,6 +44,10 @@ public class TempOrder {
 
     public int getNrinteresati() {return nrinteresati;}
 
+    public int getIdCustomer() {
+        return idCustomer;
+    }
+
     public void setNumeSeller(String numeSeller){
         this.numeSeller=numeSeller;
     }
@@ -53,5 +58,6 @@ public class TempOrder {
         cantitate++;
     }
     public void setNrinteresati(int nrinteresati) {this.nrinteresati=nrinteresati;}
+
 
 }

@@ -13,6 +13,8 @@ import sample.MainPage.MainPage;
 import sample.User.User;
 import sample.exceptions.UsernameAlreadyExistException;
 
+import java.util.Random;
+
 public class register {
     @FXML
     private TextField username;
@@ -92,7 +94,12 @@ public class register {
                     this.alert1.showAndWait();
                     return;
                 }
-                UserService.addUser(username.getText(), password.getText(), email.getText(),comboBox.getSelectionModel().getSelectedItem().toString() , news.isSelected());
+                Random rand = new Random();
+                int rand_int1 = rand.nextInt(1000);
+                if(!UserService.verifyId(rand_int1)){
+                    rand_int1 = rand.nextInt(1000);
+                }
+                UserService.addUser(username.getText(), password.getText(), email.getText(),comboBox.getSelectionModel().getSelectedItem().toString() , news.isSelected(),rand_int1);
                 MainPage.usernameForMain(username.getText());
                 this.stage = (Stage) this.registerB.getScene().getWindow();
                 this.root = (Parent) FXMLLoader.load(this.getClass().getResource("/FXML/MainPage.fxml"));

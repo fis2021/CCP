@@ -15,7 +15,7 @@
          </font>
       </Text>
       <Separator layoutY="49.0" prefHeight="10.0" prefWidth="648.0" />
-      <AnchorPane layoutX="6.0" layoutY="59.0" prefHeight="512.0" prefWidth="635.0" />
+      <AnchorPane fx:id="Anchor" layoutX="6.0" layoutY="59.0" prefHeight="512.0" prefWidth="635.0" />
       <Button fx:id="Close" layoutX="298.0" layoutY="582.0" mnemonicParsing="false" text="Close" onAction="#CloseWindow" />
    </children>
 </AnchorPane>

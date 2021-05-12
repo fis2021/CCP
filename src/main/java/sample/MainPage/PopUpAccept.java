@@ -11,6 +11,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sample.DataBase.OrderService;
+import sample.DataBase.TempOrderService;
+import sample.User.TempOrder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,46 +37,59 @@ public class PopUpAccept {
         vbox1.setSpacing(50);
     }
 
-    public static void Test(String numeProduse,String cantitate1){
+    public static void Test(String numeProduse,int cantitate1){
+
+        for(int i=0;i<10;i++)
+        {
+            AcceptButton.add(i,new Button("Accept"));
+            AcceptButton.get(i).setLayoutX(520);
+            AcceptButton.get(i).setId("#" + i);
+            DeclineButton.add(i,new Button("Decline"));
+            DeclineButton.get(i).setLayoutX(460);
+            DeclineButton.get(i).setId("#" + i);
+        }
+        Integer y = new Integer(cantitate1);
         for(int i=0; i<10; i++){
             numeProdus.add(i,new Text(numeProduse));
             numeProdus.get(i).setLayoutX(0);
             numeProdus.get(i).setLayoutY(3);
-            cantitate.add(i,new Text(cantitate1));
+            cantitate.add(i,new Text(y.toString()));
             cantitate.get(i).setLayoutY(3);
             cantitate.get(i).setLayoutX(100);
-            AcceptButton.add(i,new Button("Accept"));
-            AcceptButton.get(i).setLayoutX(520);
-            DeclineButton.add(i,new Button("Decline"));
-            DeclineButton.get(i).setLayoutX(460);
             pane1[i]= new Pane();
             pane1[i].setLayoutX(300);
             pane1[i].setLayoutY(50);
             pane1[i].getChildren().addAll(numeProdus.get(i),cantitate.get(i),AcceptButton.get(i),DeclineButton.get(i));
         }
 
-        for(int i=0; i<10; i++){
+        for (int i = 0; i < AcceptButton.size(); i++) {
             final int nr = i;
             AcceptButton.get(i).setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    OrderService.SetStatusOrder(numeProdus.get(nr).getText(),"Accepted");
-                    AcceptButton.get(nr).setVisible(false);
-                    DeclineButton.get(nr).setVisible(false);
-                    return;
+                    for (int j = 0; j < numeProdus.size(); j++) {
+                        if (nr == j) {
+                            OrderService.SetStatusOrder(numeProdus.get(nr).getText(), "Accepted");
+                            DeclineButton.get(nr).setVisible(false);
+                            AcceptButton.get(nr).setVisible(false);
+                        }
+                    }
                 }
             });
         }
 
-        for(int i=0; i<10; i++){
+        for (int i = 0; i < DeclineButton.size(); i++) {
             final int nr = i;
             DeclineButton.get(i).setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    OrderService.SetStatusOrder(numeProdus.get(nr).getText(),"Declined");
-                    AcceptButton.get(nr).setVisible(false);
-                    DeclineButton.get(nr).setVisible(false);
-                    return;
+                    for (int j = 0; j < numeProdus.size(); j++) {
+                        if (nr == j) {
+                            OrderService.SetStatusOrder(numeProdus.get(nr).getText(), "Declined");
+                            DeclineButton.get(nr).setVisible(false);
+                            AcceptButton.get(nr).setVisible(false);
+                        }
+                    }
                 }
             });
         }

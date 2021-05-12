@@ -31,6 +31,8 @@ public class PopUpOrder {
     @FXML
     private CheckBox Delivery;
 
+    private static int nr=0;
+
     private void initVBOX(){
         vbox1.setPadding(new Insets(10,10,10,10));
         vbox1.setSpacing(50);
@@ -61,13 +63,18 @@ public class PopUpOrder {
         CentralAnchor.getChildren().add(vbox1);
     }
 
-    public void SetOrder(ActionEvent event){
-        if(event.getSource() == Place){
-            TempOrderService.DeleteAllDatabase(MainPage.getUsernameFromMain());
-        }
+    public void soonDelivery(ActionEvent event){
         if(event.getSource() == Delivery){
-            OrderService.setDeliv();
-            return;
+            TempOrderService.SetNewDataBase(true);
+        }
+    }
+
+    public void SetOrder(ActionEvent event){
+        if(event.getSource() == Place) {
+            if(!Delivery.isSelected()){
+                TempOrderService.SetNewDataBase(false);
+            }
+           TempOrderService.DeleteAllDatabase(MainPage.getUsernameFromMain());
         }
         stage = (Stage) Delete.getScene().getWindow();
         stage.close();
@@ -83,11 +90,6 @@ public class PopUpOrder {
 
     @FXML
     public void initialize(){
-        if(Delivery.isSelected()){
-            TempOrderService.SetNewDataBase(true);
-        }else{
-            TempOrderService.SetNewDataBase(false);
-        }
         initVBOX();
         init();
     }

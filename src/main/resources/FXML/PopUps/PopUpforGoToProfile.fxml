@@ -13,12 +13,12 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <Text layoutX="93.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:">
+      <Text  layoutX="93.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text layoutX="93.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:">
+      <Text  layoutX="93.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:">
          <font>
             <Font size="14.0" />
          </font>
@@ -28,10 +28,10 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <Text layoutX="174.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="212.2060546875" />
-      <Text layoutX="141.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="204.2060546875" />
-      <Text layoutX="132.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="262.2060546875" />
-      <Button layoutX="255.0" layoutY="288.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" text="&lt;-Go Back">
+      <Text fx:id="username" layoutX="174.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="212.2060546875" />
+      <Text fx:id="gmail" layoutX="141.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="204.2060546875" />
+      <Text fx:id="role" layoutX="132.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="262.2060546875" />
+      <Button fx:id="goback" onAction="#Goback" layoutX="255.0" layoutY="288.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" text="&lt;-Go Back">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>

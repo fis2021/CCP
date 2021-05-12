@@ -9,12 +9,13 @@ public class Order {
     private boolean delivery;
     private String status;
     private int nrInteresati;
-
+    private int idCustomer;
+    private int idComanda;
     public Order(){
 
     }
 
-    public Order(String numeSeller,String numeCustomer,String numeProdus,int cantitate,boolean delivery,String status,int nrInteresati){
+    public Order(String numeSeller,String numeCustomer,String numeProdus,int cantitate,boolean delivery,String status,int nrInteresati,int idCustomer,int Comanda){
         this.numeSeller=numeSeller;
         this.numeCustomer=numeCustomer;
         this.NumeProduse=numeProdus;
@@ -22,6 +23,8 @@ public class Order {
         this.delivery=delivery;
         this.status=status;
         this.nrInteresati = nrInteresati;
+        this.idCustomer=idCustomer;
+        this.idComanda = Comanda;
     }
 
     public void setNumeProduse(String numeProduse){
@@ -54,6 +57,18 @@ public class Order {
 
     public int getNrInteresati(){return nrInteresati;}
 
+    public int getIdCustomer() {
+        return idCustomer;
+    }
+
+    public void setIdCustomer(int idCustomer) {
+        this.idCustomer = idCustomer;
+    }
+
+    public int getIdComanda() {
+        return idComanda;
+    }
+
     public void setNumeSeller(String numeSeller){
         this.numeSeller=numeSeller;
     }
@@ -61,7 +76,7 @@ public class Order {
         this.numeCustomer=numeCustomer;
     }
     public void setCantitate(int cant){
-        cantitate=cant;
+        this.cantitate=cant;
     }
     public void setDelivery(boolean dev){
         this.delivery=dev;

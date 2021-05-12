@@ -206,7 +206,7 @@ public class MainPage {
             nr=7;
             stage = new Stage();
             root = FXMLLoader.load(getClass().getResource("/FXML/PopUps/PopUpforAccept.fxml"));
-            OrderService.set(MainPage.getUsernameFromMain());
+            OrderService.setAccept(MainPage.getUsernameFromMain());
         }
         stage.setTitle("Accept/Decline order");
         Scene scene = new Scene(root);
@@ -245,6 +245,7 @@ public class MainPage {
             nr=10;
             stage = new Stage();
             root = FXMLLoader.load(getClass().getResource("/FXML/PopUps/PopUpforCustomerHistory.fxml"));
+            FinalStatusService.setCustomerOrderHistory(MainPage.getUsernameFromMain());
         }
         stage.setTitle("Order history");
         Scene scene = new Scene(root);
@@ -284,6 +285,13 @@ public class MainPage {
     @FXML
     private void initialize(){
         //MovingText();
+        if(!OrderService.checkifSellerHaveOders(MainPage.getUsernameFromMain())){
+            circle.setVisible(false);
+            NotificationLabel.setVisible(false);
+        }else{
+            circle.setVisible(true);
+            NotificationLabel.setVisible(true);
+        }
         HideandShow();
     }
 
