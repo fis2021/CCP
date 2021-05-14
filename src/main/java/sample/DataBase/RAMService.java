@@ -139,7 +139,7 @@ public class RAMService {
     public static int getMostInterestProduct(){
         int max = 0;
         for(RAMBase ramBase : RAMRepository.find()){
-            if(max>ramBase.getNrInteresati()){
+            if(max<ramBase.getNrInteresati()){
                 max=ramBase.getNrInteresati();
             }
         }
