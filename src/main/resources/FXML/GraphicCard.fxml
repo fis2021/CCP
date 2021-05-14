@@ -12,17 +12,17 @@
             <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                     <children>
-                        <Button fx:id="GoBack" layoutX="91.0" layoutY="744.0" mnemonicParsing="false" onAction="#GoBackMainPage" prefHeight="25.0" prefWidth="149.0" text="&lt;- Go back">
+                        <Button id="close1" fx:id="GoBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#GoBackMainPage" prefHeight="22.0" prefWidth="91.0" text="&lt;- Go back">
                             <font>
                                 <Font name="System Bold" size="13.0" />
                             </font>
                         </Button>
-                  <Text layoutX="52.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informatii:" textAlignment="CENTER" underline="true" wrappingWidth="194.2060546875">
+                  <Text layoutX="66.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informatii:" textAlignment="CENTER" underline="true" wrappingWidth="194.2060546875">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Text>
-                  <Text layoutX="28.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The most important piece of graphics hardware is the graphics card, which is the piece of equipment that renders out all images and sends them to a display. There are two types of graphics cards: integrated and dedicated. An integrated graphics card, usually by Intel to use in their computers, is bound to the motherboard and shares RAM(Random Access Memory) with the CPU, reducing the total amount of RAM available.  " wrappingWidth="248.2060546875">
+                  <Text layoutX="41.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The most important piece of graphics hardware is the graphics card, which is the piece of equipment that renders out all images and sends them to a display. There are two types of graphics cards: integrated and dedicated. An integrated graphics card, usually by Intel to use in their computers, is bound to the motherboard and shares RAM(Random Access Memory) with the CPU, reducing the total amount of RAM available.  " wrappingWidth="248.2060546875">
                      <font>
                         <Font size="14.0" />
                      </font>
