@@ -15,6 +15,7 @@ import sample.MainPage.MainPage;
 import sample.MainPage.PopUp;
 import sample.exceptions.ProductAlreadyExists;
 
+import java.util.List;
 import java.util.Objects;
 
 import static sample.DataBase.FileSystemService.getPathToFile;
@@ -23,13 +24,19 @@ import static sample.DataBase.FileSystemService.getPathToFile;
 public class SourcesService {
 
     private static ObjectRepository<SourcesBase> SourcesRepository;
+    private static Nitrite database;
 
     public static void initDataBaseforSources(){
-        Nitrite database = Nitrite.builder()
-                .filePath((getPathToFile("Sources.db")).toFile())
-                .openOrCreate("test","test");
+        FileSystemService.initDirectory();
+        database = Nitrite.builder()
+                .filePath(getPathToFile("Source.db").toFile())
+                .openOrCreate("test", "test");
         SourcesRepository= database.getRepository(SourcesBase.class);
     }
+
+    public static void closeDataBase(){database.close();}
+
+    public static List<SourcesBase> getAllProduct(){return SourcesRepository.find().toList();}
 
     public static void set(){
         for(SourcesBase sourcesBase : SourcesRepository.find())
@@ -76,7 +83,7 @@ public class SourcesService {
         SourcesRepository.insert(new SourcesBase(numeProdus,Pret,Descriere,Tip,Garantie,id,nrinteresati));
     }
 
-    private static void CheckProductAlreadyExists(String name) throws ProductAlreadyExists {
+    public static void CheckProductAlreadyExists(String name) throws ProductAlreadyExists {
         for(SourcesBase sourcesBase:SourcesRepository.find())
         {
             if(Objects.equals(name,sourcesBase.getNumeProdus()))

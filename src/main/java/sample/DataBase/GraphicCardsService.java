@@ -9,23 +9,31 @@ import org.dizitart.no2.objects.ObjectRepository;
 import sample.Categories.Processors.ProcessorsBase;
 import sample.MainPage.MainPage;
 import sample.MainPage.PopUp;
+import sample.User.User;
 import sample.exceptions.ProductAlreadyExists;
 
 
+import java.util.List;
 import java.util.Objects;
 
 import static sample.DataBase.FileSystemService.getPathToFile;
 
 
-public class GraphicCardsService {
+public class GraphicCardsService  {
 
+    private static Nitrite database;
     private static ObjectRepository<GraphicCardsBase> GraphicCardsRepository;
 
     public static void initDataBaseforGraphicCards(){
-        Nitrite database = Nitrite.builder()
-                .filePath((getPathToFile("Graphic.db")).toFile())
-                .openOrCreate("test","test");
+        FileSystemService.initDirectory();
+        database = Nitrite.builder()
+                .filePath(getPathToFile("Graphic.db").toFile())
+                .openOrCreate("test", "test");
         GraphicCardsRepository= database.getRepository(GraphicCardsBase.class);
+    }
+
+    public static void closeDataBase(){
+        database.close();
     }
 
     public static void set()
@@ -35,6 +43,10 @@ public class GraphicCardsService {
             GraphicCards.Test1(graphicBase.getNumeProdus(),graphicBase.getPret(),graphicBase.getDescriere(),graphicBase.getTip(), graphicBase.getGarantie());
         }
 
+    }
+
+    public static List<GraphicCardsBase> getAllGraphicCards() {
+        return GraphicCardsRepository.find().toList();
     }
 
     public static void DeleteProduct(String numeProdus){
@@ -73,7 +85,7 @@ public class GraphicCardsService {
         GraphicCardsRepository.insert(new GraphicCardsBase(numeProdus, Pret, Descriere, Tip, Garantie, id, nrinteresati));
     }
 
-    private static void CheckProductAlreadyExists(String name) throws ProductAlreadyExists
+    public static void CheckProductAlreadyExists(String name) throws ProductAlreadyExists
     {
         for(GraphicCardsBase graphicBase:GraphicCardsRepository.find())
             {
@@ -103,17 +115,6 @@ public class GraphicCardsService {
         return null;
     }
 
-
-    public static String setMostInterestednrInteresati(int nrinteresati){
-        for(GraphicCardsBase graphicCardsBase : GraphicCardsRepository.find()){
-            if(graphicCardsBase.getNrInteresati() == nrinteresati){
-                Integer y = new Integer(nrinteresati);
-                return y.toString();
-            }
-        }
-        return null;
-    }
-
     public static String setMostInterestedPret(int nrinteresati){
         for(GraphicCardsBase graphicCardsBase : GraphicCardsRepository.find()){
             if(graphicCardsBase.getNrInteresati() == nrinteresati){
@@ -122,6 +123,7 @@ public class GraphicCardsService {
         }
         return null;
     }
+
     public static void Increment(String numeProdus,String Pret,String Tip,String Garantie,String Descriere){
         for(GraphicCardsBase graphicBase:GraphicCardsRepository.find())
         {

@@ -20,13 +20,24 @@ import static sample.DataBase.FileSystemService.getPathToFile;
 public class TempOrderService {
 
     private static ObjectRepository<TempOrder> TempOrderRepository;
+    private static Nitrite database;
+
 
     public static void initDataBase(){
-        Nitrite database = Nitrite.builder()
+        FileSystemService.initDirectory();
+        database = Nitrite.builder()
                 .filePath(getPathToFile("TempOrder.db").toFile())
-                .openOrCreate("test","test");
+                .openOrCreate("test", "test");
 
         TempOrderRepository = database.getRepository(TempOrder.class);
+    }
+
+    public static void closeDataBase(){
+        database.close();
+    }
+
+    public static List<TempOrder> getAllTempOrders() {
+        return TempOrderRepository.find().toList();
     }
 
     public static void addOrder(String numeSeller,String numeCustomer, String numeProdus, int interesati,int idcustomer){
@@ -34,12 +45,12 @@ public class TempOrderService {
     }
 
     public static void Delete(String numeProdus){
+        String numeP=new String();
         for(TempOrder tempOrder : TempOrderRepository.find()){
             if(tempOrder.getNumeProduse().equals(numeProdus)){
-                TempOrderRepository.remove(ObjectFilters.eq("NumeProduse",numeProdus));
-
+                numeP=numeProdus;
             }
-        }
+        }TempOrderRepository.remove(ObjectFilters.eq("NumeProduse",numeP));
     }
 
     public static void set(String numeCustomer){

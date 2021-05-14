@@ -7,19 +7,31 @@ import sample.MainPage.PopUpSellerHistory;
 import sample.User.FinalStatus;
 
 
+import java.util.List;
+
 import static sample.DataBase.FileSystemService.getPathToFile;
 
 public class FinalStatusService {
     private static ObjectRepository<FinalStatus> FinalRepository;
 
+    private static Nitrite database;
+
     public static void initDataBase(){
-        Nitrite database = Nitrite.builder()
+        FileSystemService.initDirectory();
+        database = Nitrite.builder()
                 .filePath(getPathToFile("Final.db").toFile())
-                .openOrCreate("test","test");
+                .openOrCreate("test", "test");
 
         FinalRepository = database.getRepository(FinalStatus.class);
     }
 
+    public static void closeDataBase(){
+        database.close();
+    }
+
+    public static List<FinalStatus> getAllProduct() {
+        return FinalRepository.find().toList();
+    }
     public static void FinalOrder(String numProdus, String numeSeller,String numeCustomer,int cantitate,boolean delivery,String status,int interesati){
         FinalRepository.insert(new FinalStatus(numeSeller,numeCustomer,numProdus,cantitate,delivery,status,interesati));
     }

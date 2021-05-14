@@ -20,7 +20,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        initDirectory();
         ProcessorsService.initDataBaseforProcessors();
         GraphicCardsService.initDataBaseforGraphicCards();
         RAMService.initDataBaseforRAM();
@@ -33,13 +32,6 @@ public class Main extends Application {
         primaryStage.setTitle("CCP");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
-    }
-
-    private void initDirectory(){
-        Path applicationHomePath = FileSystemService.APPLICATION_HOME_PATH;
-        if(!Files.exists(applicationHomePath)){
-            applicationHomePath.toFile().mkdirs();
-        }
     }
 
 }

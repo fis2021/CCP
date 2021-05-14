@@ -10,6 +10,7 @@ import sample.MainPage.MainPage;
 import sample.MainPage.PopUp;
 import sample.exceptions.ProductAlreadyExists;
 
+import java.util.List;
 import java.util.Objects;
 
 import static sample.DataBase.FileSystemService.getPathToFile;
@@ -18,12 +19,18 @@ import static sample.DataBase.FileSystemService.getPathToFile;
 public class ProcessorsService {
 
     private static ObjectRepository<ProcessorsBase> ProcessorsRepository;
+    private static Nitrite database;
 
     public static void initDataBaseforProcessors(){
-        Nitrite database = Nitrite.builder()
-                .filePath((getPathToFile("Processors.db")).toFile())
-                .openOrCreate("test","test");
+        FileSystemService.initDirectory();
+        database = Nitrite.builder()
+                .filePath(getPathToFile("Processors.db").toFile())
+                .openOrCreate("test", "test");
         ProcessorsRepository= database.getRepository(ProcessorsBase.class);
+    }
+
+    public static void closeDataBase(){
+        database.close();
     }
 
     public static void set()
@@ -34,6 +41,11 @@ public class ProcessorsService {
         }
 
     }
+
+    public static List<ProcessorsBase> getAllProccesors() {
+        return ProcessorsRepository.find().toList();
+    }
+
 
     public static void setForDelete(){
         for(ProcessorsBase processorsBase : ProcessorsRepository.find())
@@ -72,7 +84,7 @@ public class ProcessorsService {
         ProcessorsRepository.insert(new ProcessorsBase(numeProdus,Pret,Descriere,Tip,Garantie,id,nr));
     }
 
-    private static void CheckProductAlreadyExists(String name) throws ProductAlreadyExists{
+    public static void CheckProductAlreadyExists(String name) throws ProductAlreadyExists{
         for(ProcessorsBase processorsBase:ProcessorsRepository.find())
         {
             if(Objects.equals(name,processorsBase.getNumeProdus()))
