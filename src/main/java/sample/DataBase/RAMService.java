@@ -14,6 +14,7 @@ import sample.MainPage.MainPage;
 import sample.MainPage.PopUp;
 import sample.exceptions.ProductAlreadyExists;
 
+import java.util.List;
 import java.util.Objects;
 
 import static sample.DataBase.FileSystemService.getPathToFile;
@@ -22,13 +23,22 @@ import static sample.DataBase.FileSystemService.getPathToFile;
 public class RAMService {
 
     private static ObjectRepository<RAMBase> RAMRepository;
+    private static Nitrite database;
 
     public static void initDataBaseforRAM(){
         FileSystemService.initDirectory();
-        Nitrite database = Nitrite.builder()
+         database = Nitrite.builder()
                 .filePath(getPathToFile("RAM.db").toFile())
                 .openOrCreate("test", "test");
         RAMRepository= database.getRepository(RAMBase.class);
+    }
+
+    public static void closeDataBase(){
+        database.close();
+    }
+
+    public static List<RAMBase> getAllProduct(){
+        return RAMRepository.find().toList();
     }
 
     public static void addRAM(String numeProdus,String Pret,String Descriere,String Tip,String Garantie,int id,int nrinteresati) throws ProductAlreadyExists{
@@ -36,7 +46,7 @@ public class RAMService {
         RAMRepository.insert(new RAMBase(numeProdus,Pret,Descriere,Tip,Garantie,id,nrinteresati));
     }
 
-    private static void CheckProductAlreadyExists(String name) throws ProductAlreadyExists {
+    public static void CheckProductAlreadyExists(String name) throws ProductAlreadyExists {
         for(RAMBase ramBase:RAMRepository.find())
         {
             if(Objects.equals(name,ramBase.getNumeProdus()))
@@ -129,7 +139,7 @@ public class RAMService {
     public static int getMostInterestProduct(){
         int max = 0;
         for(RAMBase ramBase : RAMRepository.find()){
-            if(max>ramBase.getNrInteresati()){
+            if(max<ramBase.getNrInteresati()){
                 max=ramBase.getNrInteresati();
             }
         }
