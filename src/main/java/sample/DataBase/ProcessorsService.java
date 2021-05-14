@@ -20,9 +20,10 @@ public class ProcessorsService {
     private static ObjectRepository<ProcessorsBase> ProcessorsRepository;
 
     public static void initDataBaseforProcessors(){
+        FileSystemService.initDirectory();
         Nitrite database = Nitrite.builder()
-                .filePath((getPathToFile("Processors.db")).toFile())
-                .openOrCreate("test","test");
+                .filePath(getPathToFile("Processors.db").toFile())
+                .openOrCreate("test", "test");
         ProcessorsRepository= database.getRepository(ProcessorsBase.class);
     }
 

@@ -22,9 +22,10 @@ public class TempOrderService {
     private static ObjectRepository<TempOrder> TempOrderRepository;
 
     public static void initDataBase(){
+        FileSystemService.initDirectory();
         Nitrite database = Nitrite.builder()
                 .filePath(getPathToFile("TempOrder.db").toFile())
-                .openOrCreate("test","test");
+                .openOrCreate("test", "test");
 
         TempOrderRepository = database.getRepository(TempOrder.class);
     }

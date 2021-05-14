@@ -13,9 +13,10 @@ public class FinalStatusService {
     private static ObjectRepository<FinalStatus> FinalRepository;
 
     public static void initDataBase(){
+        FileSystemService.initDirectory();
         Nitrite database = Nitrite.builder()
                 .filePath(getPathToFile("Final.db").toFile())
-                .openOrCreate("test","test");
+                .openOrCreate("test", "test");
 
         FinalRepository = database.getRepository(FinalStatus.class);
     }

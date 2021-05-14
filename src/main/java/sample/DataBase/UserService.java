@@ -24,17 +24,30 @@ public class UserService {
 
     private static ObjectRepository<User> userRepository;
 
+    private static Nitrite database;
+
     public static void initDataBase(){
-        Nitrite database = Nitrite.builder()
+
+        FileSystemService.initDirectory();
+        database = Nitrite.builder()
                 .filePath(getPathToFile("User.db").toFile())
-                .openOrCreate("test","test");
+                .openOrCreate("test", "test");
 
         userRepository = database.getRepository(User.class);
+
+    }
+
+    public static void closeDataBase(){
+        database.close();
     }
 
     public static void addUser(String username, String password, String email,String role,boolean check,int id) throws UsernameAlreadyExistException {
         checkUserDoesNotAlreadyExist(username);
         userRepository.insert(new User(username, encodePassword(username, password), email,role,check,id));
+    }
+
+    public static List<User> getAllUsers() {
+        return userRepository.find().toList();
     }
 
     private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistException, UsernameAlreadyExistException {
@@ -44,7 +57,7 @@ public class UserService {
         }
     }
 
-    private static String encodePassword(String salt,String password){
+    public static String encodePassword(String salt,String password){
         MessageDigest md = getMessageDigest();
         md.update(salt.getBytes(StandardCharsets.UTF_8));
 
@@ -107,15 +120,6 @@ public class UserService {
         for(User user : userRepository.find()){
             if(Objects.equals(name,user.getUsername())){
                 return user.getRole();
-            }
-        }
-        return null;
-    }
-
-    public static String returnUser(int id){
-        for(User user : userRepository.find()){
-            if(id==user.getId()){
-                return user.getUsername();
             }
         }
         return null;

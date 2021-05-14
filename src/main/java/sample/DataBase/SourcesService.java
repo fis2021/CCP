@@ -25,9 +25,10 @@ public class SourcesService {
     private static ObjectRepository<SourcesBase> SourcesRepository;
 
     public static void initDataBaseforSources(){
+        FileSystemService.initDirectory();
         Nitrite database = Nitrite.builder()
-                .filePath((getPathToFile("Sources.db")).toFile())
-                .openOrCreate("test","test");
+                .filePath(getPathToFile("Source.db").toFile())
+                .openOrCreate("test", "test");
         SourcesRepository= database.getRepository(SourcesBase.class);
     }
 

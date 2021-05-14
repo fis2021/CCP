@@ -24,9 +24,10 @@ public class RAMService {
     private static ObjectRepository<RAMBase> RAMRepository;
 
     public static void initDataBaseforRAM(){
+        FileSystemService.initDirectory();
         Nitrite database = Nitrite.builder()
-                .filePath((getPathToFile("RAM.db")).toFile())
-                .openOrCreate("test","test");
+                .filePath(getPathToFile("RAM.db").toFile())
+                .openOrCreate("test", "test");
         RAMRepository= database.getRepository(RAMBase.class);
     }
 
