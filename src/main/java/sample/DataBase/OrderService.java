@@ -3,6 +3,7 @@ package sample.DataBase;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 import org.dizitart.no2.objects.filters.ObjectFilters;
+import sample.Categories.GraphicCards.GraphicCardsBase;
 import sample.MainPage.MainPage;
 import sample.MainPage.PopUpAccept;
 import sample.MainPage.PopUpStatus;
@@ -12,38 +13,36 @@ import sample.User.User;
 import sample.exceptions.UsernameAlreadyExistException;
 
 
+import java.util.List;
+
 import static sample.DataBase.FileSystemService.getPathToFile;
 
 
 public class OrderService {
 
     private static ObjectRepository<Order> OrderRepository;
+    private static Nitrite database;
 
     public static void initDataBase(){
         FileSystemService.initDirectory();
-        Nitrite database = Nitrite.builder()
+        database = Nitrite.builder()
                 .filePath(getPathToFile("Order.db").toFile())
                 .openOrCreate("test", "test");
 
         OrderRepository = database.getRepository(Order.class);
     }
 
+    public static void closeDataBase(){
+        database.close();
+    }
+
     public static void Order(String numProdus, String numeSeller,String numeCustomer,int cantitate,boolean delivery,String status,int nrinteresati,int idCustomer,int comanda){
         OrderRepository.insert(new Order(numeSeller,numeCustomer,numProdus,cantitate,delivery,status,nrinteresati,idCustomer,comanda));
     }
 
-    public static void setDeliv(){
-        for(Order order : OrderRepository.find()){
-            order.setDelivery(true);
-            order.setNumeSeller(order.getNumeSeller());
-            order.setNumeCustomer(order.getNumeCustomer());
-            order.setNumeProduse(order.getNumeProduse());
-            order.setCantitate(order.getCantitate());
-            OrderRepository.insert(order);
-            OrderRepository.remove(ObjectFilters.eq("NumeSeller",order.getNumeSeller()));
-        }
+    public static List<Order> getAllOrders() {
+        return OrderRepository.find().toList();
     }
-
 
     public static void setAccept(String numeSeller){
         for(Order order : OrderRepository.find()){
