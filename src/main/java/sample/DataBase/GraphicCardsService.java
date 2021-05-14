@@ -19,7 +19,7 @@ import java.util.Objects;
 import static sample.DataBase.FileSystemService.getPathToFile;
 
 
-public class GraphicCardsService {
+public class GraphicCardsService  {
 
     private static Nitrite database;
     private static ObjectRepository<GraphicCardsBase> GraphicCardsRepository;

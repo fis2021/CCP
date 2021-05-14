@@ -14,7 +14,7 @@ import sample.exceptions.UsernameAlreadyExistException;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
-class GraphicCardsServiceTest {
+class GraphicCardsServiceTest  {
 
     public static final String numeProd="produs",numeProd1="produs1";
     public static final String Pret="10",Pret1="11";
