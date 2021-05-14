@@ -14,17 +14,17 @@
             <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                     <children>
-                        <Button fx:id="GoBack" layoutX="78.0" layoutY="665.0" mnemonicParsing="false" onAction="#GoBackMainPage" prefHeight="25.0" prefWidth="149.0" text="&lt;- Go back">
+                        <Button id="close2" fx:id="GoBack" layoutX="14.0" layoutY="9.0" mnemonicParsing="false" onAction="#GoBackMainPage" prefHeight="22.0" prefWidth="93.0" text="&lt;- Go back">
                             <font>
                                 <Font name="System Bold" size="13.0" />
                             </font>
                         </Button>
-                  <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Information:" textAlignment="CENTER" wrappingWidth="277.65478515625">
+                  <Text layoutX="14.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Information:" textAlignment="CENTER" wrappingWidth="277.65478515625">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Text>
-                  <TextArea editable="false" layoutX="18.0" layoutY="54.0" prefHeight="604.0" prefWidth="269.0" text="Random-access memory (RAM) is a form of&#10;computer memory that can be and changed in&#10;any order, typically used to store working data&#10;and machine code. A random-acces memory&#10;device allows data items to be read or written&#10;in almost the same amount of time irrespective&#10;of the physical location of data inside the &#10;memory." />
+                  <TextArea editable="false" layoutX="18.0" layoutY="107.0" prefHeight="604.0" prefWidth="269.0" text="Random-access memory (RAM) is a form of&#10;computer memory that can be and changed in&#10;any order, typically used to store working data&#10;and machine code. A random-acces memory&#10;device allows data items to be read or written&#10;in almost the same amount of time irrespective&#10;of the physical location of data inside the &#10;memory." />
                     </children>
                 </AnchorPane>
                 <AnchorPane fx:id="AnchorPaneRight" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />

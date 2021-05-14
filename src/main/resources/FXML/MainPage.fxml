@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainPage.MainPage">
+<AnchorPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainPage.MainPage">
 
     <SplitPane dividerPositions="0.2644859813084112, 0.7560747663551401" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="795.0" prefWidth="1072.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
         <items>
@@ -28,10 +28,10 @@
                      <Font size="19.0" />
                   </font>
                </Text>
-               <Button fx:id="Processors" layoutX="65.0" layoutY="248.0" mnemonicParsing="false" onAction="#GoToCategories" prefHeight="35.0" prefWidth="155.0" text="Processors" />
-               <Button fx:id="GraphicCard" layoutX="65.0" layoutY="299.0" mnemonicParsing="false" onAction="#GoToCategories" prefHeight="35.0" prefWidth="155.0" text="Graphic Card" />
-               <Button fx:id="RAM" layoutX="65.0" layoutY="349.0" mnemonicParsing="false" onAction="#GoToCategories" prefHeight="35.0" prefWidth="155.0" text="RAM" />
-               <Button fx:id="Sources" layoutX="65.0" layoutY="397.0" mnemonicParsing="false" onAction="#GoToCategories" prefHeight="35.0" prefWidth="155.0" text="Power Supply Unit" />
+               <Button id="processors" fx:id="Processors" layoutX="65.0" layoutY="248.0" mnemonicParsing="false" onAction="#GoToCategories" prefHeight="35.0" prefWidth="155.0" text="Processors" />
+               <Button id="graphic" fx:id="GraphicCard" layoutX="65.0" layoutY="299.0" mnemonicParsing="false" onAction="#GoToCategories" prefHeight="35.0" prefWidth="155.0" text="Graphic Card" />
+               <Button id="ram" fx:id="RAM" layoutX="65.0" layoutY="349.0" mnemonicParsing="false" onAction="#GoToCategories" prefHeight="35.0" prefWidth="155.0" text="RAM" />
+               <Button id="source" fx:id="Sources" layoutX="65.0" layoutY="397.0" mnemonicParsing="false" onAction="#GoToCategories" prefHeight="35.0" prefWidth="155.0" text="Power Supply Unit" />
                 </children></AnchorPane>
             <AnchorPane prefHeight="793.0" prefWidth="357.0">
             <children>

@@ -13,13 +13,13 @@
             <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                     <children>
-                        <Button fx:id="GoBack" layoutX="79.0" layoutY="713.0" mnemonicParsing="false" onAction="#GoBackMainPage" prefHeight="25.0" prefWidth="149.0" text="&lt;- Go back">
+                        <Button id="close" fx:id="GoBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#GoBackMainPage" prefHeight="27.0" prefWidth="89.0" text="&lt;- Go back">
                             <font>
                                 <Font name="System Bold" size="13.0" />
                             </font>
                         </Button>
-                        <TextArea editable="false" layoutX="15.0" layoutY="67.0" prefHeight="577.0" prefWidth="276.0" text="A central processing unit (CPU), also called a &#10;central processor,main processor or just &#10;processor, is the electromic circuitry that&#10;executes instructions comprising a computer&#10;program.&#10;The CPU performs basic arithmetic,logic,&#10;controlling and input/ouput operations specified&#10;by the instruction in the program.&#10;The form, design, and implementation of CPUs&#10;have changed over time, but their fundamental&#10;operation remains unchanged. Principal&#10;components of a CPU include the arithmetic&#10;logic unit (ALU) that performs arithmetic and logic&#10;operation" />
-                        <Text layoutX="85.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informations:" textAlignment="CENTER" wrappingWidth="136.873046875">
+                        <TextArea editable="false" layoutX="14.0" layoutY="108.0" prefHeight="577.0" prefWidth="276.0" text="A central processing unit (CPU), also called a &#10;central processor,main processor or just &#10;processor, is the electromic circuitry that&#10;executes instructions comprising a computer&#10;program.&#10;The CPU performs basic arithmetic,logic,&#10;controlling and input/ouput operations specified&#10;by the instruction in the program.&#10;The form, design, and implementation of CPUs&#10;have changed over time, but their fundamental&#10;operation remains unchanged. Principal&#10;components of a CPU include the arithmetic&#10;logic unit (ALU) that performs arithmetic and logic&#10;operation" />
+                        <Text layoutX="84.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informations:" textAlignment="CENTER" wrappingWidth="136.873046875">
                             <font>
                                 <Font size="19.0" />
                             </font>
