@@ -22,6 +22,7 @@ public class OrderService {
 
     private static ObjectRepository<Order> OrderRepository;
     private static Nitrite database;
+    private static int i=0;
 
     public static void initDataBase(){
         FileSystemService.initDirectory();
@@ -47,8 +48,9 @@ public class OrderService {
     public static void setAccept(String numeSeller){
         for(Order order : OrderRepository.find()){
             if(numeSeller.equals(order.getNumeSeller()) && order.getStatus().equals("It is processing")){
+                i++;
                 Integer y = new Integer(order.getCantitate());
-                PopUpAccept.Test(order.getNumeProduse(),order.getCantitate());
+                PopUpAccept.Test(order.getNumeProduse(),order.getCantitate(),"b"+i,"d"+i);
             }
         }
     }

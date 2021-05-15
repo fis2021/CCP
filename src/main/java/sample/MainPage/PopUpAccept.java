@@ -37,16 +37,16 @@ public class PopUpAccept {
         vbox1.setSpacing(50);
     }
 
-    public static void Test(String numeProduse,int cantitate1){
+    public static void Test(String numeProduse,int cantitate1,String id1,String id2){
 
         for(int i=0;i<10;i++)
         {
             AcceptButton.add(i,new Button("Accept"));
             AcceptButton.get(i).setLayoutX(520);
-            AcceptButton.get(i).setId("#" + i);
+            AcceptButton.get(i).setId(id1);
             DeclineButton.add(i,new Button("Decline"));
             DeclineButton.get(i).setLayoutX(460);
-            DeclineButton.get(i).setId("#" + i);
+            DeclineButton.get(i).setId(id2);
         }
         Integer y = new Integer(cantitate1);
         for(int i=0; i<10; i++){
