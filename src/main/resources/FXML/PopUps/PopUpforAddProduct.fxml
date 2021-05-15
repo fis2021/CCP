@@ -22,7 +22,7 @@
       <Text layoutX="339.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
       <TextField id="Description" fx:id="descriere" layoutX="422.0" layoutY="194.0" prefHeight="64.0" prefWidth="167.0" promptText="Description" />
       <Text layoutX="33.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product name" wrappingWidth="90.240234375" />
-      <TextField id="numeprod" fx:id="numeprodus" layoutX="139.0" layoutY="194.0" prefHeight="27.0" prefWidth="150.0" promptText="Name of the product" />
+      <TextField id="numeprod1" fx:id="numeprodus" layoutX="139.0" layoutY="194.0" prefHeight="27.0" prefWidth="150.0" promptText="Name of the product" />
       <Text layoutX="90.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price" />
       <TextField id="price" fx:id="pret" layoutX="139.0" layoutY="288.0" prefHeight="27.0" prefWidth="150.0" promptText="Price" />
       <TextField id="garantie" fx:id="garantie" layoutX="422.0" layoutY="288.0" prefHeight="27.0" prefWidth="167.0" promptText="Guarantee" />

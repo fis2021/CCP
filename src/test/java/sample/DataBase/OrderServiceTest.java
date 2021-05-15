@@ -16,7 +16,7 @@ class OrderServiceTest {
     public static final String Customer="customer";
     public static final int cantitate=2;
     public static final boolean delivery=true;
-    public static final String status="Accepted",status1="It is processing";
+    public static final String status="Accepted",status1="It is processing",status2="Declined";
     public static final int nrinteresati=3;
     public static final int id=2;
     public static final int idcomanda=2;
@@ -97,22 +97,20 @@ class OrderServiceTest {
 
     @Test
     void TestIfOrderCanBeDeletedCorrectly(){
-        OrderService.Order(numeProd,Seller,Customer,cantitate,delivery,status1,nrinteresati,id,idcomanda);
+        OrderService.Order(numeProd,Seller,Customer,cantitate,delivery,status2,nrinteresati,id,idcomanda);
         assertThat(OrderService.getAllOrders()).isNotEmpty();
         assertThat(OrderService.getAllOrders()).size().isEqualTo(1);
         OrderService.DeleteOrder(Customer);
         assertThat(OrderService.getAllOrders()).isEmpty();
         assertThat(OrderService.getAllOrders()).size().isEqualTo(0);
-        OrderService.Order(numeProd,Seller,Customer,cantitate,delivery,status1,nrinteresati,id,idcomanda);
-        OrderService.Order(numeProd,Seller,"c",cantitate,delivery,status1,nrinteresati,id,idcomanda);
+        OrderService.Order(numeProd,Seller,Customer,cantitate,delivery,status2,nrinteresati,id,idcomanda);
+        OrderService.Order(numeProd,Seller,"c",cantitate,delivery,status2,nrinteresati,id,idcomanda);
         assertThat(OrderService.getAllOrders()).isNotEmpty();
         assertThat(OrderService.getAllOrders()).size().isEqualTo(2);
         OrderService.DeleteOrder(Customer);
-        assertThat(OrderService.getAllOrders()).isNotEmpty();
-        assertThat(OrderService.getAllOrders()).size().isEqualTo(1);
-        OrderService.DeleteOrder("c");
         assertThat(OrderService.getAllOrders()).isEmpty();
         assertThat(OrderService.getAllOrders()).size().isEqualTo(0);
+
 
     }
 
