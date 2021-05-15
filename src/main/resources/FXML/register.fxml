@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="445.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.register.register">
+<AnchorPane prefHeight="445.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.register.register">
     <children>
         <TextField id="emailreg" fx:id="email" layoutX="167.0" layoutY="144.0" prefHeight="28.0" prefWidth="263.0" promptText="Enter your email" />
         <TextField id="passreg" fx:id="password" layoutX="167.0" layoutY="195.0" prefHeight="28.0" prefWidth="265.0" promptText="Enter your password" />
@@ -18,11 +18,11 @@
         <TextField id="passconfreg" fx:id="confirm" layoutX="167.0" layoutY="250.0" prefHeight="28.0" prefWidth="265.0" promptText="Re-enter your password" />
         <PasswordField fx:id="hidpas1" layoutX="166.0" layoutY="196.0" prefHeight="26.0" prefWidth="265.0" promptText="Enter your password" />
         <PasswordField fx:id="hidpas2" layoutX="166.0" layoutY="251.0" prefHeight="26.0" prefWidth="265.0" promptText="Re-enter your password" />
-        <Hyperlink fx:id="gotoLOGIN" layoutX="440.0" layoutY="372.0" onAction="#SwitchPage" text="Go to Login" />
+        <Hyperlink fx:id="gotoLOGIN" layoutX="423.0" layoutY="372.0" onAction="#SwitchPage" text="Go to Login" />
         <CheckBox fx:id="news" layoutX="90.0" layoutY="375.0" mnemonicParsing="false" text="Newsletter" />
         <CheckBox id="checkterms" fx:id="terms" layoutX="90.0" layoutY="346.0" mnemonicParsing="false" text="Terms and conditions" />
         <CheckBox fx:id="hide" layoutX="346.0" layoutY="346.0" mnemonicParsing="false" onAction="#ShowHide" prefHeight="8.0" prefWidth="169.0" text="Show/Hide password" />
-        <Button id="registerB" fx:id="registerB" layoutX="269.0" layoutY="395.0" mnemonicParsing="false" onAction="#validation" text="Register" />
+        <Button id="registerB" fx:id="registerB" layoutX="269.0" layoutY="395.0" mnemonicParsing="false" onAction="#validation" stylesheets="@../CSS/ButtonStyle.css" text="Register" />
         <Text layoutX="94.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" />
         <Text layoutX="115.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
         <Text layoutX="95.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />

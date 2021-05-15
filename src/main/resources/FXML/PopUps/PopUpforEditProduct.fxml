@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainPage.PopUp">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainPage.PopUp">
     <children>
         <Separator layoutX="7.0" layoutY="63.0" prefHeight="28.0" prefWidth="737.0" />
         <ComboBox id="combo" fx:id="comboBox3" layoutX="144.0" layoutY="91.0" onAction="#initEditPage" prefWidth="150.0" />
@@ -30,7 +30,7 @@
             <Font size="14.0" />
          </font>
       </Text>
-        <Button fx:id="CloseWindow1" layoutX="643.0" layoutY="91.0" mnemonicParsing="false" onAction="#CloseEditWindow" prefHeight="25.0" prefWidth="71.0" text="Close" />
+        <Button fx:id="CloseWindow1" layoutX="643.0" layoutY="91.0" mnemonicParsing="false" onAction="#CloseEditWindow" prefHeight="25.0" prefWidth="71.0" stylesheets="@../../CSS/ButtonStyle.css" text="Close" />
     </children>
 
 </AnchorPane>

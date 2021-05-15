@@ -44,9 +44,11 @@ public class PopUpAccept {
             AcceptButton.add(i,new Button("Accept"));
             AcceptButton.get(i).setLayoutX(520);
             AcceptButton.get(i).setId(id1);
+            AcceptButton.get(i).setStyle("-fx-background-color: #20B2AA; -fx-background-radius: 15px; -fx-text-fill: #ffffff");
             DeclineButton.add(i,new Button("Decline"));
             DeclineButton.get(i).setLayoutX(460);
             DeclineButton.get(i).setId(id2);
+            DeclineButton.get(i).setStyle("-fx-background-color: #DC143C; -fx-background-radius: 15px; -fx-text-fill: #ffffff");
         }
         Integer y = new Integer(cantitate1);
         for(int i=0; i<10; i++){

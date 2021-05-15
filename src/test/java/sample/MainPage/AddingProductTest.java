@@ -67,7 +67,10 @@ class AddingProductTest {
         robot.clickOn("#login");
 
         robot.clickOn("#ADD");
-
+        robot.clickOn("#combo");
+        robot.clickOn("Processors");
+        robot.clickOn("#numeprod1");
+        robot.write("p1");
         robot.clickOn("#type");
         robot.write("T1");
         robot.clickOn("#Description");
@@ -76,11 +79,7 @@ class AddingProductTest {
         robot.write("3213");
         robot.clickOn("#garantie");
         robot.write("2ani");
-        robot.clickOn("#numeprod");
-        robot.write("p1");
 
-        robot.clickOn("#combo");
-        robot.clickOn("Processors");
 
         robot.clickOn("#add");
 
@@ -89,7 +88,7 @@ class AddingProductTest {
         robot.clickOn("#ADD");
         robot.clickOn("#combo");
         robot.clickOn("Graphic Cards");
-        robot.clickOn("#numeprod");
+        robot.clickOn("#numeprod1");
         robot.write("p2");
         robot.clickOn("#type");
         robot.write("T1");
@@ -102,23 +101,6 @@ class AddingProductTest {
         robot.clickOn("#add");
 
         assertThat(GraphicCardsService.getAllGraphicCards()).size().isEqualTo(1);
-
-        robot.clickOn("#ADD");
-        robot.clickOn("#combo");
-        robot.clickOn("RAM");
-        robot.clickOn("#numeprod");
-        robot.write("p2");
-        robot.clickOn("#type");
-        robot.write("T1");
-        robot.clickOn("#Description");
-        robot.write("pppp");
-        robot.clickOn("#price");
-        robot.write("3213");
-        robot.clickOn("#garantie");
-        robot.write("2ani");
-        robot.clickOn("#add");
-
-        assertThat(RAMService.getAllProduct()).size().isEqualTo(1);
 
     }
 }

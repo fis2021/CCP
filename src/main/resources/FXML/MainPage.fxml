@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
@@ -12,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainPage.MainPage">
+<AnchorPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainPage.MainPage">
 
     <SplitPane dividerPositions="0.2644859813084112, 0.7560747663551401" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="795.0" prefWidth="1072.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
         <items>
@@ -28,10 +30,10 @@
                      <Font size="19.0" />
                   </font>
                </Text>
-               <Button id="processors" fx:id="Processors" layoutX="65.0" layoutY="248.0" mnemonicParsing="false" onAction="#GoToCategories" prefHeight="35.0" prefWidth="155.0" text="Processors" />
-               <Button id="graphic" fx:id="GraphicCard" layoutX="65.0" layoutY="299.0" mnemonicParsing="false" onAction="#GoToCategories" prefHeight="35.0" prefWidth="155.0" text="Graphic Card" />
-               <Button id="ram" fx:id="RAM" layoutX="65.0" layoutY="349.0" mnemonicParsing="false" onAction="#GoToCategories" prefHeight="35.0" prefWidth="155.0" text="RAM" />
-               <Button id="source" fx:id="Sources" layoutX="65.0" layoutY="397.0" mnemonicParsing="false" onAction="#GoToCategories" prefHeight="35.0" prefWidth="155.0" text="Power Supply Unit" />
+               <Button id="processors" fx:id="Processors" layoutX="65.0" layoutY="248.0" mnemonicParsing="false" onAction="#GoToCategories" prefHeight="35.0" prefWidth="155.0" stylesheets="@../CSS/ButtonStyle.css" text="Processors" />
+               <Button id="graphic" fx:id="GraphicCard" layoutX="65.0" layoutY="299.0" mnemonicParsing="false" onAction="#GoToCategories" prefHeight="35.0" prefWidth="155.0" stylesheets="@../CSS/ButtonStyle.css" text="Graphic Card" />
+               <Button id="ram" fx:id="RAM" layoutX="65.0" layoutY="349.0" mnemonicParsing="false" onAction="#GoToCategories" prefHeight="35.0" prefWidth="155.0" stylesheets="@../CSS/ButtonStyle.css" text="RAM" />
+               <Button id="source" fx:id="Sources" layoutX="65.0" layoutY="397.0" mnemonicParsing="false" onAction="#GoToCategories" prefHeight="35.0" prefWidth="155.0" stylesheets="@../CSS/ButtonStyle.css" text="Power Supply Unit" />
                 </children></AnchorPane>
             <AnchorPane prefHeight="793.0" prefWidth="357.0">
             <children>
@@ -40,13 +42,13 @@
                      <Font size="19.0" />
                   </font>
                </Text>
-               <TextArea editable="false" layoutX="46.0" layoutY="140.0" prefHeight="223.0" prefWidth="445.0" />
-               <Text layoutX="46.0" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rules:" textAlignment="CENTER" underline="true" wrappingWidth="445.0">
+               <TextArea editable="false" layoutX="46.0" layoutY="140.0" prefHeight="149.0" prefWidth="430.0" text="This application is created by Lazar-Bogdan &amp; Andra-Muntean.&#10;Here you can navigate through pages, add/delete/edit products, view orders &#10;and view orders history if you are a seller.&#10;But if you are a customer, you can add products in your cart, make orders &#10;and see orders status and orders history." />
+               <Text layoutX="46.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rules:" textAlignment="CENTER" underline="true" wrappingWidth="445.0">
                   <font>
                      <Font size="19.0" />
                   </font>
                </Text>
-               <TextArea editable="false" layoutX="46.0" layoutY="397.0" prefHeight="375.0" prefWidth="445.0" />
+               <TextArea editable="false" layoutX="46.0" layoutY="336.0" prefHeight="182.0" prefWidth="430.0" text="You are not allowed to spam buttons, a customer can be a person is older&#10;than 16 years old, your username should not have ofensive character, a seller&#10;should be older than 18 years old.&#10;&#10;&#10;For any problems contact :&#10;bogdan.lazar@student.upt.ro&#10;andra.muntean@student.upt.ro" />
                <Text layoutX="168.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Most intersting product :">
                   <font>
                      <Font size="18.0" />
@@ -55,21 +57,26 @@
                <Text fx:id="numeprod" layoutX="46.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
                <Text fx:id="nrinteresati" layoutX="178.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2" />
                <Text fx:id="pretprod" layoutX="299.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3" />
+               <ImageView fitHeight="242.0" fitWidth="445.0" layoutX="45.0" layoutY="537.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../Images/computer-hardware-2625895-322917d648864dc4974d9befc74b6c6a.png" />
+                  </image>
+               </ImageView>
             </children></AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
             <children>
-               <Button fx:id="ModProfile" layoutX="38.0" layoutY="202.0" mnemonicParsing="false" onAction="#ModifyProfile" prefHeight="35.0" prefWidth="180.0" text="Modify your profile" />
-               <Button fx:id="GoProfile" layoutX="38.0" layoutY="258.0" mnemonicParsing="false" onAction="#GoToProfile" prefHeight="35.0" prefWidth="180.0" text="Go to profile" />
-               <Button id="LogOut" fx:id="Log" layoutX="38.0" layoutY="560.0" mnemonicParsing="false" onAction="#LogOut" prefHeight="35.0" prefWidth="180.0" text="Log out">
+               <Button fx:id="ModProfile" layoutX="38.0" layoutY="202.0" mnemonicParsing="false" onAction="#ModifyProfile" prefHeight="35.0" prefWidth="180.0" stylesheets="@../CSS/ButtonStyle.css" text="Modify your profile" />
+               <Button fx:id="GoProfile" layoutX="38.0" layoutY="258.0" mnemonicParsing="false" onAction="#GoToProfile" prefHeight="35.0" prefWidth="180.0" stylesheets="@../CSS/ButtonStyle.css" text="Go to profile" />
+               <Button id="LogOut" fx:id="Log" layoutX="38.0" layoutY="560.0" mnemonicParsing="false" onAction="#LogOut" prefHeight="35.0" prefWidth="180.0" stylesheets="@../CSS/LogOutButton.css" text="Log out">
                   <font>
                      <Font name="System Bold" size="13.0" />
                   </font>
                </Button>
-               <Button id="ADD" fx:id="Add" layoutX="38.0" layoutY="318.0" mnemonicParsing="false" onAction="#AddProduct" prefHeight="35.0" prefWidth="180.0" text="Add product" />
-               <Button id="Delete" fx:id="Delete" layoutX="38.0" layoutY="372.0" mnemonicParsing="false" onAction="#DeleteProduct" prefHeight="35.0" prefWidth="85.0" text="Delete" />
-               <Button id="Edit" fx:id="Edit" layoutX="134.0" layoutY="372.0" mnemonicParsing="false" onAction="#EditProduct" prefHeight="35.0" prefWidth="85.0" text="Edit" />
-               <Button id="MAkeOrder" fx:id="Make" layoutX="38.0" layoutY="318.0" mnemonicParsing="false" onAction="#MakeOrder" prefHeight="35.0" prefWidth="180.0" text="Make a order!" />
-               <Button id="Accept" fx:id="Accept" layoutX="38.0" layoutY="420.0" mnemonicParsing="false" onAction="#AcceptOrder" prefHeight="35.0" prefWidth="180.0" text="Accept/Decline" />
+               <Button id="ADD" fx:id="Add" layoutX="38.0" layoutY="318.0" mnemonicParsing="false" onAction="#AddProduct" prefHeight="35.0" prefWidth="180.0" stylesheets="@../CSS/ButtonStyle.css" text="Add product" />
+               <Button id="Delete" fx:id="Delete" layoutX="38.0" layoutY="372.0" mnemonicParsing="false" onAction="#DeleteProduct" prefHeight="35.0" prefWidth="85.0" stylesheets="@../CSS/ButtonStyle.css" text="Delete" />
+               <Button id="Edit" fx:id="Edit" layoutX="134.0" layoutY="372.0" mnemonicParsing="false" onAction="#EditProduct" prefHeight="35.0" prefWidth="85.0" stylesheets="@../CSS/ButtonStyle.css" text="Edit" />
+               <Button id="MAkeOrder" fx:id="Make" layoutX="38.0" layoutY="318.0" mnemonicParsing="false" onAction="#MakeOrder" prefHeight="35.0" prefWidth="180.0" stylesheets="@../CSS/ButtonStyle.css" text="Make a order!" />
+               <Button id="Accept" fx:id="Accept" layoutX="38.0" layoutY="420.0" mnemonicParsing="false" onAction="#AcceptOrder" prefHeight="35.0" prefWidth="180.0" stylesheets="@../CSS/ButtonStyle.css" text="Accept/Decline" />
                   <Circle fx:id="circle" layoutX="218.0" layoutY="420.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
                       <fill>
                           <RadialGradient centerX="0.5" centerY="0.5" radius="0.8164556962025317">
@@ -81,9 +88,14 @@
                       </fill>
                   </Circle>
                   <Label fx:id="NotificationLabel" layoutX="215.0" layoutY="412.0" text="!" />
-               <Button id="status" fx:id="Status" layoutX="39.0" layoutY="372.0" mnemonicParsing="false" onAction="#onStatus" prefHeight="35.0" prefWidth="180.0" text="Current order status" />
-               <Button id="SellerHistory" fx:id="SellerHistory" layoutX="39.0" layoutY="470.0" mnemonicParsing="false" onAction="#onSellerHistory" prefHeight="35.0" prefWidth="180.0" text="Orders history" />
-               <Button id="CustomerHistory" fx:id="CustomerHistory" layoutX="38.0" layoutY="420.0" mnemonicParsing="false" onAction="#onCustomerHistory" prefHeight="35.0" prefWidth="180.0" text="Your orders history" />
+               <Button id="status" fx:id="Status" layoutX="39.0" layoutY="372.0" mnemonicParsing="false" onAction="#onStatus" prefHeight="35.0" prefWidth="180.0" stylesheets="@../CSS/ButtonStyle.css" text="Current order status" />
+               <Button id="SellerHistory" fx:id="SellerHistory" layoutX="39.0" layoutY="470.0" mnemonicParsing="false" onAction="#onSellerHistory" prefHeight="35.0" prefWidth="180.0" stylesheets="@../CSS/ButtonStyle.css" text="Orders history" />
+               <Button id="CustomerHistory" fx:id="CustomerHistory" layoutX="38.0" layoutY="420.0" mnemonicParsing="false" onAction="#onCustomerHistory" prefHeight="35.0" prefWidth="180.0" stylesheets="@../CSS/ButtonStyle.css" text="Your orders history" />
+               <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="57.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../Images/no-user-profile-picture-24185395.jpg" />
+                  </image>
+               </ImageView>
             </children></AnchorPane>
         </items>
     </SplitPane>

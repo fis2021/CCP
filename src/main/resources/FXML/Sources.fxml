@@ -6,25 +6,26 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="727.0" prefWidth="1044.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Categories.Sources.Sources">
+<AnchorPane prefHeight="727.0" prefWidth="1044.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Categories.Sources.Sources">
     <children>
         <SplitPane dividerPositions="0.29558541266794625" prefHeight="727.0" prefWidth="1044.0">
             <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                     <children>
-                        <Button id="close3" fx:id="GoBack" layoutX="3.0" layoutY="7.0" mnemonicParsing="false" onAction="#GoBackMainPage" prefHeight="22.0" prefWidth="93.0" text="&lt;- Go back">
+                        <Button id="close3" fx:id="GoBack" layoutX="3.0" layoutY="7.0" mnemonicParsing="false" onAction="#GoBackMainPage" prefHeight="22.0" prefWidth="93.0" stylesheets="@../CSS/ButtonStyle.css" text="&lt;- Go back">
                             <font>
                                 <Font name="System Bold" size="13.0" />
                             </font>
                         </Button>
-                        <Text layoutX="55.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Information" textAlignment="CENTER" underline="true" wrappingWidth="194.2060546875">
+                        <Text layoutX="55.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Information:" textAlignment="CENTER" underline="true" wrappingWidth="194.2060546875">
                             <font>
                                 <Font size="19.0" />
                             </font>
                         </Text>
                         <Text layoutX="28.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A power supply unit (PSU) converts mains AC to low-voltage regulated DC power for the internal components of a computer. Modern personal computers universally use switched-mode power supplies. Some power supplies have a manual switch for selecting input voltage, while others automatically adapt to the mains voltage.Most modern desktop personal computer power supplies conform to the ATX specification, which includes form factor and voltage tolerances.  " wrappingWidth="248.2060546875">
-
-                        </Text>
+                     <font>
+                        <Font size="15.0" />
+                     </font></Text>
 
                     </children>
                 </AnchorPane>

@@ -7,14 +7,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainPage.PopUpEdit">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainPage.PopUpEdit">
    <children>
       <Text layoutX="223.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit this product">
          <font>
             <Font size="19.0" />
          </font>
       </Text>
-      <Button id="confirm" fx:id="Confirm" layoutX="265.0" layoutY="310.0" mnemonicParsing="false" onAction="#CloseEditDetailsWindow" prefHeight="27.0" prefWidth="70.0" text="Confirm" />
+      <Button id="confirm" fx:id="Confirm" layoutX="265.0" layoutY="310.0" mnemonicParsing="false" onAction="#CloseEditDetailsWindow" prefHeight="27.0" prefWidth="70.0" stylesheets="@../../CSS/ButtonStyle.css" text="Confirm" />
       <TextArea fx:id="Name" editable="false" layoutX="85.0" layoutY="103.0" prefHeight="35.0" prefWidth="148.0" promptText="Name" />
       <TextField id="price" fx:id="Price" layoutX="365.0" layoutY="103.0" promptText="Price" />
       <TextField id="type" fx:id="Type" layoutX="365.0" layoutY="173.0" promptText="Type" />

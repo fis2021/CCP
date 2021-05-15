@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="457.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainPage.PopUpAccept">
+<AnchorPane prefHeight="457.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainPage.PopUpAccept">
    <children>
       <Text layoutX="199.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your incoming orders:" wrappingWidth="202.13671875">
          <font>
@@ -15,6 +15,6 @@
       </Text>
       <Separator layoutX="6.0" layoutY="51.0" prefHeight="11.0" prefWidth="593.0" />
       <AnchorPane fx:id="CentralAnchor" layoutX="8.0" layoutY="62.0" prefHeight="334.0" prefWidth="584.0" />
-      <Button fx:id="Close" layoutX="253.0" layoutY="409.0" mnemonicParsing="false" onAction="#CloseWindow" prefHeight="25.0" prefWidth="97.0" text="Close" />
+      <Button fx:id="Close" layoutX="253.0" layoutY="409.0" mnemonicParsing="false" onAction="#CloseWindow" prefHeight="25.0" prefWidth="97.0" stylesheets="@../../CSS/ButtonStyle.css" text="Close" />
    </children>
 </AnchorPane>

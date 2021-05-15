@@ -6,10 +6,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="535.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainPage.PopUpStatus">
+<AnchorPane prefHeight="535.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainPage.PopUpStatus">
    <children>
-      <Button id="close" fx:id="Close" layoutX="274.0" layoutY="488.0" mnemonicParsing="false" text="Close" onAction="#CloseStatusWindow"/>
+      <Button id="close" fx:id="Close" layoutX="274.0" layoutY="488.0" mnemonicParsing="false" onAction="#CloseStatusWindow" stylesheets="@../../CSS/ButtonStyle.css" text="Close" />
       <Text layoutX="193.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your current order status">
          <font>
             <Font size="18.0" />
