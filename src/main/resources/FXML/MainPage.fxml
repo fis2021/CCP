@@ -67,7 +67,7 @@
                </Button>
                <Button id="ADD" fx:id="Add" layoutX="38.0" layoutY="318.0" mnemonicParsing="false" onAction="#AddProduct" prefHeight="35.0" prefWidth="180.0" text="Add product" />
                <Button id="Delete" fx:id="Delete" layoutX="38.0" layoutY="372.0" mnemonicParsing="false" onAction="#DeleteProduct" prefHeight="35.0" prefWidth="85.0" text="Delete" />
-               <Button fx:id="Edit" layoutX="134.0" layoutY="372.0" mnemonicParsing="false" onAction="#EditProduct" prefHeight="35.0" prefWidth="85.0" text="Edit" />
+               <Button id="Edit" fx:id="Edit" layoutX="134.0" layoutY="372.0" mnemonicParsing="false" onAction="#EditProduct" prefHeight="35.0" prefWidth="85.0" text="Edit" />
                <Button id="MAkeOrder" fx:id="Make" layoutX="38.0" layoutY="318.0" mnemonicParsing="false" onAction="#MakeOrder" prefHeight="35.0" prefWidth="180.0" text="Make a order!" />
                <Button fx:id="Accept" layoutX="38.0" layoutY="420.0" mnemonicParsing="false" onAction="#AcceptOrder" prefHeight="35.0" prefWidth="180.0" text="Accept/Decline" />
                   <Circle fx:id="circle" layoutX="218.0" layoutY="420.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
