@@ -333,7 +333,7 @@ public class MainPage {
             nrinteresati.setText(y.toString());
             pretprod.setText(SourcesService.setMostInterestedPret(max));
         }
-
+        WelcomeText.setText("Welcome "+MainPage.getUsernameFromMain() + "!");
 
         if(!OrderService.checkifSellerHaveOders(MainPage.getUsernameFromMain())){
             circle.setVisible(false);

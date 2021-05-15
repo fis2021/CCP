@@ -17,14 +17,14 @@
                                 <Font name="System Bold" size="13.0" />
                             </font>
                         </Button>
-                  <Text layoutX="66.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informatii:" textAlignment="CENTER" underline="true" wrappingWidth="194.2060546875">
+                  <Text layoutX="66.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Information:" textAlignment="CENTER" underline="true" wrappingWidth="194.2060546875">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Text>
                   <Text layoutX="41.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The most important piece of graphics hardware is the graphics card, which is the piece of equipment that renders out all images and sends them to a display. There are two types of graphics cards: integrated and dedicated. An integrated graphics card, usually by Intel to use in their computers, is bound to the motherboard and shares RAM(Random Access Memory) with the CPU, reducing the total amount of RAM available.  " wrappingWidth="248.2060546875">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="15.0" />
                      </font>
                   </Text>
 
