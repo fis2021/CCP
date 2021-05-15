@@ -63,7 +63,8 @@ public class GraphicCardsService  {
     public static void setForDelete(){
         for(GraphicCardsBase graphicBase : GraphicCardsRepository.find()){
             if(UserService.returnId(MainPage.getUsernameFromMain())== graphicBase.getId()){
-                PopUp.getDataBase(graphicBase.getNumeProdus(),graphicBase.getPret(),graphicBase.getDescriere(),graphicBase.getTip(), graphicBase.getGarantie());
+                i++;
+                PopUp.getDataBase(graphicBase.getNumeProdus(),graphicBase.getPret(),graphicBase.getDescriere(),graphicBase.getTip(), graphicBase.getGarantie(),"b"+i);
             }
         }
     }

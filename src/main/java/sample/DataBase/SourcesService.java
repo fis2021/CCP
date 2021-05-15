@@ -51,7 +51,8 @@ public class SourcesService {
         for(SourcesBase sourcesBase : SourcesRepository.find())
         {
             if(UserService.returnId(MainPage.getUsernameFromMain()) == sourcesBase.getId()){
-                PopUp.getDataBase(sourcesBase.getNumeProdus(),sourcesBase.getPret(),sourcesBase.getDescriere(),sourcesBase.getTip(), sourcesBase.getGarantie());
+                i++;
+                PopUp.getDataBase(sourcesBase.getNumeProdus(),sourcesBase.getPret(),sourcesBase.getDescriere(),sourcesBase.getTip(), sourcesBase.getGarantie(),"b"+i);
             }
         }
     }

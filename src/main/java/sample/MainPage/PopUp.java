@@ -171,14 +171,14 @@ public class PopUp {
         }
     }
 
-    public static void getDataBase(String nume,String descriere,String pret,String tip,String garantie){
+    public static void getDataBase(String nume,String descriere,String pret,String tip,String garantie,String id){
         if(MainPage.GetNr()==4)
         {
             for(int i=0;i<10;i++)
             {
                 buttons.add(i,new Button("Delete"));
                 buttons.get(i).setLayoutX(620);
-                buttons.get(i).setId("#" + i);
+                buttons.get(i).setId(id);
             }
         }
         else
@@ -188,7 +188,7 @@ public class PopUp {
                 {
                     buttons.add(i,new Button("Edit"));
                     buttons.get(i).setLayoutX(620);
-                    buttons.get(i).setId("#" + i);
+                    buttons.get(i).setId(id);
                 }
             }
         for(int i=0;i<10;i++)

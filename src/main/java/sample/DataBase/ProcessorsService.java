@@ -54,7 +54,8 @@ public class ProcessorsService {
         for(ProcessorsBase processorsBase : ProcessorsRepository.find())
         {
             if(UserService.returnId(MainPage.getUsernameFromMain()) == processorsBase.getId()){
-                PopUp.getDataBase(processorsBase.getNumeProdus(),processorsBase.getPret(),processorsBase.getDescriere(),processorsBase.getTip(), processorsBase.getGarantie());
+                i++;
+                PopUp.getDataBase(processorsBase.getNumeProdus(),processorsBase.getPret(),processorsBase.getDescriere(),processorsBase.getTip(), processorsBase.getGarantie(),"b"+i);
             }
         }
     }

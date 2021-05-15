@@ -89,7 +89,8 @@ public class RAMService {
     public static void setForDelete(){
         for(RAMBase ramBase : RAMRepository.find()){
             if(UserService.returnId(MainPage.getUsernameFromMain())==ramBase.getId()){
-                PopUp.getDataBase(ramBase.getNumeProdus(),ramBase.getPret(),ramBase.getDescriere(),ramBase.getTip(), ramBase.getGarantie());
+                i++;
+                PopUp.getDataBase(ramBase.getNumeProdus(),ramBase.getPret(),ramBase.getDescriere(),ramBase.getTip(), ramBase.getGarantie(),"b"+i);
             }
         }
     }
