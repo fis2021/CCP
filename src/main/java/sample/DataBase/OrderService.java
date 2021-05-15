@@ -102,13 +102,8 @@ public class OrderService {
     }
 
     public static void DeleteOrder(String nume){
-        String numeG = new String();
-        for(Order order : OrderRepository.find()) {
-            if(order.getNumeCustomer().equals(nume)) {
-                numeG=nume;
-            }
-        }
-        OrderRepository.remove(ObjectFilters.eq("numeCustomer",numeG));
+        OrderRepository.remove(ObjectFilters.eq("status","Accepted"));
+        OrderRepository.remove(ObjectFilters.eq("status","Declined"));
     }
 
 }
