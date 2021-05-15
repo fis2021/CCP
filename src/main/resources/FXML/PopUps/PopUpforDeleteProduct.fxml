@@ -16,7 +16,7 @@
          </font>
       </Text>
       <Separator layoutX="7.0" layoutY="63.0" prefHeight="28.0" prefWidth="737.0" />
-      <ComboBox fx:id="comboBox2" layoutX="142.0" layoutY="91.0" onAction="#initDeletePage" prefWidth="150.0" />
+      <ComboBox id="combo" fx:id="comboBox2" layoutX="142.0" layoutY="91.0" onAction="#initDeletePage" prefWidth="150.0" />
       <Text layoutX="35.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Category:">
          <font>
             <Font size="14.0" />
@@ -30,6 +30,6 @@
             <Pane fx:id="PaneSources" prefHeight="398.0" prefWidth="726.0" />
          </children>
       </AnchorPane>
-      <Button fx:id="CloseWindow" layoutX="651.0" layoutY="91.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Close" onAction="#CloseDeleteWindow" />
+      <Button id="close" fx:id="CloseWindow" layoutX="651.0" layoutY="91.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Close" onAction="#CloseDeleteWindow" />
    </children>
 </AnchorPane>

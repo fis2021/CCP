@@ -3,9 +3,11 @@ package sample.Login;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sample.Main;
 import sample.User.User;
@@ -25,14 +27,13 @@ public class Login {
     private TextField username;
     @FXML
     private Button Login;
-    private Alert alert = new Alert(Alert.AlertType.ERROR);
+    private Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
     private Alert alert1 = new Alert(Alert.AlertType.ERROR);
     @FXML
     private Hyperlink GoToRegister;
-
     private Parent root;
     private Stage stage;
-
+    private Button myButton;
 
     public void Login(ActionEvent event)throws Exception{
         alert.setTitle("FIELD IS EMPTY!");
@@ -45,22 +46,30 @@ public class Login {
             if(username.getText().isEmpty() || Password.getText().isEmpty()){
                 alert.setHeaderText(null);
                 alert.setContentText("Field is EMPTY!");
+                myButton = (Button) alert.getDialogPane().lookupButton(ButtonType.OK);
+                myButton.setId("test");
                 alert.showAndWait();
+                username.clear();
+                Password.clear();
+                pass_hid.clear();
                 return;
             }
             if(!UserService.Verify(username.getText(),Password.getText()))
             {
                 alert1.setHeaderText(null);
                 alert1.setContentText("Please try again!");
+                myButton = (Button) alert1.getDialogPane().lookupButton(ButtonType.OK);
+                myButton.setId("test");
                 alert1.showAndWait();
-
+                username.clear();
+                Password.clear();
+                pass_hid.clear();
                 return;
             }
             MainPage.usernameForMain(username.getText());
             stage = (Stage) Login.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("/FXML/MainPage.fxml"));
         }
-
         Scene scene = new Scene(root);
         stage.setTitle("CCP MAIN PAGE");
         stage.setScene(scene);
@@ -83,16 +92,13 @@ public class Login {
     }
 
     public void HyperLinkConnection(ActionEvent event)throws Exception{
-
-        if(event.getSource() == GoToRegister){
-            stage = (Stage) Login.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("/FXML/register.fxml"));
-        }
-
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        root = FXMLLoader.load(getClass().getResource("/FXML/register.fxml"));
         Scene scene = new Scene(root);
         stage.setTitle("Register");
         stage.setScene(scene);
         stage.show();
 
     }
+
 }

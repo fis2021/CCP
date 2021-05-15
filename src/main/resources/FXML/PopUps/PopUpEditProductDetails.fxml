@@ -14,12 +14,12 @@
             <Font size="19.0" />
          </font>
       </Text>
-      <Button fx:id="Confirm" layoutX="265.0" layoutY="310.0" mnemonicParsing="false" onAction="#CloseEditDetailsWindow" prefHeight="27.0" prefWidth="70.0" text="Confirm" />
+      <Button id="confirm" fx:id="Confirm" layoutX="265.0" layoutY="310.0" mnemonicParsing="false" onAction="#CloseEditDetailsWindow" prefHeight="27.0" prefWidth="70.0" text="Confirm" />
       <TextArea fx:id="Name" editable="false" layoutX="85.0" layoutY="103.0" prefHeight="35.0" prefWidth="148.0" promptText="Name" />
-      <TextField fx:id="Price" layoutX="365.0" layoutY="103.0" promptText="Price" />
-      <TextField fx:id="Type" layoutX="365.0" layoutY="173.0" promptText="Type" />
-      <TextField fx:id="Description" layoutX="85.0" layoutY="173.0" prefHeight="74.0" prefWidth="167.0" promptText="Description" />
-      <TextField fx:id="Guarantee" layoutX="365.0" layoutY="239.0" promptText="Guarantee" />
+      <TextField id="price" fx:id="Price" layoutX="365.0" layoutY="103.0" promptText="Price" />
+      <TextField id="type" fx:id="Type" layoutX="365.0" layoutY="173.0" promptText="Type" />
+      <TextField id="descrption" fx:id="Description" layoutX="85.0" layoutY="173.0" prefHeight="74.0" prefWidth="167.0" promptText="Description" />
+      <TextField id="garantie" fx:id="Guarantee" layoutX="365.0" layoutY="239.0" promptText="Guarantee" />
       <Text layoutX="296.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price" />
       <Text layoutX="296.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type" />
       <Text layoutX="296.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Guarantee" />

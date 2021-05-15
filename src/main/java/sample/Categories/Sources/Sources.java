@@ -62,7 +62,7 @@ public class Sources {
         vbox1.setSpacing(50);
     }
 
-    public static void SetVectori(String nume1,String descriere1,String pret1,String tip1,String garantie1)
+    public static void SetVectori(String nume1,String descriere1,String pret1,String tip1,String garantie1,String id)
     {
         for(int i=0;i<10;i++)
         {
@@ -85,6 +85,7 @@ public class Sources {
             buttons.get(i).setLayoutX(620);
             buttons1.add(i,new Button("Interested"));
             buttons1.get(i).setLayoutX(520);
+            buttons.get(i).setId(id);
             if(returnRole(MainPage.getUsernameFromMain()).equals("Seller")){
                 buttons.get(i).setVisible(false);
                 buttons1.get(i).setVisible(false);

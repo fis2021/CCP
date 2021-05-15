@@ -20,6 +20,7 @@ public class ProcessorsService {
 
     private static ObjectRepository<ProcessorsBase> ProcessorsRepository;
     private static Nitrite database;
+    private static int i=0;
 
     public static void initDataBaseforProcessors(){
         FileSystemService.initDirectory();
@@ -35,9 +36,11 @@ public class ProcessorsService {
 
     public static void set()
     {
+
         for(ProcessorsBase processorsBase : ProcessorsRepository.find())
         {
-            Processors.Test(processorsBase.getNumeProdus(),processorsBase.getPret(),processorsBase.getDescriere(),processorsBase.getTip(), processorsBase.getGarantie());
+            i++;
+            Processors.Test(processorsBase.getNumeProdus(),processorsBase.getPret(),processorsBase.getDescriere(),processorsBase.getTip(), processorsBase.getGarantie(),"b"+i);
         }
 
     }
@@ -51,7 +54,8 @@ public class ProcessorsService {
         for(ProcessorsBase processorsBase : ProcessorsRepository.find())
         {
             if(UserService.returnId(MainPage.getUsernameFromMain()) == processorsBase.getId()){
-                PopUp.getDataBase(processorsBase.getNumeProdus(),processorsBase.getPret(),processorsBase.getDescriere(),processorsBase.getTip(), processorsBase.getGarantie());
+                i++;
+                PopUp.getDataBase(processorsBase.getNumeProdus(),processorsBase.getPret(),processorsBase.getDescriere(),processorsBase.getTip(), processorsBase.getGarantie(),"b"+i);
             }
         }
     }
@@ -69,12 +73,12 @@ public class ProcessorsService {
         for(ProcessorsBase processorsBase : ProcessorsRepository.find())
         {
             if (numeProdus.equals(processorsBase.getNumeProdus())) {
-                 processorsBase.setDescriere(Descriere);
-                 processorsBase.setPret(Pret);
-                 processorsBase.setGarantie(Garantie);
-                 processorsBase.setTip(Tip);
-                 DeleteProduct(numeProdus);
-                 ProcessorsRepository.insert(processorsBase);
+                processorsBase.setDescriere(Descriere);
+                processorsBase.setPret(Pret);
+                processorsBase.setGarantie(Garantie);
+                processorsBase.setTip(Tip);
+                DeleteProduct(numeProdus);
+                ProcessorsRepository.insert(processorsBase);
             }
         }
     }

@@ -8,8 +8,8 @@
    <children>
       <Text layoutX="63.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!......." wrappingWidth="324.986328125" />
       <Text layoutX="63.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Where do you want to go?" wrappingWidth="222.09375" />
-      <Button fx:id="LoginFromHome" layoutX="63.0" layoutY="175.0" mnemonicParsing="false" onAction="#GoFromHome" text="Login Page" />
-      <Button fx:id="RegisterFromHome" layoutX="190.0" layoutY="175.0" mnemonicParsing="false" onAction="#GoFromHome" text="Registration Page" />
+      <Button id="login" fx:id="LoginFromHome" layoutX="63.0" layoutY="175.0" mnemonicParsing="false" onAction="#GoFromHome" text="Login Page" />
+      <Button id="regist" fx:id="RegisterFromHome" layoutX="190.0" layoutY="175.0" mnemonicParsing="false" onAction="#GoFromHome" text="Registration Page" />
       <Text layoutX="163.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="or" />
    </children>
 </AnchorPane>

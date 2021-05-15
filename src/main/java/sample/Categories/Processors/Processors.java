@@ -42,6 +42,7 @@ public class Processors {
     private static List<Text> pret=new ArrayList<>(10);
     private static List<Text> tip=new ArrayList<>(10);
     private static List<Text> garantie=new ArrayList<>(10);
+    private static String version = "v1";
     private void initVBOX(){
         vBox.setPadding(new Insets(10,10,10,10));
         vBox.setSpacing(50);
@@ -57,8 +58,9 @@ public class Processors {
 
     private static int cnt=0;
 
-    public static void Test(String nume1,String descriere1,String pret1,String tip1,String garantie1)
+    public static void Test(String nume1,String descriere1,String pret1,String tip1,String garantie1,String id)
     {
+
         for(int i=0;i<10;i++)
         {
             nume.add(i,new Text(nume1));
@@ -80,6 +82,9 @@ public class Processors {
             buttons.get(i).setLayoutX(620);
             buttons1.add(i,new Button("Interested"));
             buttons1.get(i).setLayoutX(520);
+
+            //String newVersion = "v" + (Integer.parseInt(version.substring(1,version.length()))+1);
+            buttons.get(i).setId(id);
             if(returnRole(MainPage.getUsernameFromMain()).equals("Seller")){
                 buttons.get(i).setVisible(false);
                 buttons1.get(i).setVisible(false);

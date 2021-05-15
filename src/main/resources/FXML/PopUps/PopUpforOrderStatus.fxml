@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="535.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainPage.PopUpStatus">
    <children>
-      <Button fx:id="Close" layoutX="274.0" layoutY="488.0" mnemonicParsing="false" text="Close" onAction="#CloseStatusWindow"/>
+      <Button id="close" fx:id="Close" layoutX="274.0" layoutY="488.0" mnemonicParsing="false" text="Close" onAction="#CloseStatusWindow"/>
       <Text layoutX="193.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your current order status">
          <font>
             <Font size="18.0" />

@@ -22,6 +22,7 @@ public class OrderService {
 
     private static ObjectRepository<Order> OrderRepository;
     private static Nitrite database;
+    private static int i=0;
 
     public static void initDataBase(){
         FileSystemService.initDirectory();
@@ -47,8 +48,9 @@ public class OrderService {
     public static void setAccept(String numeSeller){
         for(Order order : OrderRepository.find()){
             if(numeSeller.equals(order.getNumeSeller()) && order.getStatus().equals("It is processing")){
+                i++;
                 Integer y = new Integer(order.getCantitate());
-                PopUpAccept.Test(order.getNumeProduse(),order.getCantitate());
+                PopUpAccept.Test(order.getNumeProduse(),order.getCantitate(),"b"+i,"d"+i);
             }
         }
     }
@@ -102,13 +104,8 @@ public class OrderService {
     }
 
     public static void DeleteOrder(String nume){
-        String numeG = new String();
-        for(Order order : OrderRepository.find()) {
-            if(order.getNumeCustomer().equals(nume)) {
-                numeG=nume;
-            }
-        }
-        OrderRepository.remove(ObjectFilters.eq("numeCustomer",numeG));
+        OrderRepository.remove(ObjectFilters.eq("status","Accepted"));
+        OrderRepository.remove(ObjectFilters.eq("status","Declined"));
     }
 
 }

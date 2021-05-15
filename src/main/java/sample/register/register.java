@@ -42,6 +42,7 @@ public class register {
     private Stage stage;
     private Alert alert,alert1,alertUsername,alertPasswordIncorect;
     private static int id=0;
+    private Button myButton;
 
     public register() {
         this.alert = new Alert(AlertType.ERROR);
@@ -77,7 +78,15 @@ public class register {
                     alertPasswordIncorect.setHeaderText((String) null);
                     alertPasswordIncorect.setTitle("Passwords don't match");
                     alertPasswordIncorect.setContentText("Please verify you re password again");
+                    myButton = (Button) alertPasswordIncorect.getDialogPane().lookupButton(ButtonType.OK);
+                    myButton.setId("test");
                     alertPasswordIncorect.showAndWait();
+                    username.clear();
+                    password.clear();
+                    confirm.clear();
+                    hidpas2.clear();
+                    hidpas1.clear();
+                    email.clear();
                     return;
                 }
                 if (this.username.getText().isEmpty() || this.email.getText().isEmpty()
@@ -85,13 +94,29 @@ public class register {
                         || !isMychoiceEmpty == false) {
                     this.alert.setHeaderText((String) null);
                     this.alert.setContentText("Please complete all the text fields!");
+                    myButton = (Button) alert.getDialogPane().lookupButton(ButtonType.OK);
+                    myButton.setId("test");
                     this.alert.showAndWait();
+                    username.clear();
+                    password.clear();
+                    confirm.clear();
+                    hidpas2.clear();
+                    hidpas1.clear();
+                    email.clear();
                     return;
                 }
                 if (!this.terms.isSelected()) {
                     this.alert1.setHeaderText((String) null);
                     this.alert1.setContentText("Please check the terms and conditions");
+                    myButton = (Button) alert1.getDialogPane().lookupButton(ButtonType.OK);
+                    myButton.setId("test");
                     this.alert1.showAndWait();
+                    username.clear();
+                    password.clear();
+                    confirm.clear();
+                    hidpas2.clear();
+                    hidpas1.clear();
+                    email.clear();
                     return;
                 }
                 Random rand = new Random();
@@ -113,7 +138,15 @@ public class register {
             alertUsername.setTitle("The username " + e.getMessage() + " already exist!");
             alertUsername.setHeaderText((String) null);
             alertUsername.setContentText("Please choose another username!");
+            myButton = (Button) alertUsername.getDialogPane().lookupButton(ButtonType.OK);
+            myButton.setId("test");
             alertUsername.showAndWait();
+            username.clear();
+            password.clear();
+            confirm.clear();
+            hidpas2.clear();
+            hidpas1.clear();
+            email.clear();
         }
 
     }
