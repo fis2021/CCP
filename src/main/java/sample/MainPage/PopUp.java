@@ -179,6 +179,7 @@ public class PopUp {
                 buttons.add(i,new Button("Delete"));
                 buttons.get(i).setLayoutX(620);
                 buttons.get(i).setId(id);
+                buttons.get(i).setStyle("-fx-background-color: #20B2AA; -fx-background-radius: 15px; -fx-text-fill: #ffffff");
             }
         }
         else
@@ -189,6 +190,7 @@ public class PopUp {
                     buttons.add(i,new Button("Edit"));
                     buttons.get(i).setLayoutX(620);
                     buttons.get(i).setId(id);
+                    buttons.get(i).setStyle("-fx-background-color: #20B2AA; -fx-background-radius: 15px; -fx-text-fill: #ffffff");
                 }
             }
         for(int i=0;i<10;i++)
@@ -200,13 +202,13 @@ public class PopUp {
             Descriere[i] = new Text(descriere);
             Tip[i] = new Text(tip);
             Garantie[i] = new Text(garantie);
-            Pret[i].setLayoutX(100);
+            Pret[i].setLayoutX(80);
             Pret[i].setLayoutY(3);
-            Descriere[i].setLayoutX(200);
-            Descriere[i].setLayoutY(25);
-            Tip[i].setLayoutX(300);
+            Descriere[i].setLayoutX(220);
+            Descriere[i].setLayoutY(3);
+            Tip[i].setLayoutX(320);
             Tip[i].setLayoutY(3);
-            Garantie[i].setLayoutX(400);
+            Garantie[i].setLayoutX(420);
             Garantie[i].setLayoutY(3);
             panes[i]=new Pane();
             panes[i].setLayoutX(700);
@@ -303,6 +305,7 @@ public class PopUp {
                         for(int j=0; j<numeProduse.size(); j++){
                             if(nr == j){
                                 ProcessorsService.DeleteProduct(numeProduse.get(j).getText());
+                                buttons.get(nr).setVisible(false);
                             }
                         }
                     }
@@ -319,6 +322,7 @@ public class PopUp {
                         for(int j=0; j<numeProduse.size(); j++){
                             if(nr == j){
                                 GraphicCardsService.DeleteProduct(numeProduse.get(j).getText());
+                                buttons.get(nr).setVisible(false);
                             }
                         }
                     }
@@ -336,6 +340,7 @@ public class PopUp {
                         for(int j=0; j<numeProduse.size(); j++){
                             if(nr == j){
                                 RAMService.DeleteProduct(numeProduse.get(j).getText());
+                                buttons.get(nr).setVisible(false);
                             }
                         }
                     }
@@ -352,6 +357,7 @@ public class PopUp {
                         for(int j=0; j<numeProduse.size(); j++){
                             if(nr == j){
                                 SourcesService.DeleteProduct(numeProduse.get(j).getText());
+                                buttons.get(nr).setVisible(false);
                             }
                         }
                     }
@@ -384,6 +390,7 @@ public class PopUp {
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
+                                buttons.get(nr).setVisible(false);
                             }
                         }
                     }
@@ -412,6 +419,7 @@ public class PopUp {
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
+                                buttons.get(nr).setVisible(false);
                             }
                         }
                     }
@@ -440,6 +448,7 @@ public class PopUp {
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
+                            buttons.get(nr).setVisible(false);
                         }
                     }
                 }
@@ -469,6 +478,7 @@ public class PopUp {
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
+                                buttons.get(nr).setVisible(false);
                             }
                         }
                     }

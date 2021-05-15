@@ -6,13 +6,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="771.0" prefWidth="1044.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Categories.Processors.Processors">
+<AnchorPane prefHeight="771.0" prefWidth="1044.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Categories.Processors.Processors">
     <children>
         <SplitPane dividerPositions="0.29558541266794625" prefHeight="771.0" prefWidth="1044.0">
             <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                     <children>
-                        <Button id="close" fx:id="GoBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#GoBackMainPage" prefHeight="27.0" prefWidth="89.0" text="&lt;- Go back">
+                        <Button id="close" fx:id="GoBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#GoBackMainPage" prefHeight="27.0" prefWidth="89.0" stylesheets="@../CSS/ButtonStyle.css" text="&lt;- Go back">
                             <font>
                                 <Font name="System Bold" size="13.0" />
                             </font>

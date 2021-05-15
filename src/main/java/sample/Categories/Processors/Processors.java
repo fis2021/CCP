@@ -70,19 +70,20 @@ public class Processors {
             descriere.add(i,new Text(descriere1));
             tip.add(i,new Text(tip1));
             garantie.add(i,new Text(garantie1));
-            pret.get(i).setLayoutX(100);
+            pret.get(i).setLayoutX(80);
             pret.get(i).setLayoutY(3);
-            descriere.get(i).setLayoutX(200);
-            descriere.get(i).setLayoutY(25);
-            tip.get(i).setLayoutX(300);
+            descriere.get(i).setLayoutX(220);
+            descriere.get(i).setLayoutY(3);
+            tip.get(i).setLayoutX(320);
             tip.get(i).setLayoutY(3);
-            garantie.get(i).setLayoutX(400);
+            garantie.get(i).setLayoutX(420);
             garantie.get(i).setLayoutY(3);
             buttons.add(i,new Button("Add to cart"));
             buttons.get(i).setLayoutX(620);
             buttons1.add(i,new Button("Interested"));
             buttons1.get(i).setLayoutX(520);
-
+            buttons.get(i).setStyle("-fx-background-color: #20B2AA; -fx-background-radius: 15px; -fx-text-fill: #ffffff");
+            buttons1.get(i).setStyle("-fx-background-color: #20B2AA; -fx-background-radius: 15px; -fx-text-fill: #ffffff");
             //String newVersion = "v" + (Integer.parseInt(version.substring(1,version.length()))+1);
             buttons.get(i).setId(id);
             if(returnRole(MainPage.getUsernameFromMain()).equals("Seller")){
