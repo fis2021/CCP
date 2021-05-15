@@ -25,6 +25,7 @@ public class SourcesService {
 
     private static ObjectRepository<SourcesBase> SourcesRepository;
     private static Nitrite database;
+    private static int i=0;
 
     public static void initDataBaseforSources(){
         FileSystemService.initDirectory();
@@ -41,7 +42,8 @@ public class SourcesService {
     public static void set(){
         for(SourcesBase sourcesBase : SourcesRepository.find())
         {
-            Sources.SetVectori(sourcesBase.getNumeProdus(),sourcesBase.getPret(),sourcesBase.getDescriere(),sourcesBase.getTip(), sourcesBase.getGarantie());
+            i++;
+            Sources.SetVectori(sourcesBase.getNumeProdus(),sourcesBase.getPret(),sourcesBase.getDescriere(),sourcesBase.getTip(), sourcesBase.getGarantie(),"b"+i);
         }
     }
 

@@ -24,6 +24,7 @@ public class RAMService {
 
     private static ObjectRepository<RAMBase> RAMRepository;
     private static Nitrite database;
+    private static int i=0;
 
     public static void initDataBaseforRAM(){
         FileSystemService.initDirectory();
@@ -58,7 +59,8 @@ public class RAMService {
 
     public static void set(){
         for(RAMBase ramBase : RAMRepository.find()){
-            RAM.setareVectori(ramBase.getNumeProdus(),ramBase.getPret(),ramBase.getDescriere(),ramBase.getTip(), ramBase.getGarantie());
+            i++;
+            RAM.setareVectori(ramBase.getNumeProdus(),ramBase.getPret(),ramBase.getDescriere(),ramBase.getTip(), ramBase.getGarantie(),"b"+i);
         }
     }
 

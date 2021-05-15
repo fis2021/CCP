@@ -23,6 +23,7 @@ public class GraphicCardsService  {
 
     private static Nitrite database;
     private static ObjectRepository<GraphicCardsBase> GraphicCardsRepository;
+    private static int i=0;
 
     public static void initDataBaseforGraphicCards(){
         FileSystemService.initDirectory();
@@ -40,7 +41,8 @@ public class GraphicCardsService  {
     {
         for(GraphicCardsBase graphicBase : GraphicCardsRepository.find())
         {
-            GraphicCards.Test1(graphicBase.getNumeProdus(),graphicBase.getPret(),graphicBase.getDescriere(),graphicBase.getTip(), graphicBase.getGarantie());
+            i++;
+            GraphicCards.Test1(graphicBase.getNumeProdus(),graphicBase.getPret(),graphicBase.getDescriere(),graphicBase.getTip(), graphicBase.getGarantie(),"b"+i);
         }
 
     }
@@ -88,12 +90,12 @@ public class GraphicCardsService  {
     public static void CheckProductAlreadyExists(String name) throws ProductAlreadyExists
     {
         for(GraphicCardsBase graphicBase:GraphicCardsRepository.find())
+        {
+            if(Objects.equals(name,graphicBase.getNumeProdus()))
             {
-                if(Objects.equals(name,graphicBase.getNumeProdus()))
-                {
-                    throw new ProductAlreadyExists(name);
-                }
+                throw new ProductAlreadyExists(name);
             }
+        }
     }
 
     public static int getMostInterestProduct(){
@@ -148,7 +150,7 @@ public class GraphicCardsService  {
         {
             if(Objects.equals(numeProdus,graphicBase.getNumeProdus()))
             {
-               return graphicBase.getId();
+                return graphicBase.getId();
             }
         }
         return -1;
